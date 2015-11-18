@@ -1,6 +1,5 @@
 <?php
-	include('core/session.php');
-
+	include_once('core/common.php');
 	if (isSet($_SESSION['user_id']))
 	{
 		include('templates/main_page.php');
@@ -9,5 +8,4 @@
 	{
 		include('templates/login_page.php');
 	}
-	include('templates/footer.php');
 ?>

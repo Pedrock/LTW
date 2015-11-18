@@ -7,4 +7,6 @@ deny from all
 
 RewriteEngine on
 RewriteRule ^$ ./index.php
+RewriteRule ^css/([^.]+)$ ^css/([^.]+)$
+RewriteRule ^events/([^.]+)$ events.php?action=$1
 RewriteRule ^([^.]+)$ $1.php

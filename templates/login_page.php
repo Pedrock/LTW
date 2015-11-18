@@ -28,20 +28,15 @@ include_once('core/common.php');
 					<input type="text" name="lname">
 					<h3><?php echo $lang['EMAIL'] ?></h3>
 					<input type="email" name="email">
-					<h3><?php echo $lang['CONFIRM_EMAIL'] ?></h3>
-					<input type="email" name="email2">
 					<h3><?php echo $lang['PASSWORD'] ?></h3>
 					<input type="password" name="password">
-					<?php /*<h3><?php echo $lang['BIRTHDATE'] ?></h3>
-					<input type="date" name="birthdate">
-					<div id="gender-choice">
-						<input type="radio" name="gender" value="male"><?php echo $lang['MALE'] ?>
-						<input type="radio" name="gender" value="female"><?php echo $lang['FEMALE'] ?>
-					</div> */ ?>
+					<h3><?php echo $lang['CONFIRM_PASSWORD'] ?></h3>
+					<input type="password" name="password2">
 					<input type="submit" value="<?php echo $lang['REGISTER'] ?>">
 				</form>
 			</div>
 		</div>
+		<?php include('templates/footer.php'); ?>
 	</div>
 </body>
 </html>

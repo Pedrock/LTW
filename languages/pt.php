@@ -16,6 +16,7 @@ $lang['LAST_NAME'] = 'Apelido';
 $lang['EMAIL'] = 'E-mail';
 $lang['CONFIRM_EMAIL'] = 'Confirme o e-mail';
 $lang['PASSWORD'] = 'Password';
+$lang['CONFIRM_PASSWORD'] = 'Confirme a password';
 $lang['BIRTHDATE'] = 'Data de nascimento';
 $lang['MALE'] = 'Masculino';
 $lang['FEMALE'] = 'Feminimo';
@@ -29,4 +30,9 @@ $lang['LOGOUT'] = 'Terminar Sessão';
 // Footer
 $lang['MENU_ABOUT_US'] = 'Sobre nós';
 $lang['MENU_CONTACT_US'] = 'Contacte-nos';
+
+// Main Page
+$lang['MY_EVENTS'] = 'Meus Eventos';
+$lang['SUBSCRIBED_EVENTS'] = 'Eventos Subscritos';
+$lang['CREATE'] = 'Criar';
 ?>

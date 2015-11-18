@@ -1,10 +1,5 @@
 ﻿<?php
-/*
-------------------
-Language: English
-------------------
-*/
- 
+
 $lang = array();
  
 $lang['SITE_NAME'] = 'Eventbook';
@@ -16,6 +11,7 @@ $lang['LAST_NAME'] = 'Last Name';
 $lang['EMAIL'] = 'E-mail';
 $lang['CONFIRM_EMAIL'] = 'Confirm e-mail';
 $lang['PASSWORD'] = 'Password';
+$lang['CONFIRM_PASSWORD'] = 'Confirm password';
 $lang['BIRTHDATE'] = 'Birth date';
 $lang['MALE'] = 'Male';
 $lang['FEMALE'] = 'Female';
@@ -29,4 +25,9 @@ $lang['LOGOUT'] = 'Log Out';
 // Footer
 $lang['MENU_ABOUT_US'] = 'About Us';
 $lang['MENU_CONTACT_US'] = 'Contact Us';
+
+// Main Page
+$lang['MY_EVENTS'] = 'My Events';
+$lang['SUBSCRIBED_EVENTS'] = 'Subscribed Events';
+$lang['CREATE'] = 'Create';
 ?>

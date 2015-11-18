@@ -3,12 +3,12 @@
 	session_start();
 	if(isSet($_POST['email']) && isSet($_POST['password']) && login($_POST['email'],$_POST['password']))
 	{
-		header("Location: index");
+		header("Location: ./");
 		die();
 	}
 	else
 	{
-		header("Location: index?login=failed");
+		header("Location: ./?login=failed");
 		die();
 	}
 ?>
