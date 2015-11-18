@@ -1,5 +1,5 @@
 <?php
-	include('templates/session.php');
+	include('core/session.php');
 
 	if (isSet($_SESSION['user_id']))
 	{

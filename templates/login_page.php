@@ -1,5 +1,5 @@
 <?php
-include_once('templates/common.php');
+include_once('core/common.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -32,12 +32,12 @@ include_once('templates/common.php');
 					<input type="email" name="email2">
 					<h3><?php echo $lang['PASSWORD'] ?></h3>
 					<input type="password" name="password">
-					<h3><?php echo $lang['BIRTHDATE'] ?></h3>
+					<?php /*<h3><?php echo $lang['BIRTHDATE'] ?></h3>
 					<input type="date" name="birthdate">
 					<div id="gender-choice">
 						<input type="radio" name="gender" value="male"><?php echo $lang['MALE'] ?>
 						<input type="radio" name="gender" value="female"><?php echo $lang['FEMALE'] ?>
-					</div>
+					</div> */ ?>
 					<input type="submit" value="<?php echo $lang['REGISTER'] ?>">
 				</form>
 			</div>
