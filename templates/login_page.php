@@ -5,6 +5,8 @@ include_once('core/common.php');
 <html>
 <head>
 	<title><?php echo $lang['SITE_NAME'] ?></title>
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="templates/js/script.js"></script>
 </head>
 <body>
 	<div id="wrapper">
@@ -32,6 +34,7 @@ include_once('core/common.php');
 					<input type="password" name="password">
 					<h3><?php echo $lang['CONFIRM_PASSWORD'] ?></h3>
 					<input type="password" name="password2">
+					<br><div class="error-reg-pass" style="width: 50%; background-color: red; border-color: 1px solid black; border-radius: 4px; text-align: center; padding: 10px; display: none;"></div>
 					<input type="submit" value="<?php echo $lang['REGISTER'] ?>">
 				</form>
 			</div>
