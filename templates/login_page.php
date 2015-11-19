@@ -11,18 +11,18 @@ include_once('core/common.php');
 </head>
 <body>
 	<div id="wrapper">
-		<div id="main" >
-			<div id="login">
+		<div id="content" class="login" >
+			<div id="login" class="box">
 				<form action="login.php" method="POST">
 					<h2> <?php echo $lang['LOGIN'] ?> </h2>
 					<h3><?php echo $lang['EMAIL'] ?></h3>
 					<input type="email" name="email">
 					<h3><?php echo $lang['PASSWORD'] ?></h3>
 					<input type="password" name="password">
-					<input type="submit" value="<?php echo $lang['LOGIN'] ?>">
+					<input type="submit" class="button" value="<?php echo $lang['LOGIN'] ?>">
 				</form>
 			</div>
-			<div id="register">
+			<div id="register" class="box">
 				<form action="register.php" method="POST">
 					<h2> <?php echo $lang['REGISTER'] ?> </h2>
 					<h3><?php echo $lang['FIRST_NAME'] ?></h3>
@@ -35,8 +35,8 @@ include_once('core/common.php');
 					<input type="password" name="password">
 					<h3><?php echo $lang['CONFIRM_PASSWORD'] ?></h3>
 					<input type="password" name="password2">
-					<br><div class="error-reg-pass" style="width: 50%; background-color: red; border-color: 1px solid black; border-radius: 4px; text-align: center; padding: 10px; display: none;"></div>
-					<input type="submit" value="<?php echo $lang['REGISTER'] ?>">
+					<div id="error-reg-pass" class="error-reg"></div>
+					<input type="submit" class="button" value="<?php echo $lang['REGISTER'] ?>">
 				</form>
 			</div>
 		</div>

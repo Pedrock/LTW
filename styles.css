@@ -1,19 +1,133 @@
-#div-event-image
+html,
+body {
+	margin:0;
+	padding:0;
+	height:100%;
+	background: #fafafa;
+	font-family: 'proxima-nova','Helvetica Neue',Arial,Helvetica,sans-serif;
+}
+#wrapper {
+	min-height:100%;
+	position:relative;
+}
+#header {
+	background:#3a5795;
+	border-bottom: 1px solid #133783;
+	box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
+	padding:10px;
+}
+#header > *, #header > * > *
 {
-  width: 100%;
-  height: 50px;
-  background-size: contain;
-  background-position: left;
-  background-repeat: no-repeat;
+	display: inline;
+}
+#content {
+	padding-bottom:50px; /* Height of the footer element */
+}
+#footer {
+	width:100%;
+	height:50px;
+	position:absolute;
+	bottom:0;
+	left:0;
 }
 
-.vertical-align
-{
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	-webkit-transform: translateY(-50%);
-	-ms-transform: translateY(-50%);
-	-moz-transform: translateY(-50%);
-	-o-transform: translateY(-50%);
+#footer form {
+	display: inline-block; 
+	 padding: 15px;
 }
+
+#footer input {
+	 background:none;
+     border:none; 
+     padding: 0;
+     font: inherit;
+     cursor: pointer;
+     text-decoration: none; 
+     color: #0d3c5f;
+}
+
+.login {
+	width: 350px;
+	margin: auto;
+	margin-top:50px;
+}
+
+.box {
+	background-color: #fff;
+	border: 1px solid #edeeee;
+	border-radius: 1px;
+    margin: 0 0 10px;
+    padding: 10px 0;
+}
+
+.button {
+	color: #fff;
+	background-color: #4090db;
+    border-color: #4090db;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+}
+
+.login .box
+{
+	text-align: center;
+	padding: 0 10px;
+}
+
+.login input {
+	padding: 0;
+	margin: 0;
+	display: block;
+	border: 1px solid #edeeee;
+	border-radius: 3px;
+	height: 30px;
+	width: 315px;
+	padding: 5px;
+}
+
+.login h2 {
+	color: #0d3c5f;
+	margin: 15px 0px;
+	font-size: 30px;
+    font-weight: 600;
+}
+
+.login h3 {
+	padding: 0;
+	margin: 10px 0px;
+	font-size: 17px;
+	color: #0d3c5f;
+}
+
+.login .button {
+    font-size: 14px;
+    font-weight: 600;
+    height: 50px;
+    margin: 20px 0;
+    width: 100%;
+}
+
+
+
+#div-event-image
+{
+	width: 100%;
+	height: 50px;
+	background-size: contain;
+	background-position: left;
+	background-repeat: no-repeat;
+}
+
+.error-reg
+{
+	width: 50%; 
+	background-color: red; 
+	border-color: 1px solid black; 
+	border-radius: 4px; 
+	text-align: center; 
+	padding: 10px; 
+	display: none;
+}
+
