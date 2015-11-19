@@ -1,3 +1,3 @@
 <?php
-	$db = new PDO(file_exists("database/db.db") ? 'sqlite:database/db.db' : 'sqlite:db.db');
+	$db = new PDO(file_exists("database/db.db") ? 'sqlite:database/db.db' : 'sqlite:../database/db.db');
 ?>

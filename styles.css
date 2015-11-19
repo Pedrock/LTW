@@ -16,6 +16,7 @@ body {
 	box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
 	padding:10px;
 }
+
 #header > *, #header > * > *
 {
 	display: inline;
@@ -124,13 +125,11 @@ body {
 
 .error-reg
 {
-	width: 50%; 
-	background-color: red; 
-	border-color: 1px solid black; 
-	border-radius: 4px; 
+	width: 100%; 
+	background-color: #fff; 
 	text-align: center; 
-	padding: 10px; 
-	display: none;
+	margin-top: 10px;
+	font-size: 13px;
 }
 
 .events-list {
