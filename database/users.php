@@ -49,4 +49,13 @@
 			return $user['full_name'];
 		return null;
 	}
+
+	function userExists($email)
+	{
+		global $db;
+		$stmt = $db->prepare('SELECT * FROM users WHERE lower(email) = lower(?)');
+		$stmt->execute(array($email));
+		$user = $stmt->fetch();
+		return ($user !== false);
+	}
 ?>

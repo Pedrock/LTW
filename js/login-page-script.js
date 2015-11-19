@@ -5,17 +5,17 @@ $( document ).ready(function()
 		var email1 = $('#register [name="email"]').val();
 		console.log(email1);
 		
-		/*
+		
 		$.ajax({                                      
 	      url: 'api/users.php',                        
-	      data: {'exists' : email1},                       
+	      data: {exists : email1},                       
 	      type: 'GET',
 	      dataType: 'json',                 
 	      success: function(data)     
 	      {
 	        console.log(data);
 	      } 
-	    });*/
+	    });
 
 
 
