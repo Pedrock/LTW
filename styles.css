@@ -33,7 +33,7 @@ body {
 
 #footer form {
 	display: inline-block; 
-	 padding: 15px;
+	padding: 15px;
 }
 
 #footer input {
@@ -46,19 +46,14 @@ body {
      color: #0d3c5f;
 }
 
-.login {
-	width: 350px;
-	margin: auto;
-	margin-top:50px;
-}
-
 .box {
 	background-color: #fff;
 	border: 1px solid #edeeee;
 	border-radius: 1px;
     margin: 0 0 10px;
-    padding: 10px 0;
+    padding: 0 10px;
 }
+
 
 .button {
 	color: #fff;
@@ -70,10 +65,14 @@ body {
     cursor: pointer;
 }
 
-.login .box
-{
+.login {
+	width: 350px;
+	margin: auto;
 	text-align: center;
-	padding: 0 10px;
+}
+
+.spacing {
+	padding-top:100px;
 }
 
 .login input {
@@ -85,6 +84,7 @@ body {
 	height: 30px;
 	width: 315px;
 	padding: 5px;
+	margin-top:10px;
 }
 
 .login h2 {
@@ -94,18 +94,11 @@ body {
     font-weight: 600;
 }
 
-.login h3 {
-	padding: 0;
-	margin: 10px 0px;
-	font-size: 17px;
-	color: #0d3c5f;
-}
-
 .login .button {
     font-size: 14px;
     font-weight: 600;
     height: 50px;
-    margin: 20px 0;
+    margin: 10px 0;
     width: 100%;
 }
 

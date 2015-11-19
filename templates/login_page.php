@@ -12,29 +12,23 @@ include_once('core/common.php');
 <body>
 	<div id="wrapper">
 		<div id="content" class="login" >
+			<div class="spacing"> </div>
 			<div id="login" class="box">
 				<form action="login.php" method="POST">
 					<h2> <?php echo $lang['LOGIN'] ?> </h2>
-					<h3><?php echo $lang['EMAIL'] ?></h3>
-					<input type="email" name="email">
-					<h3><?php echo $lang['PASSWORD'] ?></h3>
-					<input type="password" name="password">
+					<input type="email" name="email" placeholder="<?php echo $lang['EMAIL'] ?>">
+					<input type="password" name="password" placeholder="<?php echo $lang['PASSWORD'] ?>">
 					<input type="submit" class="button" value="<?php echo $lang['LOGIN'] ?>">
 				</form>
 			</div>
 			<div id="register" class="box">
 				<form action="register.php" method="POST">
 					<h2> <?php echo $lang['REGISTER'] ?> </h2>
-					<h3><?php echo $lang['FIRST_NAME'] ?></h3>
-					<input type="text" name="fname">
-					<h3><?php echo $lang['LAST_NAME'] ?></h3>
-					<input type="text" name="lname">
-					<h3><?php echo $lang['EMAIL'] ?></h3>
-					<input type="email" name="email">
-					<h3><?php echo $lang['PASSWORD'] ?></h3>
-					<input type="password" name="password">
-					<h3><?php echo $lang['CONFIRM_PASSWORD'] ?></h3>
-					<input type="password" name="password2">
+					<input type="text" name="fname" placeholder="<?php echo $lang['FIRST_NAME'] ?>">
+					<input type="text" name="lname" placeholder="<?php echo $lang['LAST_NAME'] ?>">
+					<input type="email" name="email" placeholder="<?php echo $lang['EMAIL'] ?>">
+					<input type="password" name="password" placeholder="<?php echo $lang['PASSWORD'] ?>">
+					<input type="password" name="password2" placeholder="<?php echo $lang['CONFIRM_PASSWORD'] ?>">
 					<div id="error-reg-pass" class="error-reg"></div>
 					<input type="submit" class="button" value="<?php echo $lang['REGISTER'] ?>">
 				</form>
