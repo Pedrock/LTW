@@ -35,4 +35,16 @@ $lang['MENU_CONTACT_US'] = 'Contacte-nos';
 $lang['MY_EVENTS'] = 'Meus Eventos';
 $lang['SUBSCRIBED_EVENTS'] = 'Eventos Subscritos';
 $lang['CREATE'] = 'Criar';
+
+// New Event
+$lang['NAME'] = 'Name';
+$lang['DESCRIPTION'] = 'Description';
+$lang['DATE'] = 'Data';
+$lang['IMAGE'] = 'Image';
+$lang['TYPE'] = 'Type';
+$lang['PARTY'] = 'Party';
+$lang['BUSINNESS'] = 'Business';
+$lang['MEETING'] = 'Meeting';
+$lang['CEREMONY'] = 'Ceremony';
+$lang['EDUCATIONAL'] = 'Educational';
 ?>

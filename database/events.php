@@ -4,7 +4,7 @@
 	function getUserEvents($user_id)
 	{
 		global $db;
-		$stmt = $db->prepare('SELECT events.id id,image,date,description,type FROM events LEFT JOIN event_types ON type_id = event_types.id WHERE user_id = ?');
+		$stmt = $db->prepare('SELECT events.id id,name,image,date,description,type FROM events LEFT JOIN event_types ON type_id = event_types.id WHERE user_id = ?');
 		$stmt->execute(array($user_id));
 		return $stmt->fetchAll();
 	}
@@ -22,5 +22,23 @@
 			$user_id
 		))) return FALSE;
 		return TRUE;
+	}
+
+	function latestUserEvent($user_id)
+	{
+		global $db;
+		$stmt = $db->prepare('SELECT id FROM events WHERE user_id = ? ORDER BY creation_date DESC LIMIT 1');
+		$stmt->execute(array($user_id));
+		$row = $stmt->fetch();
+		if ($row === false) return false;
+		return $row['id'];
+	}
+
+	function getEvent($event_id)
+	{
+		global $db;
+		$stmt = $db->prepare('SELECT events.id id,name,image,date,description,type FROM events LEFT JOIN event_types ON type_id = event_types.id WHERE events.id=?');
+		$stmt->execute(array($event_id));
+		return $stmt->fetch();
 	}
 ?>

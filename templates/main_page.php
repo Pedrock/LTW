@@ -25,9 +25,10 @@ include_once('database/events.php');
 					{ ?>
 						<li>
 							<a href="events/<?php echo $row['id'] ?>" >
+								<p><?php echo $row['name'] ?></p>
 								<div id="div-event-image" style="background-image:url(<?php echo $row['image'] ?>)"></div>
-								<p><?php echo $row['date'] ?></p>
 								<p><?php echo $row['description'] ?></p>
+								<p><?php echo $row['date'] ?></p>
 								<p><?php echo $row['type'] ?></p>
 							</a>
 						</li>

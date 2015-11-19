@@ -6,7 +6,8 @@ include_once('core/common.php');
 <head>
 	<title><?php echo $lang['SITE_NAME'] ?></title>
 	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-	<script type="text/javascript" src="templates/js/script.js"></script>
+	<script type="text/javascript" src="js/login-page-script.js"></script>
+	<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 	<div id="wrapper">

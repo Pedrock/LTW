@@ -6,7 +6,8 @@ deny from all
 </Files>
 
 RewriteEngine on
-RewriteRule ^$ ./index.php
-RewriteRule ^css/([^.]+)$ ^css/([^.]+)$
-RewriteRule ^events/([^.]+)$ events.php?action=$1
+RewriteRule ^$ ./index.php 
+RewriteRule ^events/([0-9]+)$ events.php?id=$1 [QSA,L]
+RewriteRule ^events/([a-zA-Z]+)$ events.php?action=$1 [QSA,L]
+RewriteRule ^events/$ events.php?action=redirect [QSA,L]
 RewriteRule ^([^.]+)$ $1.php

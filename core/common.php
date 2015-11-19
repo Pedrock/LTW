@@ -1,4 +1,5 @@
 <?php
+  include_once('core/config.php');
   session_start();
   header('Cache-control: private'); // IE 6 FIX
 
@@ -6,7 +7,6 @@
   {
     $lang = $_GET['lang'];
 
-    // register the session and set the cookie
     $_SESSION['lang'] = $lang;
 
     setcookie('lang', $lang, time() + (3600 * 24 * 30));
