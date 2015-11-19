@@ -21,7 +21,7 @@ if(isSet($_GET['action']) && $_GET['action'] == 'new')
 			$allowed =  array('gif','png','jpg');
 			$filename = $_FILES['image']['name'];
 			$extension = pathinfo($filename, PATHINFO_EXTENSION);
-			if(!in_array($extension,$allowed) ) {
+			if(!in_array(strtolower($extension),$allowed) ) {
 				include('templates/events_new.php');
 				return;
 			}

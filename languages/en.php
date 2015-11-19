@@ -25,18 +25,18 @@ $lang['MENU_CONTACT_US'] = 'Contact Us';
 
 // Main Page
 $lang['MY_EVENTS'] = 'My Events';
-$lang['SUBSCRIBED_EVENTS'] = 'Subscribed Events';
+$lang['SUBSCRIBED'] = 'Subscribed';
 $lang['CREATE'] = 'Create';
 
 // New Event
-$lang['NAME'] = 'Nome';
-$lang['DESCRIPTION'] = 'Descrição';
+$lang['NAME'] = 'Name';
+$lang['DESCRIPTION'] = 'Description';
 $lang['DATE'] = 'Data';
-$lang['IMAGE'] = 'Imagem';
-$lang['TYPE'] = 'Tipo';
-$lang['PARTY'] = 'Festa';
-$lang['BUSINNESS'] = 'Negócios';
+$lang['IMAGE'] = 'Image';
+$lang['TYPE'] = 'Type';
+$lang['PARTY'] = 'Party';
+$lang['BUSINNESS'] = 'Business';
 $lang['MEETING'] = 'Meeting';
-$lang['CEREMONY'] = 'Cerimónia';
-$lang['EDUCATIONAL'] = 'Educacional';
+$lang['CEREMONY'] = 'Ceremony';
+$lang['EDUCATIONAL'] = 'Educational';
 ?>

@@ -2,12 +2,12 @@
 <html>
 <head>
 	<title><?php echo $lang['SITE_NAME'] ?></title>
-	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="../styles.css">
 </head>
 <body>
 	<div id="wrapper">
 		<?php include('templates/header.php'); ?>
-		<div>
+		<div class="box center default-width">
 			<form action="new" method="POST" enctype="multipart/form-data">
 				<h3><?php echo $lang['NAME'] ?></h3>
 				<input type="text" name="name">

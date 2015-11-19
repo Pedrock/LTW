@@ -7,10 +7,10 @@
 <body>
 	<div id="wrapper">
 		<?php include('templates/header.php'); ?>
-		<div>
+		<div class="box center default-width">
 			<?php $row = getEvent($_GET['id']); ?>
 			<p><?php echo $row['name'] ?></p>
-			<div id="div-event-image" style="background-image:url(<?php echo '../'.$row['image'] ?>)"></div>
+			<div class="div-event-image" style="background-image:url(<?php echo '../'.$row['image'] ?>)"></div>
 			<p><?php echo $row['description'] ?></p>
 			<p><?php echo $row['date'] ?></p>
 			<p><?php echo $row['type'] ?></p>

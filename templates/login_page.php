@@ -5,7 +5,7 @@ include_once('core/common.php');
 <html>
 <head>
 	<title><?php echo $lang['SITE_NAME'] ?></title>
-	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="<?php echo $_GLOBALS['jquery'] ?>"></script>
 	<script type="text/javascript" src="js/login-page-script.js"></script>
 	<link rel="stylesheet" href="styles.css">
 </head>
