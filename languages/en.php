@@ -6,10 +6,14 @@ $lang['SITE_NAME'] = 'Eventbook';
 
 // Register
 $lang['REGISTER'] = 'Register';
+$lang['REGISTER_ERROR'] = 'Error on register.';
 $lang['FIRST_NAME'] = 'First Name';
+$lang['FIRST_NAME_WRONG'] = 'First name is not valid.';
 $lang['LAST_NAME'] = 'Last Name';
+$lang['LAST_NAME_WRONG'] = 'Last name is not valid.';
 $lang['EMAIL'] = 'E-mail';
 $lang['EMAIL_USED'] = "Email already used.";
+$lang['EMAIL_WRONG'] = "Email is not valid.";
 $lang['CONFIRM_EMAIL'] = 'Confirm e-mail';
 $lang['PASSWORD'] = 'Password';
 $lang['PASSWORD_LENGTH'] = "Password's size must be higher than 8.";

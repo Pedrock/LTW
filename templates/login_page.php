@@ -25,24 +25,37 @@ include_once('core/common.php');
 				<form action="register.php" method="POST">
 					<h2> <?php echo $lang['REGISTER'] ?> </h2>
 					<input type="text" name="fname" placeholder="<?php echo $lang['FIRST_NAME'] ?>">
+					<div id="error-reg-fname" class= "error-reg">
+						<?php echo $lang['FIRST_NAME_WRONG'] ?>
+					</div>
+
 					<input type="text" name="lname" placeholder="<?php echo $lang['LAST_NAME'] ?>">
+					<div id="error-reg-lname" class= "error-reg">
+						<?php echo $lang['LAST_NAME_WRONG'] ?>
+					</div>
 					
 					<input type="email" name="email" placeholder="<?php echo $lang['EMAIL'] ?>">
-					<div id="error-reg-email" style="display:none" class= "error-reg">
+					<div id="error-reg-email" class= "error-reg">
 						<?php echo $lang['EMAIL_USED'] ?>
+					</div>
+					<div id="error-reg-emailnV" class= "error-reg">
+						<?php echo $lang['EMAIL_WRONG'] ?>
 					</div>
 
 					<input type="password" name="password" placeholder="<?php echo $lang['PASSWORD'] ?>">
-					<div id="error-reg-pass" style="display:none" class= "error-reg">
+					<div id="error-reg-pass" class= "error-reg">
 						<?php echo $lang['PASSWORD_LENGTH'] ?>
 					</div>
 					
 					<input type="password" name="password2" placeholder="<?php echo $lang['CONFIRM_PASSWORD'] ?>">
-					<div id="error-reg-pass2" style="display:none" class= "error-reg">
+					<div id="error-reg-pass2" class= "error-reg">
 						<?php echo $lang['PASSWORD_DIFF'] ?>
 					</div>
-					
+
 					<input type="submit" class="button" value="<?php echo $lang['REGISTER'] ?>">
+					<div id="error-reg" class= "error-reg">
+						<?php echo $lang['REGISTER_ERROR'] ?>
+					</div>
 				</form>
 			</div>
 		</div>
