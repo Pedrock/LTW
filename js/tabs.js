@@ -25,8 +25,6 @@ $( document ).ready(function()
         $active.parent().addClass('active');
         $content.fadeIn();
       }
-
-     
     });
   });
 });

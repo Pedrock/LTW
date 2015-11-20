@@ -1,5 +1,5 @@
 <?php
-  include_once('core/config.php');
+  include_once(file_exists('core/config.php') ? 'core/config.php' : '../core/config.php');
   session_start();
   header('Cache-control: private'); // IE 6 FIX
 
@@ -36,6 +36,5 @@
     default:
     $lang_file = 'en.php';
   }
-
-  include_once('languages/'.$lang_file);
+  include_once(file_exists('languages/'.$lang_file) ? 'languages/'.$lang_file : '../languages/'.$lang_file);
 ?>

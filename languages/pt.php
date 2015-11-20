@@ -51,4 +51,7 @@ $lang['BUSINESS'] = 'Negócios';
 $lang['MEETING'] = 'Meeting';
 $lang['CEREMONY'] = 'Cerimónia';
 $lang['EDUCATIONAL'] = 'Educacional';
+
+$lang['SUBSCRIBE'] = 'Aderir';
+$lang['UNSUBSCRIBE'] = 'Desistir';
 ?>

@@ -1,8 +1,22 @@
 <?php
 include_once('core/common.php');
-include_once('core/session.php'); 
+include_once('core/require_session.php'); 
 include_once('database/events.php');
-?>
+
+function print_event($row)
+{ 
+	global $lang; ?>
+	<li class="event box">
+		<a href="events/<?php echo $row['id'] ?>" >
+			<p><?php echo $row['name'] ?></p>
+			<div class="div-event-image" style="background-image:url(<?php echo $row['image'] ?>)"></div>
+			<p><?php echo $row['description'] ?></p>
+			<p><?php echo $row['date'] ?></p>
+			<p><?php echo $lang[$row['type']] ?></p>
+		</a>
+	</li>
+	<?php
+} ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,23 +39,17 @@ include_once('database/events.php');
 					<ul class="events-list">
 						<?php
 						$events = getUserEvents($_SESSION['user_id']);
-						foreach ($events as $row)
-						{ ?>
-							<li class="event box">
-								<a href="events/<?php echo $row['id'] ?>" >
-									<p><?php echo $row['name'] ?></p>
-									<div class="div-event-image" style="background-image:url(<?php echo $row['image'] ?>)"></div>
-									<p><?php echo $row['description'] ?></p>
-									<p><?php echo $row['date'] ?></p>
-									<p><?php echo $lang[$row['type']] ?></p>
-								</a>
-							</li>
-						<?php
-						} ?>
+						foreach ($events as $row) print_event($row);
+						?>
 					</ul>
 				</div>
 				<div id="subscribed">
-					
+					<ul class="events-list">
+						<?php
+						$events = getSubscribedEvents($_SESSION['user_id']);
+						foreach ($events as $row) print_event($row);
+						?>
+					</ul>
 				</div>
 			</div>
 		</div>

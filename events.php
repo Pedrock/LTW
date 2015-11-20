@@ -11,6 +11,7 @@ function validateDate($date)
 
 if(isSet($_GET['action']) && $_GET['action'] == 'new')
 {
+	include_once('core/require_session.php');
 	if (isset($_POST["submit"]))
 	{
 		if (!validateDate($_POST['date'])) echo 'data invalida';

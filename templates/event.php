@@ -3,6 +3,8 @@
 <head>
 	<title><?php echo $lang['SITE_NAME'] ?></title>
 	<link rel="stylesheet" href="../styles.css">
+	<script src="../<?php echo $_GLOBALS['jquery'] ?>"></script>
+	<script type="text/javascript" src="../js/event-subscription.js"></script>
 </head>
 <body>
 	<div id="wrapper">
@@ -14,7 +16,16 @@
 			<p><?php echo $row['description'] ?></p>
 			<p><?php echo $row['date'] ?></p>
 			<p><?php echo $lang[$row['type']] ?></p>
-			<?php include('templates/footer.php'); ?>
+			<?php
+			if (isSet($_SESSION['user_id']))
+			{
+				$sub = isEventSubscribed($_GET['id'], $_SESSION['user_id']);
+				echo '<div id="event-id" style="display:none">'.$_GET['id'].'</div>';
+				echo '<button id="unsubscribe" style="'.($sub?'':'display:none').'" class="subscription button">'.$lang['UNSUBSCRIBE'].'</button>';
+				echo '<button id="subscribe" style="'.($sub?'display:none':'').'" class="subscription button">'.$lang['SUBSCRIBE'].'</button>';
+			}
+			include('templates/footer.php'); 
+			?>
 		</div>
 	</div>
 </body>

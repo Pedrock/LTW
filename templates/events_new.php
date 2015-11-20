@@ -16,7 +16,6 @@
 				<h3><?php echo $lang['DATE'] ?></h3>
 				<input type="date" name="date">
 				<h3><?php echo $lang['TYPE'] ?></h3>
-
 				<select name="type">
 				<?php
 					$types = getEventTypes();
@@ -26,8 +25,6 @@
 					<?php
 					} ?>
 				</select>
-
-
 				<h3><?php echo $lang['IMAGE'] ?></h3>
 				<input type="file" name="image">
 				<input type="submit" value="<?php echo $lang['CREATE'] ?>" name="submit">

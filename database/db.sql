@@ -16,14 +16,21 @@ CREATE TABLE IF NOT EXISTS events
 	creation_date DATETIME DEFAULT(DATETIME('now')),
 	date DATETIME NOT NULL,
 	description TEXT NOT NULL,
-	type_id INTEGER REFERENCES types(id),
-	user_id INTEGER REFERENCES users(id)
+	type_id INTEGER NOT NULL REFERENCES types(id),
+	user_id INTEGER NOT NULL REFERENCES users(id)
 );
 
 CREATE TABLE IF NOT EXISTS event_types
 (
 	id INTEGER PRIMARY KEY,
 	type TEXT UNIQUE NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS event_subscriptions
+(
+	event_id INTEGER NOT NULL REFERENCES events(id),
+	user_id INTEGER NOT NULL REFERENCES users(id),
+	PRIMARY KEY (event_id, user_id)
 );
 
 DELETE FROM event_types;
