@@ -17,12 +17,9 @@ $lang['EMAIL'] = 'E-mail';
 $lang['EMAIL_USED'] = "Email já usado.";
 $lang['CONFIRM_EMAIL'] = 'Confirme o e-mail';
 $lang['PASSWORD'] = 'Password';
-$lang['PASSWORD_LENGTH'] = "Password têm de ter tamanho mínimo de 8.";
-$lang['PASSWORD_DIFF'] = "Passwords não são iguais.";
+$lang['PASSWORD_LENGTH'] = "A password tem de ter no mínimo 8 caracteres.";
+$lang['PASSWORD_DIFF'] = "As passwords não são iguais.";
 $lang['CONFIRM_PASSWORD'] = 'Confirme a password';
-$lang['BIRTHDATE'] = 'Data de nascimento';
-$lang['MALE'] = 'Masculino';
-$lang['FEMALE'] = 'Feminimo';
 
 // Login
 $lang['LOGIN'] = 'Iniciar Sessão';
