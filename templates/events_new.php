@@ -14,9 +14,20 @@
 				<h3><?php echo $lang['DESCRIPTION'] ?></h3>
 				<input type="text" name="desc">
 				<h3><?php echo $lang['DATE'] ?></h3>
-				<input type="text" name="date">
+				<input type="date" name="date">
 				<h3><?php echo $lang['TYPE'] ?></h3>
-				<input type="text" name="type">
+
+				<select name="type">
+				<?php
+					$types = getEventTypes();
+					foreach ($types as $type)
+					{ ?>
+						<option value="<?php echo $type['id'] ?>"><?php echo $lang[$type['type']] ?></option>
+					<?php
+					} ?>
+				</select>
+
+
 				<h3><?php echo $lang['IMAGE'] ?></h3>
 				<input type="file" name="image">
 				<input type="submit" value="<?php echo $lang['CREATE'] ?>" name="submit">
