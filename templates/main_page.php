@@ -33,7 +33,7 @@ include_once('database/events.php');
 									<div class="div-event-image" style="background-image:url(<?php echo $row['image'] ?>)"></div>
 									<p><?php echo $row['description'] ?></p>
 									<p><?php echo $row['date'] ?></p>
-									<p><?php echo $row['type'] ?></p>
+									<p><?php echo $lang[$row['type']] ?></p>
 								</a>
 							</li>
 						<?php

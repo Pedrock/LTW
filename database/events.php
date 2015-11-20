@@ -41,4 +41,12 @@
 		$stmt->execute(array($event_id));
 		return $stmt->fetch();
 	}
+
+	function getEventTypes()
+	{
+		global $db;
+		$stmt = $db->prepare('SELECT id, type FROM event_types');
+		$stmt->execute();
+		return $stmt->fetchAll();
+	}
 ?>

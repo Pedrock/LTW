@@ -25,3 +25,10 @@ CREATE TABLE IF NOT EXISTS event_types
 	id INTEGER PRIMARY KEY,
 	type TEXT UNIQUE NOT NULL
 );
+
+DELETE FROM event_types;
+INSERT INTO event_types(id,type) VALUES (1,'PARTY');
+INSERT INTO event_types(id,type) VALUES (2,'BUSINESS');
+INSERT INTO event_types(id,type) VALUES (3,'MEETING');
+INSERT INTO event_types(id,type) VALUES (4,'CEREMONY');
+INSERT INTO event_types(id,type) VALUES (5,'EDUCATIONAL');
