@@ -9,8 +9,11 @@ $lang['REGISTER'] = 'Register';
 $lang['FIRST_NAME'] = 'First Name';
 $lang['LAST_NAME'] = 'Last Name';
 $lang['EMAIL'] = 'E-mail';
+$lang['EMAIL_USED'] = "Email already used.";
 $lang['CONFIRM_EMAIL'] = 'Confirm e-mail';
 $lang['PASSWORD'] = 'Password';
+$lang['PASSWORD_LENGTH'] = "Password's size must be higher than 8.";
+$lang['PASSWORD_DIFF'] = "Passwords are not the same.";
 $lang['CONFIRM_PASSWORD'] = 'Confirm password';
 
 // Login

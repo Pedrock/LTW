@@ -21,6 +21,33 @@ body {
 {
 	display: inline;
 }
+#header a.title
+{
+	border-radius: 3px;
+	padding: 3px;
+	padding-top: 13px;
+	text-decoration: none;
+
+}
+#header a
+{
+	border-radius: 3px;
+	background-color: :#3a5795;
+	padding: 3px;
+	text-decoration: none;
+
+}
+
+#header a:hover
+{
+	background-color: #2f4779;
+}
+
+#header a:visited
+{
+	color: white;
+}
+
 #content {
 	padding-bottom:30px; /* Height of the footer element */
 }
@@ -128,8 +155,10 @@ body {
 	width: 100%; 
 	background-color: #fff; 
 	text-align: center; 
-	margin-top: 10px;
 	font-size: 13px;
+
+	width: 100%;
+	margin-top:10px;
 }
 
 .events-list {
@@ -189,3 +218,5 @@ ul.tabs li.active {
 	padding: 7px;
 	margin-top:2px;
 }
+
+

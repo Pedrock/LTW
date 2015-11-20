@@ -3,8 +3,6 @@ $( document ).ready(function()
 	$("#register input").change(function()
 	{
 		var email1 = $('#register [name="email"]').val();
-		console.log(email1);
-		
 		
 		$.ajax({                                      
 	    	url: 'api/users.php',                        
@@ -15,35 +13,23 @@ $( document ).ready(function()
 	      	{
 				if(data)
 				{
-					console.log(data);
-					$('#error-reg-email-used').text("Email já usado.");
-					$('#error-reg-email-used').show();
+					$('#error-reg-email').fadeIn();
 				}
-				else $('#error-reg-email-used').hide();	
+				else $('#error-reg-email').fadeOut();	
 
 	      	} 
 	    });
-
-
 
 		var password = $('#register [name="password"]').val();
 		var password2 = $('#register [name="password2"]').val();
 
 		if (password.length<8 && password.length>0)
-		{
-			$('#error-reg-pass-leng').text("Password têm de ter tamanho mínimo de 8.");
-			$('#error-reg-pass-leng').show();
-
-		}else $('#error-reg-pass-leng').hide();
+			$('#error-reg-pass').fadeIn();
+		else $('#error-reg-pass').fadeOut();
 
 		if( password.length>=8 &&  password!=password2 && password2!="")
-		{
-			$('#error-reg-pass-dif').text("Passwords não são iguais.");
-			$('#error-reg-pass-dif').show();
-
-		}
-		else
-			$('#error-reg-pass-dif').hide();
+			$('#error-reg-pass2').fadeIn();
+		else $('#error-reg-pass2').fadeOut();
 	});
 	
 
