@@ -28,7 +28,7 @@ function print_event($row)
 <body>
 	<div id="wrapper">
 		<?php include('templates/header.php'); ?>
-		<div class="center default-width">
+		<div id="content" class="center default-width">
 			<ul class="tabs">
 				<li><a href="#mine"><?php echo $lang['MY_EVENTS'] ?></a></li>
 				<li><a href="#subscribed"><?php echo $lang['SUBSCRIBED'] ?></a></li>

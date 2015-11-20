@@ -7,7 +7,7 @@
 <body>
 	<div id="wrapper">
 		<?php include('templates/header.php'); ?>
-		<div class="box center default-width">
+		<div id="content" class="box center default-width">
 			<form action="new" method="POST" enctype="multipart/form-data">
 				<h3><?php echo $lang['NAME'] ?></h3>
 				<input type="text" name="name">
