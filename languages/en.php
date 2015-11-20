@@ -1,4 +1,9 @@
 ﻿<?php
+/*
+------------------
+Language: English
+------------------
+*/
 
 $lang = array();
  
@@ -12,12 +17,12 @@ $lang['FIRST_NAME_WRONG'] = 'First name is not valid.';
 $lang['LAST_NAME'] = 'Last Name';
 $lang['LAST_NAME_WRONG'] = 'Last name is not valid.';
 $lang['EMAIL'] = 'E-mail';
-$lang['EMAIL_USED'] = "Email already used.";
 $lang['EMAIL_WRONG'] = "Email is not valid.";
+$lang['EMAIL_USED'] = "Email already in use.";
 $lang['CONFIRM_EMAIL'] = 'Confirm e-mail';
 $lang['PASSWORD'] = 'Password';
-$lang['PASSWORD_LENGTH'] = "Password's size must be higher than 8.";
-$lang['PASSWORD_DIFF'] = "Passwords are not the same.";
+$lang['PASSWORD_LENGTH'] = "Passwords must have at least 8 characters.";
+$lang['PASSWORD_DIFF'] = "Passwords do not match.";
 $lang['CONFIRM_PASSWORD'] = 'Confirm password';
 
 // Login
