@@ -15,7 +15,9 @@ $( document ).ready(function() {
 			    $('.suggestion').click(function() {
 			    	location.href = $('#webroot').attr('href')+'events/'+$(this).attr('data-id');
 			    })
-			    $("#suggestions").has('.suggestion').show();
+			    if ($("#suggestions").children().length > 0)
+			    	$("#suggestions").show();
+			    else $("#suggestions").hide();
 			});
 		} else {
 			$('#suggestions').html('');
