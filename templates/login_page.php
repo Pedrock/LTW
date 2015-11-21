@@ -6,7 +6,7 @@ include_once('core/common.php');
 <head>
 	<title><?php echo $lang['SITE_NAME'] ?></title>
 	<script src="<?php echo $_GLOBALS['jquery'] ?>"></script>
-	<script type="text/javascript" src="js/login-page-script.js"></script>
+	<script type="text/javascript" src="js/login.js"></script>
 	<link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -24,17 +24,20 @@ include_once('core/common.php');
 			<div id="register" class="box">
 				<form action="register.php" method="POST">
 					<h2> <?php echo $lang['REGISTER'] ?> </h2>
-					<input type="text" name="fname" placeholder="<?php echo $lang['FIRST_NAME'] ?>">
+					<input type="text" id="fname" name="fname" placeholder="<?php echo $lang['FIRST_NAME'] ?>"
+					value="<?php if(isSet($_POST['fname'])) echo $_POST['fname'] ?>">	
 					<div id="error-reg-fname" class= "error-reg">
 						<?php echo $lang['FIRST_NAME_WRONG'] ?>
 					</div>
 
-					<input type="text" name="lname" placeholder="<?php echo $lang['LAST_NAME'] ?>">
+					<input type="text" id="lname" name="lname" placeholder="<?php echo $lang['LAST_NAME'] ?>"
+					value="<?php if(isSet($_POST['lname'])) echo $_POST['lname'] ?>">
 					<div id="error-reg-lname" class= "error-reg">
 						<?php echo $lang['LAST_NAME_WRONG'] ?>
 					</div>
 					
-					<input type="email" name="email" placeholder="<?php echo $lang['EMAIL'] ?>">
+					<input type="text" name="email" placeholder="<?php echo $lang['EMAIL'] ?>"
+					value="<?php if(isSet($_POST['email'])) echo $_POST['lname'] ?>">
 					<div id="error-reg-email" class= "error-reg">
 						<?php echo $lang['EMAIL_USED'] ?>
 					</div>
