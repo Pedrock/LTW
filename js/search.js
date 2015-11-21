@@ -13,7 +13,7 @@ $( document ).ready(function() {
 				})
 
 			    $('.suggestion').click(function() {
-			    	location.href = 'events/'+$(this).attr('data-id');
+			    	location.href = $('#webroot').attr('href')+'events/'+$(this).attr('data-id');
 			    })
 			    $("#suggestions").has('.suggestion').show();
 			});
