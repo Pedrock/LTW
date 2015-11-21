@@ -31,7 +31,7 @@ if(isSet($_GET['action']) && $_GET['action'] == 'new')
 			    $filename = uniqid().'.'.$extension;
 			} while( file_exists($path.$filename));
 			$newfile = $path.$filename;
-			if (newEvent($_POST['name'], $_POST['name'], $_POST['date'], $_POST['type'], $newfile, $_SESSION['user_id']))
+			if (newEvent($_POST['name'], $_POST['desc'], $_POST['date'], $_POST['type'], $newfile, $_SESSION['user_id']))
 			{
 				move_uploaded_file($_FILES['image']['tmp_name'], $newfile);
 				$id = latestUserEvent($_SESSION['user_id']);

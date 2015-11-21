@@ -30,23 +30,23 @@ function print_event($row)
 		<?php include('templates/header.php'); ?>
 		<div id="content" class="center default-width">
 			<ul class="tabs">
-				<li><a href="#mine"><?php echo $lang['MY_EVENTS'] ?></a></li>
 				<li><a href="#subscribed"><?php echo $lang['SUBSCRIBED'] ?></a></li>
+				<li><a href="#mine"><?php echo $lang['MY_EVENTS'] ?></a></li>
 				<li class="tab-right button"><a href="events/new"><?php echo $lang['CREATE'] ?></a></li>
 			</ul>
 			<div class="tabs-panel">
-				<div id="mine">
-					<ul class="events-list">
-						<?php
-						$events = getUserEvents($_SESSION['user_id']);
-						foreach ($events as $row) print_event($row);
-						?>
-					</ul>
-				</div>
 				<div id="subscribed">
 					<ul class="events-list">
 						<?php
 						$events = getSubscribedEvents($_SESSION['user_id']);
+						foreach ($events as $row) print_event($row);
+						?>
+					</ul>
+				</div>
+				<div id="mine">
+					<ul class="events-list">
+						<?php
+						$events = getUserEvents($_SESSION['user_id']);
 						foreach ($events as $row) print_event($row);
 						?>
 					</ul>

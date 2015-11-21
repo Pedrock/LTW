@@ -37,7 +37,7 @@ $lang['MENU_CONTACT_US'] = 'Contacte-nos';
 
 // Main Page
 $lang['MY_EVENTS'] = 'Meus Eventos';
-$lang['SUBSCRIBED'] = 'Subscritos';
+$lang['SUBSCRIBED'] = 'Aderidos';
 $lang['CREATE'] = 'Criar';
 
 // New Event

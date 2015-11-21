@@ -39,12 +39,47 @@ body {
 	padding: 0;
 }
 
-#search {
-	position: relative;
-	top: -5px;
-	left: 100px;
-	width: 500px;
+#suggestions, #suggestions * {
+	display: block;
+	padding: 0;
+	margin: 0;
+	height: initial;
 }
+
+#search {
+	position: absolute;
+	top: 15px;
+	left: 230px;
+	width: 500px;
+	height:30px;
+}
+
+#suggestions {
+	width: 499px;
+	position: absolute;	
+	left: 230px;
+	top: 46px;
+	border: 1px solid #c0c0c0;
+	background-color: #fff;
+	display: none;
+}
+
+#suggestions .suggestion {
+	padding: 0;
+	font-family: Helvetica;
+	border-bottom: 1px solid #c0c0c0;
+	padding: 5px;
+}
+
+#suggestions .suggestion:last-child {
+	border-bottom: 0px;
+}
+
+#suggestions .suggestion:hover {
+	background-color: #f2f2f2;
+	cursor: pointer;
+}
+
 
 #logout > a:hover, #header h1:hover
 {

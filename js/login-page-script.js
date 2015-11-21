@@ -8,7 +8,6 @@ $( document ).ready(function()
 	{
 	console.log(url);
 		$('#error-reg').fadeIn();
-
 	}
 
 	$("#register input").change(function()

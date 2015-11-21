@@ -8,4 +8,9 @@ if (isset($_POST['id']) && isset($_POST['subscribe']))
 	else if ($_POST['subscribe'] == 'false')
 		echo json_encode(unsubscribeEvent(intval($_POST['id']),$_SESSION['user_id']));
 }
+else if (isset($_GET['search']))
+{
+	include_once('../core/require_session.php');
+	echo json_encode(searchEvents($_GET['search']));
+}
 ?>

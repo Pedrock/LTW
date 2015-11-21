@@ -83,4 +83,12 @@
 		$subscription = $stmt->fetch();
 		return ($subscription !== false);
 	}
+
+	function searchEvents($string)
+	{
+		global $db;
+		$stmt = $db->prepare('SELECT id,name,image,date,description FROM events WHERE name LIKE ?');
+		$stmt->execute(array($string.'%'));
+		return $stmt->fetchAll(PDO::FETCH_CLASS);
+	}
 ?>
