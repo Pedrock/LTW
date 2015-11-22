@@ -3,13 +3,62 @@ var regName = /(^[A-Z]+$)/g;
 
 $( document ).ready(function() 
 {	
-	$('#register [name="fname"]').focusout(function(){
-		var fname = $('#register [name="fname"]').val();
+	$('#content [name="name"]').focusout(function(){
+		var name = $('#content [name="name"]').val();
 
-		if(regName.test(fname))$('#error-reg-fname').fadeOut();
-		else if(fname=="" || !regName.test(fname)){
-			$('#error-reg-fname').fadeIn();
-		}else $('#error-reg-fname').fadeOut();
+		if(regName.test(name))$('#error-eve-name').fadeOut();
+		else if(name=="" || !regName.test(name)){
+			$('#error-eve-name').fadeIn();
+		}else $('#error-eve-name').fadeOut();
+	});
+
+	$('#content [name="desc"]').focusout(function(){
+		var desc = $('#content [name="desc"]').val();
+		
+		if(regName.test(desc))$('#error-eve-desc').fadeOut();
+		else if(desc=="" || !regName.test(desc)){
+			$('#error-eve-desc').fadeIn();
+		}else $('#error-eve-desc').fadeOut();
+	});
+
+	$('#content [name="date"]').focusout(function(){
+		var inputDate = $('#content [name="date"]').val();
+		var splitDate = inputDate.split("-");
+		var date = new Date(splitDate[0],splitDate[1],splitDate[2]);
+		var curr = new Date();
+		if(date>=curr)
+			$('#error-eve-date').fadeOut();
+		else
+			$('#error-eve-date').fadeIn();
+
+	});
+
+	$('#content [name="image"]').mouseout(function(){
+		
+		if(this.files[0] == undefined)
+		{
+			$('#error-eve-image-ext').hide();
+			$('#error-eve-image-length').hide();
+			$('#error-eve-image').fadeIn();
+		}
+		else if(this.files[0].size > 5000000)
+		{
+			$('#error-eve-image-ext').hide();
+			$('#error-eve-image').hide();
+			$('#error-eve-image-length').fadeIn();
+		}
+		else 
+		{
+			$('#error-eve-image-length').hide();
+			$('#error-eve-image').hide();
+			
+			var extension = this.files[0].name.split('.').pop();
+			if(jQuery.inArray(extension.toLowerCase(),["gif","jpg","png"]))
+				$('#error-eve-image-ext').fadeIn();
+		}
+
+
+
 	});
 
 	$('#register [name="lname"]').focusout(function(){

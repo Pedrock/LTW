@@ -52,6 +52,13 @@ $lang['MEETING'] = 'Meeting';
 $lang['CEREMONY'] = 'Cerimónia';
 $lang['EDUCATIONAL'] = 'Educacional';
 
+$lang['NAME_ERROR'] = 'Nome inválido.';
+$lang['DESCRIPTION_ERROR'] = 'Descrição inválida.';
+$lang['DATE_ERROR'] = 'Data inválida.';
+$lang['IMAGE_ERROR'] = 'Imagem inválida.';
+$lang['IMAGE_LENGTH_ERROR'] = 'Tamanho da imagem superior a 5MB.';
+$lang['IMAGE_LENGTH_EXT'] = 'Extensão inválida (jpg, png, gif).';
+
 $lang['SUBSCRIBE'] = 'Aderir';
 $lang['UNSUBSCRIBE'] = 'Desistir';
 ?>

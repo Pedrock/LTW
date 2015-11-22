@@ -6,7 +6,8 @@ include_once('database/events.php');
 function validateDate($date)
 {
     $d = DateTime::createFromFormat('Y-m-d', $date);
-    return $d && $d->format('Y-m-d') == $date;
+    $today = new DateTime('now');
+    return $d && $d->format('Y-m-d') == $date && $today<=$d;
 }
 
 if(isSet($_GET['action']) && $_GET['action'] == 'new')
@@ -14,15 +15,24 @@ if(isSet($_GET['action']) && $_GET['action'] == 'new')
 	include_once('core/require_session.php');
 	if (isset($_POST["submit"]))
 	{
-		if (!validateDate($_POST['date'])) echo 'data invalida';
-		else if (!getimagesize($_FILES['image']['tmp_name'])) echo 'imagem invalida';
-		else if ($_FILES['image']['size'] > 5000000) echo 'imagem demasiado grande (>5Mb)';
-		else
+		if(!preg_match("/^[A-z]+/", $_POST['name']))
+			$name = true;
+		if(!preg_match("/^[A-z]+/", $_POST['desc']))
+			$desc = true;
+		if (!validateDate($_POST['date'])) $date = true;
+		if (empty($_FILES['image']['tmp_name']) || !getimagesize($_FILES['image']['tmp_name'])) $image=true;
+		else if (getimagesize($_FILES['image']['tmp_name']) && $_FILES['image']['size'] > 5000000) 
+		{
+			$image_length=dio_truncate(fd, offset);
+			$image_length_error = true;
+		}
+		else if(!$name && !$desc && !$date && !$image && !$image_length_error)
 		{
 			$allowed =  array('gif','png','jpg');
 			$filename = $_FILES['image']['name'];
 			$extension = pathinfo($filename, PATHINFO_EXTENSION);
 			if(!in_array(strtolower($extension),$allowed) ) {
+				$extension_error = true;
 				include('templates/events_new.php');
 				return;
 			}
@@ -38,9 +48,11 @@ if(isSet($_GET['action']) && $_GET['action'] == 'new')
 				header('Location: '.$id);
 				return;
 			}
-			echo 'Invalid event';
-			die();
+			$invalid = true;
+			
 		}
+		include('templates/events_new.php');
+		return;
 	}
 	else include('templates/events_new.php');
 }

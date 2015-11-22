@@ -1,5 +1,5 @@
 <?php
-require_once('core/common.php');
+include_once('core/common.php');
 
 ?>
 
@@ -30,7 +30,7 @@ require_once('core/common.php');
 					<h2> <?php echo $lang['REGISTER'] ?> </h2>
 					<input type="text" id="fname" name="fname" placeholder="<?php echo $lang['FIRST_NAME'] ?>"
 					value="<?php if(isSet($_POST['fname'])) echo $_POST['fname'] ?>">	
-					<div class="ss">
+					<div class="error-php-reg">
 						<?php if(isset($fname))echo $lang['FIRST_NAME_WRONG'] ?>
 					</div>
 
@@ -42,7 +42,7 @@ require_once('core/common.php');
 
 					<input type="text" id="lname" name="lname" placeholder="<?php echo $lang['LAST_NAME'] ?>"
 					value="<?php if(isSet($_POST['lname'])) echo $_POST['lname'] ?>">
-					<div >
+					<div class="error-php-reg">
 						<?php if(isset($lname))echo $lang['LAST_NAME_WRONG'] ?>
 					</div>
 					<div id="error-reg-lname" class= "error-reg">
@@ -57,7 +57,7 @@ require_once('core/common.php');
 						<?php echo $lang['EMAIL_USED'] ?>
 					</div>
 
-					<div >
+					<div class="error-php-reg">
 						<?php if(isset($email2))echo $lang['EMAIL_USED'] ?>
 					</div>
 					<!-- Emails Errados-->
@@ -66,7 +66,7 @@ require_once('core/common.php');
 						<?php echo $lang['EMAIL_WRONG'] ?>
 					</div>
 
-					<div >
+					<div class="error-php-reg">
 						<?php if(isset($email))echo $lang['EMAIL_WRONG'] ?>
 					</div>
 
@@ -75,7 +75,7 @@ require_once('core/common.php');
 						<?php echo $lang['PASSWORD_LENGTH'] ?>
 					</div>
 
-					<div >
+					<div class="error-php-reg">
 						<?php if(isset($password))echo $lang['PASSWORD_LENGTH'] ?>
 					</div>
 					
@@ -84,7 +84,7 @@ require_once('core/common.php');
 						<?php echo $lang['PASSWORD_DIFF'] ?>
 					</div>
 
-					<div >
+					<div class="error-php-reg">
 						<?php if(isset($password2))echo $lang['PASSWORD_DIFF'] ?>
 					</div>
 

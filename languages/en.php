@@ -6,7 +6,7 @@ Language: English
 */
 
 $lang = array();
- 
+
 $lang['SITE_NAME'] = 'Eventbook';
 
 // Register
@@ -43,7 +43,7 @@ $lang['CREATE'] = 'Create';
 // New Event
 $lang['NAME'] = 'Name';
 $lang['DESCRIPTION'] = 'Description';
-$lang['DATE'] = 'Data';
+$lang['DATE'] = 'Date';
 $lang['IMAGE'] = 'Image';
 $lang['TYPE'] = 'Type';
 $lang['PARTY'] = 'Party';
@@ -51,6 +51,13 @@ $lang['BUSINESS'] = 'Business';
 $lang['MEETING'] = 'Meeting';
 $lang['CEREMONY'] = 'Ceremony';
 $lang['EDUCATIONAL'] = 'Educational';
+
+$lang['NAME_ERROR'] = 'Invalid name.';
+$lang['DESCRIPTION_ERROR'] = 'Invalid description.';
+$lang['DATE_ERROR'] = 'Invalid date.';
+$lang['IMAGE_ERROR'] = 'Invalid image.';
+$lang['IMAGE_LENGTH_ERROR'] = "Image's size higher than 5MB.";
+$lang['IMAGE_LENGTH_EXT'] = 'Invalid extension (jpg, png, gif).';
 
 // Event
 $lang['SUBSCRIBE'] = 'Subscribe';
