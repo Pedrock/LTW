@@ -44,6 +44,11 @@ if(isSet($_GET['action']) && $_GET['action'] == 'new')
 	}
 	include('templates/events_new.php');
 }
+else if(isSet($_GET['action']) && $_GET['action'] == 'delete' && isSet($_GET['id']))
+{
+	deleteEvent($_GET['id']);
+	header('Location: ..');
+}
 else if(isSet($_GET['id']))
 {
 	include('templates/event.php');

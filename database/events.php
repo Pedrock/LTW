@@ -9,6 +9,24 @@
 		return $stmt->fetchAll();
 	}
 
+	function isUserEvent($user_id,$event_id)
+	{
+		global $db;
+		$stmt = $db->prepare('SELECT id FROM events WHERE  user_id = ? AND id = ?');
+		$stmt->execute(array($user_id,$event_id));
+		$event = $stmt->fetch();
+		return ($event!==false);
+	}
+
+	function deleteEvent($event_id)
+	{
+		/*global $db;
+		$stmt = $db->prepare('DELETE FROM events WHERE  id = ?');
+		$stmt->execute(array($event_id));
+		$event = $stmt->fetch();
+		return ($event===true);*/
+	}
+	
 	function newEvent($name, $description, $date, $type, $image, $user_id)
 	{
 		global $db;

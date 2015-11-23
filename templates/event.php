@@ -24,6 +24,10 @@
 					echo '<div id="event-id" style="display:none">'.$_GET['id'].'</div>';
 					echo '<button id="unsubscribe" style="'.($sub?'':'display:none').'" class="subscription button">'.$lang['UNSUBSCRIBE'].'</button>';
 					echo '<button id="subscribe" style="'.($sub?'display:none':'').'" class="subscription button">'.$lang['SUBSCRIBE'].'</button>';
+					
+					$path = "delete/".$_GET['id'];
+					if(isUserEvent($_SESSION['user_id'],$_GET['id']))
+						echo "<a href='$path'>Delete</a>";
 				}
 				include('templates/footer.php'); 
 				?>
