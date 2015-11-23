@@ -4,7 +4,7 @@
 	function getUserEvents($user_id)
 	{
 		global $db;
-		$stmt = $db->prepare('SELECT events.id id,name,image,date,description,type FROM events LEFT JOIN event_types ON type_id = event_types.id WHERE user_id = ?');
+		$stmt = $db->prepare('SELECT events.id id,name,image,date,description,type FROM events LEFT JOIN event_types ON type_id = event_types.id WHERE user_id = ? AND deleted = 0');
 		$stmt->execute(array($user_id));
 		return $stmt->fetchAll();
 	}
@@ -55,7 +55,7 @@
 	function getEvent($event_id)
 	{
 		global $db;
-		$stmt = $db->prepare('SELECT events.id id,name,image,date,description,type FROM events LEFT JOIN event_types ON type_id = event_types.id WHERE events.id=?');
+		$stmt = $db->prepare('SELECT events.id id,name,image,date,description,type FROM events LEFT JOIN event_types ON type_id = event_types.id WHERE events.id=? AND deleted = 0');
 		$stmt->execute(array($event_id));
 		return $stmt->fetch();
 	}
@@ -88,7 +88,7 @@
 		$stmt = $db->prepare('SELECT events.id id,name,image,date,description,type FROM event_subscriptions 
 			LEFT JOIN events ON events.id = event_id
 			LEFT JOIN event_types ON type_id = event_types.id 
-			WHERE event_subscriptions.user_id = ?');
+			WHERE event_subscriptions.user_id = ? AND deleted = 0');
 		$stmt->execute(array($user_id));
 		return $stmt->fetchAll();
 	}
@@ -105,8 +105,8 @@
 	function searchEvents($string)
 	{
 		global $db;
-		$stmt = $db->prepare('SELECT id,name,image,date,description FROM events WHERE name LIKE ?');
-		$stmt->execute(array($string.'%'));
+		$stmt = $db->prepare('SELECT id,name,image,date,description FROM events WHERE deleted = 0 AND name LIKE ?');
+		$stmt->execute(array(htmlspecialchars($string).'%'));
 		return $stmt->fetchAll(PDO::FETCH_CLASS);
 	}
 ?>
