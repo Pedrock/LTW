@@ -11,14 +11,13 @@ $lang['SITE_NAME'] = 'Eventbook';
 
 // Register
 $lang['REGISTER'] = 'Regista-te';
-$lang['REGISTER_ERROR'] = 'Erro no registo.';
 $lang['FIRST_NAME'] = 'Primeiro Nome';
-$lang['FIRST_NAME_WRONG'] = 'O primeiro nome não é válido.';
+$lang['FIRST_NAME_ERROR'] = 'O primeiro nome não é válido.';
 $lang['LAST_NAME'] = 'Apelido';
-$lang['LAST_NAME_WRONG'] = 'O apelido não é válido.';
+$lang['LAST_NAME_ERROR'] = 'O apelido não é válido.';
 $lang['EMAIL'] = 'E-mail';
-$lang['EMAIL_WRONG'] = "Email não é válido.";
-$lang['EMAIL_USED'] = "Email já em uso.";
+$lang['EMAIL_ERROR'] = "Email não é válido.";
+$lang['EMAIL_IN_USE'] = "Email já em uso.";
 $lang['CONFIRM_EMAIL'] = 'Confirme o e-mail';
 $lang['PASSWORD'] = 'Password';
 $lang['PASSWORD_LENGTH'] = "A password tem de ter no mínimo 8 caracteres.";
@@ -30,10 +29,6 @@ $lang['LOGIN'] = 'Iniciar Sessão';
 
 // Header
 $lang['LOGOUT'] = 'Terminar Sessão';
-
-// Footer
-$lang['MENU_ABOUT_US'] = 'Sobre nós';
-$lang['MENU_CONTACT_US'] = 'Contacte-nos';
 
 // Main Page
 $lang['MY_EVENTS'] = 'Meus Eventos';
@@ -52,12 +47,12 @@ $lang['MEETING'] = 'Meeting';
 $lang['CEREMONY'] = 'Cerimónia';
 $lang['EDUCATIONAL'] = 'Educacional';
 
-$lang['NAME_ERROR'] = 'Nome inválido.';
-$lang['DESCRIPTION_ERROR'] = 'Descrição inválida.';
-$lang['DATE_ERROR'] = 'Data inválida.';
-$lang['IMAGE_ERROR'] = 'Imagem inválida.';
-$lang['IMAGE_LENGTH_ERROR'] = 'Tamanho da imagem superior a 5MB.';
-$lang['IMAGE_LENGTH_EXT'] = 'Extensão inválida (jpg, png, gif).';
+$lang['INVALID_NAME'] = 'Nome inválido.';
+$lang['INVALID_DESCRIPTION'] = 'Descrição inválida.';
+$lang['INVALID_DATE'] = 'Data inválida .';
+$lang['INVALID_IMAGE'] = 'Submeta uma imagem válida.';
+$lang['IMAGE_SIZE_ERROR'] = 'O tamanho da imagem não pode ser superior a 5MB.';
+$lang['IMAGE_EXT_ERROR'] = 'Extensão inválida (Válidas: jpg, png, gif).';
 
 $lang['SUBSCRIBE'] = 'Aderir';
 $lang['UNSUBSCRIBE'] = 'Desistir';

@@ -5,7 +5,9 @@
 	<div id="suggestions">
 	</div>
 	<div id="logout">
-		<h3><?php if (isSet($_SESSION['user_id'])) echo getFullName($_SESSION['user_id']) ?></h3>
-		<a href="<?php echo $_GLOBALS['web_root'] ?>logout"><?php echo $lang['LOGOUT'] ?></a>
+		<?php if (isSet($_SESSION['user_id'])) { ?>
+			<h3> <?php echo getFullName($_SESSION['user_id']) ?></h3>
+			<a href="<?php echo $_GLOBALS['web_root'] ?>logout"><?php echo $lang['LOGOUT'] ?></a>
+		<?php } ?>
 	</div>
 </div>

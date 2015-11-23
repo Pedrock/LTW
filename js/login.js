@@ -1,68 +1,62 @@
-var regEmail = /^\w+[@]\w+[.]\w+/g;
-var regName = /(^[A-Z]+$)/g;
-
 $( document ).ready(function() 
 {	
-	$('#register [name="fname"]').focusout(function(){
-		var fname = $('#register [name="fname"]').val();
+	var regEmail = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+	var regName = /^[A-zÀ-ÿ]+$/;
 
-		if(regName.test(fname))$('#error-reg-fname').fadeOut();
-		else if(fname=="" || !regName.test(fname)){
-			$('#error-reg-fname').fadeIn();
-		}else $('#error-reg-fname').fadeOut();
+	$('#register [name="fname"]').change(function(){
+		var fname = $(this).val();
+		if (regName.test(fname)) $('#error-reg-fname').fadeOut();
+		else $('#error-reg-fname').fadeIn();
 	});
 
-	$('#register [name="lname"]').focusout(function(){
-		var lname = $('#register [name="lname"]').val();
-		console.log(lname);
-		if(regName.test(lname))$('#error-reg-lname').fadeOut();
-		else if(lname=="" || !regName.test(lname)){
-			$('#error-reg-lname').fadeIn();
-		}
-		else $('#error-reg-lname').fadeOut();
+	$('#register [name="lname"]').change(function(){
+		var lname = $(this).val();
+		if (regName.test(lname)) $('#error-reg-lname').fadeOut();
+		else $('#error-reg-lname').fadeIn();
 	});
 
-	$('#register [name="email"]').focusout(function(){
-		var email1 = $('#register [name="email"]').val();
-		if(regEmail.test(email1))
+	$('#register [name="email"]').change(function(){
+		var email = $(this).val();
+		if(regEmail.test(email))
 		{
-			$('#error-reg-emailnV').fadeOut();
+			$('#error-reg-email').fadeOut();
+			$('#reg-email-in-use').fadeOut();
 			$.ajax({                                      
 		    	url: 'api/users.php',                        
-		      	data: {exists : email1},                       
+		      	data: {exists : email},                       
 		      	type: 'GET',
 		      	dataType: 'json',                 
 		      	success: function(data)     
 		      	{
-					if(data)
-					{
-						$('#error-reg-email').fadeIn();
-					}
-					else $('#error-reg-email').fadeOut();	
+					if(data) $('#reg-email-in-use').fadeIn();
+					else $('#reg-email-in-use').fadeOut();	
 		      	} 
 		    });
 		}	
-		else if(regEmail.test(email1))$('#error-reg-emailnV').fadeOut();
-		else $('#error-reg-emailnV').fadeIn();
+		else
+		{
+			$('#reg-email-in-use').hide();
+			$('#error-reg-email').fadeIn();
+		}
 	});
 
-	$('#register [name="password"]').focusout(function(){
-		var password = $('#register [name="password"]').val();
-
-		if (password.length<8 && password.length>0)
-			$('#error-reg-pass').fadeIn();
-		else $('#error-reg-pass').fadeOut();
-
-	});
-
-	$('#register [name="password2"]').mouseout(function(){
-		
-		var password = $('#register [name="password"]').val();
-		var password2 = $('#register [name="password2"]').val();
-
-		if (password == password2 )
+	$('#register [name="password"]').change(function(){
+		var password = $(this).val();
+		if (password.length > 0 && password.length < 8)
+		{
 			$('#error-reg-pass2').fadeOut();
-		else $('#error-reg-pass2').fadeIn();
+			$('#error-reg-pass').fadeIn();
+		}
+		else $('#error-reg-pass').fadeOut();
+	});
 
+	$('#register [name="password2"]').change(function(){
+		var password = $('#register [name="password"]').val();
+		if (password.length >= 8)
+		{
+			if (password == $(this).val())
+				$('#error-reg-pass2').fadeOut();
+			else $('#error-reg-pass2').fadeIn();
+		}
 	});
 });
