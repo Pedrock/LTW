@@ -24,11 +24,10 @@ if(isSet($_GET['action']) && $_GET['action'] == 'new')
 
 		if($valid_name && $valid_desc && $valid_date && $valid_image && $valid_extension)
 		{
-			echo 'valid';
 			$filename = $_FILES['image']['name'];
 			$extension = image_type_to_extension($image_info[2]);
 			do {
-			    $filename = uniqid().'.'.$extension;
+			    $filename = uniqid().$extension;
 			} while( file_exists($_GLOBALS['uploads_path'].$filename));
 			$newfile = $_GLOBALS['uploads_path'].$filename;
 			if (newEvent($_POST['name'], $_POST['desc'], $_POST['date'], $_POST['type'], $newfile, $_SESSION['user_id']))

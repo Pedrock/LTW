@@ -17,10 +17,10 @@ CREATE TABLE IF NOT EXISTS events
 	date DATETIME NOT NULL,
 	description TEXT NOT NULL,
 	type_id INTEGER NOT NULL REFERENCES types(id),
-	user_id INTEGER NOT NULL REFERENCES users(id)
+	user_id INTEGER NOT NULL REFERENCES users(id),
+	deleted BOOLEAN DEFAULT(0),
+	public BOOLEAN DEFAULT(1)
 );
-
-CREATE VIRTUAL TABLE events USING fts4 (id, name);
 
 CREATE TABLE IF NOT EXISTS event_types
 (
