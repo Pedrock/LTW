@@ -56,4 +56,12 @@ $lang['IMAGE_EXT_ERROR'] = 'Extensão inválida (Válidas: jpg, png, gif).';
 
 $lang['SUBSCRIBE'] = 'Aderir';
 $lang['UNSUBSCRIBE'] = 'Desistir';
+$lang['DELETE_MSG'] = 'Tem a certeza que quer apagar este evento?';
+$lang['DELETE'] = 'Apagar';
+$lang['EDIT'] = 'Editar';
+
+//Comments
+$lang['COMMENT'] = 'Comentário';
+$lang['COMMENTS'] = 'Comentários';
+
 ?>

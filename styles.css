@@ -255,15 +255,21 @@ input[type="date"] {
 
 .error-reg
 {
-	width: 100%; 
-	background-color: #fff; 
+	background-color: #F07878; 
 	text-align: center; 
 	font-size: 13px;
-	color: red;
+	padding:2px;
+	color: white;
 	display: none;
-	width: 100%;
 	margin-top:10px;
+	position: absolute;
+	z-index: 1;
+	left: 65%;
+	border: 1px solid red;
+	border-radius: 5px;
+	border-color: red;
 
+	
 }
 
 .events-list {

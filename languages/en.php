@@ -57,4 +57,11 @@ $lang['IMAGE_EXT_ERROR'] = 'Invalid extension (Accepted: jpg, png, gif).';
 // Event
 $lang['SUBSCRIBE'] = 'Subscribe';
 $lang['UNSUBSCRIBE'] = 'Unsubscribe';
+$lang['DELETE_MSG'] = 'Are you sure you want to delete this event?';
+$lang['DELETE'] = 'Delete';
+$lang['EDIT'] = 'Edit';
+
+//Comments
+$lang['COMMENT'] = 'Comment';
+$lang['COMMENTS'] = 'Comments';
 ?>

@@ -18,13 +18,13 @@
 		return ($event!==false);
 	}
 
-	function deleteEvent($event_id)
+	function deleteEvent($user_id, $event_id)
 	{
-		/*global $db;
-		$stmt = $db->prepare('DELETE FROM events WHERE  id = ?');
-		$stmt->execute(array($event_id));
+		global $db;
+		$stmt = $db->prepare('UPDATE events SET deleted = 1 WHERE id = ? AND user_id = ?');
+		$stmt->execute(array($event_id, $user_id));
 		$event = $stmt->fetch();
-		return ($event===true);*/
+		return ($event!==false);
 	}
 	
 	function newEvent($name, $description, $date, $type, $image, $user_id)
