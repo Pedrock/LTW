@@ -9,6 +9,15 @@
 		return $stmt->fetchAll();
 	}
 
+	function deleteEvent($user_id, $event_id)
+	{
+		global $db;
+		$stmt = $db->prepare('UPDATE events SET deleted = 1 WHERE id = ? AND user_id = ?');
+		$stmt->execute(array($event_id, $user_id));
+		$event = $stmt->fetch();
+		return ($event!==false);
+	}
+	
 	function newEvent($name, $description, $date, $type, $image, $user_id)
 	{
 		global $db;
@@ -37,7 +46,7 @@
 	function getEvent($event_id)
 	{
 		global $db;
-		$stmt = $db->prepare('SELECT events.id id,name,image,date,description,type FROM events LEFT JOIN event_types ON type_id = event_types.id WHERE events.id=? AND deleted = 0');
+		$stmt = $db->prepare('SELECT events.id id,name,image,date,description,type,user_id FROM events LEFT JOIN event_types ON type_id = event_types.id WHERE events.id=? AND deleted = 0');
 		$stmt->execute(array($event_id));
 		return $stmt->fetch();
 	}

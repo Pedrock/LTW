@@ -20,7 +20,7 @@
 		}
 		else
 		{
-			$_GLOBALS['LOGIN'] = array("fname" => !$valid_fname, "lname" => !$valid_lname, "email" => !$valid_email, "email-in-use" => $email_in_use,
+			$_GLOBALS['REGISTER'] = array("fname" => !$valid_fname, "lname" => !$valid_lname, "email" => !$valid_email, "email-in-use" => $email_in_use,
 				"password" => !$valid_password, "password2" => !$valid_password2);
 			include('templates/login_page.php');
 		}

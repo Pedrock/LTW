@@ -29,6 +29,9 @@ function print_event($row)
 	<div id="wrapper">
 		<?php include('templates/header.php'); ?>
 		<div id="content" class="center default-width">
+			<div id="error-delete-event" class="error-reg" <?php if (!empty($_GLOBALS['DELETE_EVENT']['error'])) echo 'style="display:block"' ?>>
+						<?php echo "teste" ?>
+			</div>
 			<ul class="tabs">
 				<li><a href="#subscribed"><?php echo $lang['SUBSCRIBED'] ?></a></li>
 				<li><a href="#mine"><?php echo $lang['MY_EVENTS'] ?></a></li>

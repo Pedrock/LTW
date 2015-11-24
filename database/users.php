@@ -22,10 +22,9 @@
 		$stmt->execute(array($email));
 		$user = $stmt->fetch();
 		if ($user !== false && password_verify($password, $user['password'])) {
-			$_SESSION['user_id'] = $user['id'];
-			return TRUE;
+			return $user['id'];
 		}
-		return FALSE;
+		return false;
 	}
 
 	function validSession($user_id)
