@@ -12,11 +12,11 @@ $lang['SITE_NAME'] = 'Eventbook';
 // Register
 $lang['REGISTER'] = 'Regista-te';
 $lang['FIRST_NAME'] = 'Primeiro Nome';
-$lang['FIRST_NAME_ERROR'] = 'O primeiro nome não é válido.';
+$lang['FIRST_NAME_ERROR'] = 'Primeiro nome inválido.';
 $lang['LAST_NAME'] = 'Apelido';
-$lang['LAST_NAME_ERROR'] = 'O apelido não é válido.';
+$lang['LAST_NAME_ERROR'] = 'Apelido inválido.';
 $lang['EMAIL'] = 'E-mail';
-$lang['EMAIL_ERROR'] = "Email não é válido.";
+$lang['EMAIL_ERROR'] = "Email inválido.";
 $lang['EMAIL_IN_USE'] = "Email já em uso.";
 $lang['CONFIRM_EMAIL'] = 'Confirme o e-mail';
 $lang['PASSWORD'] = 'Password';
@@ -26,8 +26,8 @@ $lang['CONFIRM_PASSWORD'] = 'Confirme a password';
 
 // Login
 $lang['LOGIN'] = 'Iniciar Sessão';
-$lang['EMAIL_UNUSED'] = 'Email não está registado.';
-$lang['PASSWORD_ERROR'] = 'Password não é válida.';
+$lang['UNREGISTERED_EMAIL'] = 'Email não registado ou inválido.';
+$lang['INVALID_PASSWORD'] = 'Password inválida.';
 
 // Header
 $lang['LOGOUT'] = 'Terminar Sessão';

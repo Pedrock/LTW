@@ -18,12 +18,12 @@ include_once('core/common.php');
 					<h2> <?php echo $lang['LOGIN'] ?> </h2>
 
 					<div id="error-login-email" class="error-reg" <?php if (!empty($_GLOBALS['LOGIN']['email'])) echo 'style="display:block"' ?>>
-						<?php echo $lang['EMAIL_UNUSED'] ?>
+						<?php echo $lang['UNREGISTERED_EMAIL'] ?>
 					</div>
 					<input type="email" name="email-login" placeholder="<?php echo $lang['EMAIL'] ?>"
 					value="<?php if(isSet($_POST['email-log'])) echo $_POST['email-log'] ?>">
 					<div id="error-login-pw" class="error-reg" <?php if (!empty($_GLOBALS['LOGIN']['password'])) echo 'style="display:block"' ?>>
-						<?php echo $lang['PASSWORD_ERROR'] ?>
+						<?php echo $lang['INVALID_PASSWORD'] ?>
 					</div>
 					<input type="password" name="password-login" placeholder="<?php echo $lang['PASSWORD'] ?>">
 					<input type="submit" class="button" value="<?php echo $lang['LOGIN'] ?>">
