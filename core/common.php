@@ -1,6 +1,6 @@
 <?php
   include_once(file_exists('core/config.php') ? 'core/config.php' : '../core/config.php');
-  session_start();
+  if (session_id() === "") session_start();
   header('Cache-control: private'); // IE 6 FIX
 
   if(isSet($_GET['lang']))

@@ -26,6 +26,8 @@ $lang['CONFIRM_PASSWORD'] = 'Confirme a password';
 
 // Login
 $lang['LOGIN'] = 'Iniciar Sessão';
+$lang['EMAIL_UNUSED'] = 'Email não está registado.';
+$lang['PASSWORD_ERROR'] = 'Password não é válida.';
 
 // Header
 $lang['LOGOUT'] = 'Terminar Sessão';
