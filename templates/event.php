@@ -2,7 +2,7 @@
 if ($row === false)
 {
 	header("HTTP/1.0 404 Not Found");
-	header("Location: ".$_GLOBALS['web_root']."404");
+	include('404.php');
 	die();
 }
 ?>
