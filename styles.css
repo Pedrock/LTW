@@ -152,28 +152,23 @@ body {
 }
 
 .spacing {
-	padding-top:50px;
+	padding-top:40px;
 }
 
 .login {
-	width: 300px;
-	margin: auto;
 	text-align: center;
+	min-width: 700px;
 }
 
-#new-event > input
-{
-	display: inline;
+.login > div {
+	display: inline-block;
+	width: 300px;
 }
 
-#new-event #event-submit
-{
-	display: block;
-	margin-top: 20px;
-	font-size: 14px;
-    font-weight: 600;
-    height: 35px;
-    width: 150px;
+#login-side-image {
+	top: 25px;
+	margin-right: 40px;
+	position: relative;
 }
 
 input[type="text"],input[type="password"],input[type="email"], select {
@@ -217,6 +212,18 @@ input[type="date"] {
     height: 40px;
 }
 
+.error-reg
+{
+	width: 100%; 
+	background-color: #fff; 
+	text-align: center; 
+	font-size: 13px;
+	color: red;
+	display: none;
+	width: 100%;
+	margin-top:10px;
+}
+
 .div-event-image
 {
 	width: 100%;
@@ -243,6 +250,22 @@ input[type="date"] {
 	margin-right: 7px;
 }
 
+
+#new-event > input
+{
+	display: inline;
+}
+
+#new-event #event-submit
+{
+	display: block;
+	margin-top: 20px;
+	font-size: 14px;
+    font-weight: 600;
+    height: 35px;
+    width: 150px;
+}
+
 .event-error
 {
 	background-color: #fff; 
@@ -251,19 +274,6 @@ input[type="date"] {
 	color: red;
 	display: none;
 	padding-left: 20px;
-}
-
-.error-reg
-{
-	width: 100%; 
-	background-color: #fff; 
-	text-align: center; 
-	font-size: 13px;
-	color: red;
-	display: none;
-	width: 100%;
-	margin-top:10px;
-
 }
 
 .events-list {
