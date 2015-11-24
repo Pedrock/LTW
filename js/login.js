@@ -5,9 +5,6 @@ $( document ).ready(function()
 
 	$('#register [name="fname"]').change(function(){
 		var fname = $(this).val();
-		//var t = .css({"top":$(this).offset().top,"left":($('#register').offset().left + $('#register').width())+30});
-		//position: absolute;
-		//z-index: 1;
 		if (regName.test(fname)) $('#error-reg-fname').fadeOut();
 		else $('#error-reg-fname').fadeIn();
 	});

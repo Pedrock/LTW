@@ -10,7 +10,6 @@ if (isset($_POST['id']) && isset($_POST['subscribe']))
 }
 else if (isset($_GET['search']))
 {
-	include_once('../core/require_session.php');
 	echo json_encode(searchEvents($_GET['search']));
 }
 ?>

@@ -26,8 +26,8 @@ $lang['CONFIRM_PASSWORD'] = 'Confirm password';
 
 // Login
 $lang['LOGIN'] = 'Log In';
-$lang['EMAIL_UNUSED'] = 'Email is not registered.';
-$lang['PASSWORD_ERROR'] = 'Password is not valid.';
+$lang['UNREGISTERED_EMAIL'] = 'Unregistered email.';
+$lang['INVALIDPASSWORD'] = 'Invalid password.';
 
 // Header
 $lang['LOGOUT'] = 'Log Out';

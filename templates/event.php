@@ -29,21 +29,21 @@ if ($row === false)
 				<?php
 				if (isSet($_SESSION['user_id']))
 				{
-					$sub = isEventSubscribed($_GET['id'], $_SESSION['user_id']);
+					include('templates/comments.php');
 					echo '<div id="event-id" style="display:none">'.$_GET['id'].'</div>';
 
-					include('templates/comments.php');		
+					$sub = isEventSubscribed($_GET['id'], $_SESSION['user_id']);
 
 					echo '<button id="unsubscribe" style="'.($sub?'':'display:none').'" class="subscription button">'.$lang['UNSUBSCRIBE'].'</button>';
 					echo '<button id="subscribe" style="'.($sub?'display:none':'').'" class="subscription button">'.$lang['SUBSCRIBE'].'</button>';
 					 
-					$path = "delete/".$_GET['id'];
-					// href='$path'
-					if(isUserEvent($_SESSION['user_id'],$_GET['id']))
-					{
-						echo "<button name='delete' class='delete button' style='float:right'>".$lang['DELETE']."</button>";
-						echo "<button name='edit' class='delete button' style='float:right;margin-right:1px'>".$lang['EDIT']."</button>";
-
+					if ($_SESSION['user_id'] === $row['user_id'])
+					{ ?>
+						<div id="del-edit-div">
+							<button id="edit-button" name='edit' class='button'><?php echo $lang['EDIT'] ?></button>
+							<button id="delete-button" name='delete' class='button'><?php echo $lang['DELETE'] ?></button>
+						</div>
+					<?php
 					}
 				}
 				include('templates/footer.php'); 
