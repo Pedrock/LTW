@@ -51,6 +51,17 @@
 		return $stmt->fetch();
 	}
 
+	function getEventAndSubscription($event_id, $user_id)
+	{
+		global $db;
+		$stmt = $db->prepare('SELECT events.id id,name,image,date,description,type,events.user_id user_id, COUNT(event_id) subscribed FROM events 
+			LEFT JOIN event_types ON type_id = event_types.id 
+			LEFT JOIN event_subscriptions ON event_id = events.id AND event_subscriptions.user_id = ?
+			WHERE events.id=? AND deleted = 0');
+		$stmt->execute(array($user_id,$event_id));
+		return $stmt->fetch();
+	}
+
 	function getEventTypes()
 	{
 		global $db;
@@ -99,5 +110,33 @@
 		$stmt = $db->prepare('SELECT id,name,image,date,description FROM events WHERE deleted = 0 AND name LIKE ?');
 		$stmt->execute(array(htmlspecialchars($string).'%'));
 		return $stmt->fetchAll(PDO::FETCH_CLASS);
+	}
+
+	function createComment($event_id, $user_id, $comment)
+	{
+		global $db;
+		$stmt = $db->prepare('INSERT INTO event_comments(user_id,event_id,text) VALUES (?,?,?)');
+		$stmt->execute(array($user_id, $event_id, htmlspecialchars($comment)));
+		return $db->lastInsertId();
+	}
+
+	function getEventComments($event_id, $last_id = false)
+	{
+		global $db;
+		if ($last_id === false)
+		{
+			$stmt = $db->prepare('SELECT event_comments.id id, (first_name || " " || last_name) user_name, date, text FROM event_comments 
+				LEFT JOIN users ON user_id = users.id WHERE event_id = ? ORDER BY id DESC');
+			$stmt->execute(array($event_id));
+			return $stmt->fetchAll();
+		}
+		else
+		{
+			$stmt = $db->prepare('SELECT event_comments.id id, (first_name || " " || last_name) user_name, date, text FROM event_comments 
+				LEFT JOIN users ON user_id = users.id WHERE event_id = ? AND event_comments.id > ? ORDER BY id DESC');
+			$stmt->execute(array($event_id,$last_id));
+			return $stmt->fetchAll(PDO::FETCH_CLASS);
+		}
+		
 	}
 ?>

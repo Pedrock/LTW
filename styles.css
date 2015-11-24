@@ -361,3 +361,63 @@ ul.tabs li.active {
 	padding: 7px;
 	margin-top:2px;
 }
+
+#comments-box {
+	margin-top: 20px;
+	width:97%
+}
+
+#comments-box h2
+{
+	margin:0 0 10px 0;
+	font-size: 1.2em;
+}
+
+#comments-box h3
+{
+	margin:0 0 10px 0;
+	font-size: 1em;
+}
+
+#comments-box button {
+	margin: 10px 0 20px;
+}
+
+#comments-box p {
+	font-size: 0.9em;
+}
+
+#comments-box ul {
+	padding-left: 0;
+}
+
+#comment-area {
+	display:block;
+	resize:vertical;
+	width: 94%;
+}
+
+#comment-area, #comments-box button {
+	margin-left: 20px;
+}
+
+.comment {
+	padding: 6px 20px 20px 7px;
+	margin: 20px;
+	background-color: #fafafa;
+	border: 1px solid #edeeee;
+	border-radius: 5px;
+	list-style-type: none;
+}
+
+.author {
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+}
+
+.comment-text {
+	margin-left: 10px;
+	margin-top: 5px;
+	word-wrap: break-word;
+}

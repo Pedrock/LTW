@@ -56,14 +56,16 @@ $lang['INVALID_IMAGE'] = 'Submeta uma imagem válida.';
 $lang['IMAGE_SIZE_ERROR'] = 'O tamanho da imagem não pode ser superior a 5MB.';
 $lang['IMAGE_EXT_ERROR'] = 'Extensão inválida (Válidas: jpg, png, gif).';
 
+// Event
 $lang['SUBSCRIBE'] = 'Aderir';
 $lang['UNSUBSCRIBE'] = 'Desistir';
 $lang['DELETE_MSG'] = 'Tem a certeza que quer apagar este evento?';
 $lang['DELETE'] = 'Apagar';
 $lang['EDIT'] = 'Editar';
 
-//Comments
-$lang['COMMENT'] = 'Comentário';
+$lang['LEAVE_A_COMMENT'] = 'Deixe um comentário';
 $lang['COMMENTS'] = 'Comentários';
+$lang['MAKE_COMMENT'] = 'Comentar';
+$lang['NO_COMMENTS_YET'] = 'Ainda não há comentários.';
 
 ?>

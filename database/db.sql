@@ -35,6 +35,15 @@ CREATE TABLE IF NOT EXISTS event_subscriptions
 	PRIMARY KEY (event_id, user_id)
 );
 
+CREATE TABLE IF NOT EXISTS event_comments
+(
+	id INTEGER PRIMARY KEY,
+	event_id INTEGER NOT NULL REFERENCES events(id),
+	user_id INTEGER NOT NULL REFERENCES users(id),
+	date DATETIME DEFAULT(DATETIME('now')),
+	text TEXT NOT NULL
+);
+
 DELETE FROM event_types;
 INSERT INTO event_types(id,type) VALUES (1,'PARTY');
 INSERT INTO event_types(id,type) VALUES (2,'BUSINESS');

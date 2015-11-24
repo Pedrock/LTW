@@ -63,7 +63,9 @@ $lang['DELETE_MSG'] = 'Are you sure you want to delete this event?';
 $lang['DELETE'] = 'Delete';
 $lang['EDIT'] = 'Edit';
 
-//Comments
-$lang['COMMENT'] = 'Comment';
+$lang['LEAVE_A_COMMENT'] = 'Leave a comment';
 $lang['COMMENTS'] = 'Comments';
+$lang['MAKE_COMMENT'] = 'Comment';
+$lang['NO_COMMENTS_YET'] = 'There are no comments yet.';
+
 ?>

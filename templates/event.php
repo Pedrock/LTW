@@ -1,4 +1,7 @@
-<?php $row = getEvent($_GET['id']);
+<?php 
+if (isSet($_SESSION['user_id']))
+	$row = getEventAndSubscription($_GET['id'],$_SESSION['user_id']);
+else $row = getEvent($_GET['id']);
 if ($row === false)
 {
 	header("HTTP/1.0 404 Not Found");
@@ -12,7 +15,7 @@ if ($row === false)
 	<title><?php echo $lang['SITE_NAME'] ?></title>
 	<link rel="stylesheet" href="../styles.css">
 	<script src="../<?php echo $_GLOBALS['jquery'] ?>"></script>
-	<script type="text/javascript" src="../js/event-subscription.js"></script>
+	<script type="text/javascript" src="../js/event.js"></script>
 </head>
 <body>
 	<div id="wrapper">
@@ -29,15 +32,14 @@ if ($row === false)
 				<?php
 				if (isSet($_SESSION['user_id']))
 				{
-					include('templates/comments.php');
+					$subscribed = $row['subscribed'];
+					$owner = ($_SESSION['user_id'] === $row['user_id']);
 					echo '<div id="event-id" style="display:none">'.$_GET['id'].'</div>';
 
-					$sub = isEventSubscribed($_GET['id'], $_SESSION['user_id']);
+					echo '<button id="unsubscribe" style="'.($subscribed?'':'display:none').'" class="subscription button">'.$lang['UNSUBSCRIBE'].'</button>';
+					echo '<button id="subscribe" style="'.($subscribed?'display:none':'').'" class="subscription button">'.$lang['SUBSCRIBE'].'</button>';
 
-					echo '<button id="unsubscribe" style="'.($sub?'':'display:none').'" class="subscription button">'.$lang['UNSUBSCRIBE'].'</button>';
-					echo '<button id="subscribe" style="'.($sub?'display:none':'').'" class="subscription button">'.$lang['SUBSCRIBE'].'</button>';
-					 
-					if ($_SESSION['user_id'] === $row['user_id'])
+					if ($owner)
 					{ ?>
 						<div id="del-edit-div">
 							<button id="edit-button" name='edit' class='button'><?php echo $lang['EDIT'] ?></button>
@@ -45,6 +47,7 @@ if ($row === false)
 						</div>
 					<?php
 					}
+					include('templates/comments.php');
 				}
 				include('templates/footer.php'); 
 				?>
