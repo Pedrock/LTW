@@ -12,13 +12,17 @@ else if (isset($_GET['search']))
 {
 	echo json_encode(searchEvents($_GET['search']));
 }
-else if (isset($_GET['id']) && isset($_GET['comments']))
+else if (isset($_GET['id']) && isset($_GET['last-comment']))
 {
-	echo json_encode(getEventComments($_GET['id'], $_GET['comments']));
+	echo json_encode(getEventComments($_GET['id'], $_GET['last-comment']));
 }
-else if (isset($_POST['id']) && isset($_POST['comment']))
+else if (isset($_POST['id']) && isset($_POST['last-comment']) && isset($_POST['comment']))
 {
 	include_once('../core/require_session.php');
-	echo json_encode(createComment($_POST['id'], $_SESSION['user_id'], $_POST['comment']));
+	if (createComment($_POST['id'], $_SESSION['user_id'], $_POST['comment']))
+	{
+		echo json_encode(getEventComments($_POST['id'], $_POST['last-comment']));
+	}
+	else return false;
 }
 ?>
