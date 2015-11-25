@@ -14,11 +14,15 @@
 				<form id="new-event" action="new" method="POST" enctype="multipart/form-data">
 					<h3><?php echo $lang['NAME'] ?></h3>
 					<input type="text" id="name" name="name" value="<?php if(isSet($_POST['name'])) echo $_POST['name'] ?>">
-					
 					<div id="error-event-name" class="event-error" <?php if (!empty($_GLOBALS['NEW']['name'])) echo 'style="display:initial"' ?>>
 							<?php echo $lang['INVALID_NAME'] ?>
 					</div>
-					
+
+					<div id="privacy">
+						<input type="radio" name="privacy" value="public" checked="checked"><?php echo $lang['PUBLIC'] ?>
+						<input type="radio" name="privacy" value="private"><?php echo $lang['PRIVATE'] ?>
+					</div>
+
 					<h3><?php echo $lang['DESCRIPTION'] ?></h3>
 					<input type="text" name="desc" value="<?php if(isSet($_POST['desc'])) echo $_POST['desc'] ?>">
 					<div id="error-event-desc" class="event-error" <?php if (!empty($_GLOBALS['NEW']['desc'])) echo 'style="display:initial"' ?>>
@@ -54,7 +58,6 @@
 					<div id="error-event-image-ext" class="event-error" <?php if (!empty($_GLOBALS['NEW']['ext'])) echo 'style="display:initial"' ?>>
 							<?php echo $lang['IMAGE_EXT_ERROR'] ?>
 					</div>
-
 					<input id="event-submit" type="submit" class="button" value="<?php echo $lang['CREATE'] ?>" name="submit">
 				</form>
 			</div>

@@ -270,6 +270,10 @@ input[type="date"] {
 	margin-right: 7px;
 }
 
+.share {
+	padding: 12px 0 0;
+}
+
 
 #new-event > input, #edit-event > input
 {
@@ -284,6 +288,11 @@ input[type="date"] {
     font-weight: 600;
     height: 35px;
     width: 150px;
+}
+
+#privacy {
+	display:block;
+	margin-top:20px;
 }
 
 .event-error
@@ -368,7 +377,7 @@ ul.tabs li.active {
 }
 
 #comments-box {
-	margin-top: 20px;
+	margin-top: 10px;
 	width:97%
 }
 

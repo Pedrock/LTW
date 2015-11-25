@@ -20,6 +20,7 @@ if(isSet($_GET['action']) && $_GET['action'] == 'new')
 		$valid_image = (!empty($_FILES['image']['tmp_name']) && ($image_info = getimagesize($_FILES['image']['tmp_name'])));
 		$valid_image_size = $valid_image ? $_FILES['image']['size'] <= $_GLOBALS['max_image_upload'] : true;
 		$valid_extension = ($valid_image && $valid_image_size) ? in_array($image_info[2],$_GLOBALS['allowed_image_types']) : true;
+		$valid_privacy = !empty($_POST['privacy']) && ($_POST['privacy'] === "public" || $_POST['privacy'] === "private");
 
 		if($valid_name && $valid_desc && $valid_date && $valid_image && $valid_extension)
 		{
@@ -29,7 +30,8 @@ if(isSet($_GET['action']) && $_GET['action'] == 'new')
 			    $filename = uniqid().$extension;
 			} while( file_exists($_GLOBALS['uploads_path'].$filename));
 			$newfile = $_GLOBALS['uploads_path'].$filename;
-			if (newEvent($_POST['name'], $_POST['desc'], $_POST['date'], $_POST['type'], $newfile, $_SESSION['user_id']))
+			$public = $_POST['privacy'] === "public";
+			if (newEvent($_POST['name'], $_POST['desc'], $_POST['date'], $_POST['type'], $newfile, $_SESSION['user_id'], $public))
 			{
 				move_uploaded_file($_FILES['image']['tmp_name'], $newfile);
 				$id = latestUserEvent($_SESSION['user_id']);

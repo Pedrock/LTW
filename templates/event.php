@@ -16,6 +16,7 @@ if ($row === false)
 	<link rel="stylesheet" href="../styles.css">
 	<script src="../<?php echo $_GLOBALS['jquery'] ?>"></script>
 	<script type="text/javascript" src="../js/event.js"></script>
+	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56557f93aab8dc78" async="async"></script>
 </head>
 <body>
 	<div id="wrapper">
@@ -46,6 +47,10 @@ if ($row === false)
 							<button id="delete-button" class='button'><?php echo $lang['DELETE'] ?></button>
 						</div>
 					<?php
+					}	
+					if ($owner || $row['public'])
+					{
+						echo '<div class="addthis_sharing_toolbox share"></div>';
 					}
 					include('templates/comments.php');
 				}

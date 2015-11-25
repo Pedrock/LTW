@@ -45,17 +45,18 @@
 		return ($event!==false);
 	}
 	
-	function newEvent($name, $description, $date, $type, $image, $user_id)
+	function newEvent($name, $description, $date, $type, $image, $user_id, $public)
 	{
 		global $db;
-		$stmt = $db->prepare('INSERT INTO events(name,description,date,type_id,image,user_id) VALUES (?, ?, ?, ?, ?, ?)');
+		$stmt = $db->prepare('INSERT INTO events(name,description,date,type_id,image,user_id,public) VALUES (?, ?, ?, ?, ?, ?, ?)');
 		if (!$stmt->execute(array(
 			htmlspecialchars($name), 
 			htmlspecialchars($description), 
 			$date,
 			$type,
 			$image,
-			$user_id
+			$user_id,
+			$public
 		))) return FALSE;
 		return TRUE;
 	}
@@ -73,7 +74,7 @@
 	function getEvent($event_id)
 	{
 		global $db;
-		$stmt = $db->prepare('SELECT events.id id,name,image,date,description,type,user_id FROM events 
+		$stmt = $db->prepare('SELECT events.id id,name,image,date,description,type,user_id,public FROM events 
 			LEFT JOIN event_types ON type_id = event_types.id 
 			WHERE events.id=? AND deleted = 0');
 		$stmt->execute(array($event_id));
@@ -83,7 +84,7 @@
 	function getEventAndSubscription($event_id, $user_id)
 	{
 		global $db;
-		$stmt = $db->prepare('SELECT events.id id,name,image,date,description,type,events.user_id user_id, COUNT(event_id) subscribed FROM events 
+		$stmt = $db->prepare('SELECT events.id id,name,image,date,description,type,events.user_id user_id, public, COUNT(event_id) subscribed FROM events 
 			LEFT JOIN event_types ON type_id = event_types.id 
 			LEFT JOIN event_subscriptions ON event_id = events.id AND event_subscriptions.user_id = ?
 			WHERE events.id=? AND deleted = 0

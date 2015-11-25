@@ -38,6 +38,8 @@ $lang['SUBSCRIBED'] = 'Subscribed';
 $lang['CREATE'] = 'Create';
 
 // New Event
+$lang['PRIVATE'] = 'Private';
+$lang['PUBLIC'] = 'Public';
 $lang['NAME'] = 'Name';
 $lang['DESCRIPTION'] = 'Description';
 $lang['DATE'] = 'Date';
