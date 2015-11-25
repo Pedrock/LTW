@@ -73,7 +73,9 @@
 	function getEvent($event_id)
 	{
 		global $db;
-		$stmt = $db->prepare('SELECT events.id id,name,image,date,description,type,user_id FROM events LEFT JOIN event_types ON type_id = event_types.id WHERE events.id=? AND deleted = 0');
+		$stmt = $db->prepare('SELECT events.id id,name,image,date,description,type,user_id FROM events 
+			LEFT JOIN event_types ON type_id = event_types.id 
+			WHERE events.id=? AND deleted = 0');
 		$stmt->execute(array($event_id));
 		return $stmt->fetch();
 	}
@@ -84,7 +86,8 @@
 		$stmt = $db->prepare('SELECT events.id id,name,image,date,description,type,events.user_id user_id, COUNT(event_id) subscribed FROM events 
 			LEFT JOIN event_types ON type_id = event_types.id 
 			LEFT JOIN event_subscriptions ON event_id = events.id AND event_subscriptions.user_id = ?
-			WHERE events.id=? AND deleted = 0');
+			WHERE events.id=? AND deleted = 0
+			GROUP BY event_id');
 		$stmt->execute(array($user_id,$event_id));
 		return $stmt->fetch();
 	}
@@ -134,8 +137,8 @@
 	function searchEvents($string)
 	{
 		global $db;
-		$stmt = $db->prepare('SELECT id,name,image,date,description FROM events WHERE deleted = 0 AND name LIKE ?');
-		$stmt->execute(array(htmlspecialchars($string).'%'));
+		$stmt = $db->prepare('SELECT id,name,image,date,description FROM events WHERE deleted = 0 AND name LIKE ? LIMIT 10');
+		$stmt->execute(array('%'.htmlspecialchars($string).'%'));
 		return $stmt->fetchAll(PDO::FETCH_CLASS);
 	}
 
@@ -143,8 +146,8 @@
 	{
 		global $db;
 		$stmt = $db->prepare('INSERT INTO event_comments(user_id,event_id,text) VALUES (?,?,?)');
-		$stmt->execute(array($user_id, $event_id, htmlspecialchars($comment)));
-		return $db->lastInsertId();
+		$stmt->execute(array($user_id, $event_id, nl2br(htmlspecialchars($comment))));
+		return true;
 	}
 
 	function getEventComments($event_id, $last_id = false)
@@ -164,6 +167,5 @@
 			$stmt->execute(array($event_id,$last_id));
 			return $stmt->fetchAll(PDO::FETCH_CLASS);
 		}
-		
 	}
 ?>
