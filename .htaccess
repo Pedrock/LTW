@@ -14,7 +14,6 @@ RewriteRule ^([^.]+/)*api/([^.]+)\.php api/$2.php
 RewriteRule ^([^.]+/)*js/([^.]+)\.js js/$2.js
 RewriteRule ^events/([0-9]+)$ events.php?id=$1 [QSA,L]
 RewriteRule ^events/([a-zA-Z]+)$ events.php?action=$1 [QSA,L]
-RewriteRule ^events/([a-zA-Z]+)/([a-zA-Z]+)$ events.php?action=$1 [QSA,L]
-RewriteRule ^events/([a-zA-Z]+)/([0-9]+)$ events.php?action=$1&id=$2 [QSA,L]
+RewriteRule ^events/([0-9]+)/([a-zA-Z]+)$ events.php?id=$1&action=$2 [QSA,L]
 RewriteRule ^events/$ events.php?action=redirect [QSA,L]
 RewriteRule ^([^.]+)$ $1.php

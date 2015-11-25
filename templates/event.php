@@ -40,11 +40,10 @@ if ($row === false)
 					echo '<button id="subscribe" style="'.($subscribed?'display:none':'').'" class="subscription button">'.$lang['SUBSCRIBE'].'</button>';
 
 					if ($owner)
-					{
-						$path = "./edit/".$_GET['id']; ?>
+					{ ?>
 						<div id="del-edit-div">
-							<button id="edit-button" name='edit' onclick='location.href="<?php echo $path?>"' class='button'><?php echo $lang['EDIT'] ?></button>
-							<button id="delete-button" name='delete' class='button'><?php echo $lang['DELETE'] ?></button>
+							<a id="edit-button" class='button' href='<?php echo $_GET['id']."/edit"; ?>'><?php echo $lang['EDIT'] ?></a>
+							<button id="delete-button" class='button'><?php echo $lang['DELETE'] ?></button>
 						</div>
 					<?php
 					}

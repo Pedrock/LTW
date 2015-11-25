@@ -85,9 +85,6 @@ else if(isSet($_GET['action']) && $_GET['action'] == 'edit')
 		$_GLOBALS['EDIT'] = array("name" => !$valid_name, "desc" => !$valid_desc, "date" => !$valid_date, 
 								"image" => !$valid_image,"use_previous" => $use_previous_image, "size" => !$valid_image_size, "ext" => !$valid_extension);
 	}
-	else if(isSet($_GET['id']))
-		include('templates/events_edit.php');
-
 	include('templates/events_edit.php');
 }
 else if(isSet($_GET['id']))
