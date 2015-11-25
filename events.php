@@ -89,14 +89,14 @@ else if(isSet($_GET['action']) && $_GET['action'] == 'edit')
 	}
 	include('templates/events_edit.php');
 }
-else if(isSet($_GET['id']))
+else if(!isSet($_GET['action']) && isSet($_GET['id']))
 {
 	include('templates/event.php');
 }
 else
 {
-	if (isSet($_GET['action'])) header('Location: ..');
-	else header('Location: .');
+	header("HTTP/1.0 404 Not Found");
+	include('404.php');
 	die();
 }
 ?>
