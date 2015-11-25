@@ -266,12 +266,12 @@ input[type="date"] {
 }
 
 
-#new-event > input
+#new-event > input, #edit-event > input
 {
 	display: inline;
 }
 
-#new-event #event-submit
+#new-event #event-submit, #edit-event #event-edit-submit
 {
 	display: block;
 	margin-top: 20px;

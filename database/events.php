@@ -9,6 +9,33 @@
 		return $stmt->fetchAll();
 	}
 
+	function updateEvent($name,$description,$date,$type,$image,$event_id, $user_id)
+	{
+		global $db;
+		if(!$image)
+		{
+			$stmt = $db->prepare('UPDATE events SET name = ?,description = ?,date = ?,type_id = ? WHERE id = ? AND user_id = ?');
+			$stmt->execute(array($name,$description,$date,$type,$event_id, $user_id));
+		}
+		else
+		{
+			$stmt = $db->prepare('UPDATE events SET name = ?,description = ?,date = ?,type_id = ?,image = ? WHERE id = ? AND user_id = ?');
+			$stmt->execute(array($name,$description,$date,$type,$image,$event_id, $user_id));
+		}
+		$event = $stmt->rowCount();
+		return $event;
+	}
+
+	function isUserEvent($user_id,$event_id)
+	{
+		global $db;
+		$stmt = $db->prepare('SELECT id FROM events WHERE user_id = ? AND id = ? AND deleted = 0');
+		$stmt->execute(array($user_id,$event_id));
+		$row = $stmt->fetch();
+		if ($row === false) return false;
+		return $row['id'];
+	}
+
 	function deleteEvent($user_id, $event_id)
 	{
 		global $db;
