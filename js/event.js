@@ -2,6 +2,7 @@ function updateComments(array)
 {
 	if (array.length)
 	{
+		$('#no-comments-yet').hide();
 		$('#last-comment-id').text(array[0]['id']);
 		for (i in array) {
 			$('#comments-list').prepend(
@@ -48,7 +49,6 @@ $(document).ready(function()
 	$delete_msg = $("#delete_msg").text();
 	$("#delete-button").click(function()
 	{	
-		
 		if(confirm($delete_msg))
 			$('<form method="POST" action="../events"><input type="hidden" name="delete" value="'+$event_id+'"></form>').submit();	
 	});
