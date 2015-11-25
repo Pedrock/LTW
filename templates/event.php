@@ -45,9 +45,11 @@ if ($row === false)
 					$owner = ($_SESSION['user_id'] === $row['user_id']);
 					echo '<div id="event-id" style="display:none">'.$_GET['id'].'</div>';
 
+					echo '<div><a id="albums-button" class="button" href="'.$_GET['id'].'/albums">'.$lang['ALBUMS'].'</a></div>';
+
 					echo '<button id="unsubscribe" style="'.($subscribed?'':'display:none').'" class="subscription button">'.$lang['UNSUBSCRIBE'].'</button>';
 					echo '<button id="subscribe" style="'.($subscribed?'display:none':'').'" class="subscription button">'.$lang['SUBSCRIBE'].'</button>';
-
+					
 					if ($owner)
 					{ ?>
 						<div id="del-edit-div">
@@ -62,10 +64,10 @@ if ($row === false)
 					}
 					include('templates/comments.php');
 				}
-				include('templates/footer.php'); 
 				?>
 			</div>
 		</div>
+		<?php include('templates/footer.php'); ?>
 	</div>
 </body>
 </html>

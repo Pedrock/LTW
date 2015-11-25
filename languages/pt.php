@@ -64,6 +64,7 @@ $lang['UNSUBSCRIBE'] = 'Desistir';
 $lang['DELETE_MSG'] = 'Tem a certeza que quer apagar este evento?';
 $lang['DELETE'] = 'Apagar';
 $lang['EDIT'] = 'Editar';
+$lang['ALBUMS'] = 'Álbuns';
 
 $lang['LEAVE_A_COMMENT'] = 'Deixe um comentário';
 $lang['COMMENTS'] = 'Comentários';
