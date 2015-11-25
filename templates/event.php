@@ -24,11 +24,19 @@ if ($row === false)
 		<div id="content" >
 			<div class="box center default-width">
 				
-				<p><?php echo $row['name'] ?></p>
+				<h3><?php echo $row['name'] ?></h3>
 				<div class="div-event-image-big" style="background-image:url(<?php echo '../'.$row['image'] ?>)"></div>
+				<h4><?php echo $lang[$row['type']] ?></h4>
+				<p id="date"><?php 
+				
+				$dateParts = explode("-", $row['date']);
+				$date = $dateParts[2]." ".$lang[$dateParts[1]]." ".$dateParts[0];
+
+
+
+				echo $date ?></p>
 				<p><?php echo $row['description'] ?></p>
-				<p><?php echo $row['date'] ?></p>
-				<p><?php echo $lang[$row['type']] ?></p>
+
 				<div id="delete_msg" style="display:none"><?php echo $lang['DELETE_MSG'] ?></div>
 				<?php
 				if (isSet($_SESSION['user_id']))

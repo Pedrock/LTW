@@ -70,4 +70,17 @@ $lang['COMMENTS'] = 'Comentários';
 $lang['MAKE_COMMENT'] = 'Comentar';
 $lang['NO_COMMENTS_YET'] = 'Ainda não há comentários.';
 
+$lang['1'] = 'Janeiro';
+$lang['2'] = 'Fevereiro';
+$lang['3'] = 'Março';
+$lang['4'] = 'Abril';
+$lang['5'] = 'Maio';
+$lang['6'] = 'Junho';
+$lang['7'] = 'Julho';
+$lang['8'] = 'Agosto';
+$lang['9'] = 'Setembro';
+$lang['10'] = 'Outubro';
+$lang['11'] = 'Novembro';
+$lang['12'] = 'Dezembro';
+
 ?>

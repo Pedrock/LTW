@@ -8,11 +8,9 @@ function print_event($row)
 	global $lang; ?>
 	<li class="event box">
 		<a href="events/<?php echo $row['id'] ?>" >
-			<p><?php echo $row['name'] ?></p>
+			<h3 id="title"><?php echo $row['name'] ?></h3>
 			<div class="div-event-image" style="background-image:url(<?php echo $row['image'] ?>)"></div>
-			<p><?php echo $row['description'] ?></p>
-			<p><?php echo $row['date'] ?></p>
-			<p><?php echo $lang[$row['type']] ?></p>
+			<p id="date"><?php echo $row['date'] ?></p>
 		</a>
 	</li>
 	<?php
@@ -53,6 +51,7 @@ function print_event($row)
 				</div>
 			</div>
 		</div>
+		
 		<?php include('templates/footer.php'); ?>
 	</div>
 </body>
