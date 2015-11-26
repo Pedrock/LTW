@@ -1,13 +1,5 @@
-<?php
-if (isSet($_SESSION['user_id']))
-	$row = getEventAndSubscription($_REQUEST['id'],$_SESSION['user_id']);
-else die();
-if ($row === false)
-{
-	header("HTTP/1.0 404 Not Found");
-	include('404.php');
-	die();
-}
+<?php 
+include_once("core/event_edit_permission.php");
 ?>
 <!DOCTYPE html>
 <html>

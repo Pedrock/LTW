@@ -12,15 +12,16 @@ function validateDate($date)
 
 function checkPOST()
 {
+	$image_info = null;
 	$valid_name = !empty($_POST['name']);
 	$valid_desc = !empty($_POST['desc']);
 	$valid_date = validateDate($_POST['date']);
 	$valid_image = (!empty($_FILES['image']['tmp_name']) && ($image_info = getimagesize($_FILES['image']['tmp_name'])));
-	$valid_image_size = $valid_image ? $_FILES['image']['size'] <= $_GLOBALS['max_image_upload'] : true;
-	$valid_extension = ($valid_image && $valid_image_size) ? in_array($image_info[2],$_GLOBALS['allowed_image_types']) : true;
+	$valid_image_size = $valid_image || $_FILES['image']['size'] <= $_GLOBALS['max_image_upload'];
+	$valid_extension = $valid_image || $valid_image_size || in_array($image_info[2], $_GLOBALS['allowed_image_types']);
 	$valid_privacy = !empty($_POST['privacy']) && ($_POST['privacy'] === "public" || $_POST['privacy'] === "private");
 
-	return array($valid_name,$valid_desc,$valid_date,$valid_image,$valid_image_size,$valid_extension,$valid_privacy);
+	return array($valid_name,$valid_desc,$valid_date,$valid_image,$valid_image_size,$valid_extension,$valid_privacy,$image_info);
 }
 
 if(isSet($_GET['action']) && $_GET['action'] == 'new')
@@ -29,15 +30,15 @@ if(isSet($_GET['action']) && $_GET['action'] == 'new')
 	if (isset($_POST["submit"]))
 	{
 		$checks = checkPOST();
-		list($valid_name,$valid_desc,$valid_date,$valid_image,$valid_image_size,$valid_extension,$valid_privacy) = $checks;
+		list($valid_name,$valid_desc,$valid_date,$valid_image,$valid_image_size,$valid_extension,$valid_privacy,$image_info) = $checks;
 
-		if (in_array(false,$checks))
+		if ($valid_name && $valid_desc && $valid_date && $valid_image && $valid_image_size && $valid_extension && $valid_privacy)
 		{
 			$filename = $_FILES['image']['name'];
 			$extension = image_type_to_extension($image_info[2]);
 			do {
 			    $filename = uniqid().$extension;
-			} while( file_exists($_GLOBALS['uploads_path'].$filename));
+			} while (file_exists($_GLOBALS['uploads_path'].$filename));
 			$newfile = $_GLOBALS['uploads_path'].$filename;
 			$public = $_POST['privacy'] === "public";
 			if (newEvent($_POST['name'], $_POST['desc'], $_POST['date'], $_POST['type'], $newfile, $_SESSION['user_id'], $public))
@@ -55,6 +56,7 @@ if(isSet($_GET['action']) && $_GET['action'] == 'new')
 }
 else if(isSet($_POST['delete']))
 {
+	include_once('core/require_session.php');
 	deleteEvent($_SESSION['user_id'],$_POST['delete']);
 	header('Location: '.$_GLOBALS['web_root']);
 	die;
@@ -64,9 +66,12 @@ else if(isSet($_GET['action']) && $_GET['action'] == 'edit')
 	include_once('core/require_session.php');
 	if(isset($_POST['submit']))
 	{
-		list($valid_name,$valid_desc,$valid_date,$valid_image,$valid_image_size,$valid_extension,$valid_privacy) = checkPOST();
+		list($valid_name,$valid_desc,$valid_date,$valid_image,$valid_image_size,$valid_extension,$valid_privacy,$image_info) = checkPOST();
 
-		if ($valid_name && $valid_desc && $valid_date && $valid_image_size && $valid_extension && $valid_privacy) {
+		$use_previous_image = true;
+
+		if ($valid_name && $valid_desc && $valid_image_size && $valid_extension && $valid_privacy) {
+
 			$public = $_POST['privacy'] === "public";
 			$use_previous_image = empty($_FILES['image']['tmp_name']);
 
@@ -80,13 +85,13 @@ else if(isSet($_GET['action']) && $_GET['action'] == 'edit')
 				$newfile = $_GLOBALS['uploads_path'].$filename;
 				move_uploaded_file($_FILES['image']['tmp_name'], $newfile);
 
-				updateEvent($_POST['name'],$_POST['desc'],$_POST['date'],$_POST['type'],$newfile, $_POST['id'],$_SESSION['user_id'],$public);
+				updateEvent($_POST['id'],$_SESSION['user_id'],$_POST['name'],$_POST['desc'],$_POST['date'],$_POST['type'],$newfile,$public,!$valid_date);
 				header('Location: ../'.$_POST['id']);
 				die();
 			}
 			else if ($use_previous_image)
 			{
-				updateEvent($_POST['name'],$_POST['desc'],$_POST['date'],$_POST['type'], false, $_POST['id'],$_SESSION['user_id'],$public);
+				updateEvent($_POST['id'],$_SESSION['user_id'],$_POST['name'],$_POST['desc'],$_POST['date'],$_POST['type'],false,$public,!$valid_date);
 				header('Location: ../'.$_POST['id']);
 				die();
 			}

@@ -148,6 +148,7 @@ body {
     text-decoration: none;
     box-sizing: border-box;
     display: inline-block;
+    margin: 0;
 }
 
 .button:disabled {

@@ -9,19 +9,19 @@
 		return $stmt->fetchAll();
 	}
 
-	function updateEvent($name,$description,$date,$type,$image,$event_id,$user_id,$public)
+	function updateEvent($event_id,$user_id,$name,$description,$date,$type,$image,$public,$same_date)
 	{
 		global $db;
-		if(!$image)
+		$query = 'UPDATE events SET name=?,description=?,date=?,type_id=?,public=?'.($image?',image=?':'').' WHERE id=? AND user_id=?';
+		if($image) $args = array(htmlspecialchars($name),htmlspecialchars($description),$date,$type,$public,$image,$event_id,$user_id);
+		else $args = array(htmlspecialchars($name),htmlspecialchars($description),$date,$type,$public,$event_id,$user_id);
+		if ($same_date)
 		{
-			$stmt = $db->prepare('UPDATE events SET name = ?,description = ?,date = ?,type_id = ?, public = ? WHERE id = ? AND user_id = ?');
-			$stmt->execute(array($name,$description,$date,$type,$public,$event_id,$user_id));
+			$query .= ' AND date=?';
+			array_push($args,$date);
 		}
-		else
-		{
-			$stmt = $db->prepare('UPDATE events SET name = ?,description = ?,date = ?,type_id = ?, public = ?, image = ? WHERE id = ? AND user_id = ?');
-			$stmt->execute(array($name,$description,$date,$type,$public,$image,$event_id,$user_id));
-		}
+		$stmt = $db->prepare($query);
+		$stmt->execute($args);
 		$count = $stmt->rowCount();
 		return $count > 0;
 	}

@@ -12,14 +12,10 @@ if (isSet($_SESSION['user_id']))
 }
 if ($row === false)
 {
-	header("HTTP/1.0 404 Not Found");
 	include('404.php');
-	die();
 }
 else if ((!isSet($_SESSION['user_id']) && !$row['public']) || (isSet($_SESSION['user_id']) && !$subscribed && !$owner && !$row['public']))
 {
-	header("HTTP/1.0 401 Unauthorized");
 	include('401.php');
-	die();
 }
 ?>

@@ -1,3 +1,4 @@
+<?php header("HTTP/1.0 404 Not Found"); ?>
 <html>
 <head>
 	<title>404</title>
@@ -7,3 +8,4 @@
 	<button onclick="window.history.back();">Go Back</button>
 </body>
 </html>
+<?php die() ?>
