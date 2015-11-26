@@ -1,3 +1,5 @@
+PRAGMA foreign_keys = ON;
+
 CREATE TABLE IF NOT EXISTS users
 (
 	id INTEGER PRIMARY KEY,
@@ -16,7 +18,21 @@ CREATE TABLE IF NOT EXISTS events
 	creation_date DATETIME DEFAULT(DATETIME('now')),
 	date DATETIME NOT NULL,
 	description TEXT NOT NULL,
-	type_id INTEGER NOT NULL REFERENCES types(id),
+	type_id INTEGER NOT NULL REFERENCES event_types(id),
+	user_id INTEGER NOT NULL REFERENCES users(id),
+	deleted BOOLEAN DEFAULT(0),
+	public BOOLEAN DEFAULT(1)
+);
+
+CREATE TABLE events
+(
+	id INTEGER PRIMARY KEY,
+	name TEXT NOT NULL,
+	image TEXT NOT NULL,
+	creation_date DATETIME DEFAULT(DATETIME('now')),
+	date DATETIME NOT NULL,
+	description TEXT NOT NULL,
+	type_id INTEGER NOT NULL REFERENCES event_types(id),
 	user_id INTEGER NOT NULL REFERENCES users(id),
 	deleted BOOLEAN DEFAULT(0),
 	public BOOLEAN DEFAULT(1)

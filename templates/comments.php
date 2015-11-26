@@ -3,7 +3,7 @@
 		<h2><?php echo $lang['LEAVE_A_COMMENT']?></h2>
 		<textarea id="comment-area" name="comment" rows='4'></textarea>				
 		<button id="comment-button" class="button"><?php echo $lang['MAKE_COMMENT']?></button>
-	</form>
+	</div>
 	<div>
 		<h3><?php echo $lang['COMMENTS']?></h3>
 		<ul id="comments-list">

@@ -8,6 +8,9 @@ deny from all
 ErrorDocument 404 /404.php
 ErrorDocument 404 /trabalho/404.php
 
+ErrorDocument 401 /401.php
+ErrorDocument 401 /trabalho/401.php
+
 RewriteEngine on
 RewriteRule ^$ ./index.php 
 RewriteRule ^([^.]+/)*api/([^.]+)\.php api/$2.php

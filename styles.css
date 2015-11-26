@@ -187,6 +187,11 @@ input[type="text"],input[type="password"],input[type="email"], select {
     box-sizing: border-box;
 	padding: 10px;
 }
+
+input[type="date"] {
+	padding-left: 10px;
+}
+
 select {
 	padding: 0 10px;
 }
@@ -272,7 +277,9 @@ input[type="date"] {
 .event.box > a > h3
 {
 	color: #3b5998;
+	font-size: 1em;
 }
+
 .event.box > a 
 {
 	text-decoration: none;

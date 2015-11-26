@@ -1,13 +1,5 @@
 <?php 
-if (isSet($_SESSION['user_id']))
-	$row = getEventAndSubscription($_GET['id'],$_SESSION['user_id']);
-else $row = getEvent($_GET['id']);
-if ($row === false)
-{
-	header("HTTP/1.0 404 Not Found");
-	include('404.php');
-	die();
-}
+include_once("core/event_permission.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -41,12 +33,8 @@ if ($row === false)
 				<?php
 				if (isSet($_SESSION['user_id']))
 				{
-					$subscribed = $row['subscribed'];
-					$owner = ($_SESSION['user_id'] === $row['user_id']);
 					echo '<div id="event-id" style="display:none">'.$_GET['id'].'</div>';
-
 					echo '<div><a id="albums-button" class="button" href="'.$_GET['id'].'/albums">'.$lang['ALBUMS'].'</a></div>';
-
 					echo '<button id="unsubscribe" style="'.($subscribed?'':'display:none').'" class="subscription button">'.$lang['UNSUBSCRIBE'].'</button>';
 					echo '<button id="subscribe" style="'.($subscribed?'display:none':'').'" class="subscription button">'.$lang['SUBSCRIBE'].'</button>';
 					

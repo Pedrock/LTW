@@ -28,10 +28,13 @@ if ($row === false)
 
 					<input type="text" id="name" name="name" value="<?php  echo $row['name'] ?>">
 					
-					<div id="error-event-name" class="event-error" <?php if (!empty($_GLOBALS['EDIT']['name'])) echo 'style="display:initial"' ?>>
-							<?php echo $lang['INVALID_NAME'] ?>
-					</div>
+					<div id="error-event-name" class="event-error" <?php if (!empty($_GLOBALS['EDIT']['name'])) echo 'style="display:initial"' ?>
+					><?php echo $lang['INVALID_NAME'] ?></div>
 					
+					<div id="privacy">
+						<input type="radio" name="privacy" value="public" <?php echo ($row['public']?'checked="checked">':'>').$lang['PUBLIC'] ?></input>
+						<input type="radio" name="privacy" value="private" <?php echo (!$row['public']?'checked="checked">':'>').$lang['PRIVATE']; ?></input>
+					</div>
 					
 					<h3><?php echo $lang['DESCRIPTION'] ?></h3>
 					<input type="text" name="desc" value="<?php  echo $row['description'] ?>">
@@ -61,7 +64,7 @@ if ($row === false)
 					<input type="file" name="image">
 
 					<div id="error-event-image" class="event-error" 
-					<?php if (!empty($_GLOBALS['EDIT']['image']) && !empty(!$_GLOBALS['EDIT']['use_previous'])) echo 'style="display:initial"' ?>>
+					<?php if (!empty($_GLOBALS['EDIT']['image'])) echo 'style="display:initial"' ?>>
 							<?php echo $lang['INVALID_IMAGE'] ?>
 					</div>
 					<div id="error-event-image-size" class="event-error" <?php if (!empty($_GLOBALS['EDIT']['size'])) echo 'style="display:initial"' ?>>
@@ -72,7 +75,7 @@ if ($row === false)
 					</div>
 					<input type="hidden" id="id" name="id" value="<?php echo $row['id'] ?>">
 
-					<input id="event-edit-submit" type="submit" class="button" value="<?php echo $lang['EDIT'] ?>" name="submit">
+					<input id="event-edit-submit" type="submit" class="button" value="<?php echo $lang['SAVE'] ?>" name="submit">
 				</form>
 			</div>
 		</div>

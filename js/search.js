@@ -1,6 +1,5 @@
 $( document ).ready(function() {
 	$("#search").keyup(function() {
-		console.log("key");
 		var keyword = $("#search").val();
 		if (keyword.length >= 1) {
 

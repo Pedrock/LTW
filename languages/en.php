@@ -64,6 +64,7 @@ $lang['UNSUBSCRIBE'] = 'Unsubscribe';
 $lang['DELETE_MSG'] = 'Are you sure you want to delete this event?';
 $lang['DELETE'] = 'Delete';
 $lang['EDIT'] = 'Edit';
+$lang['SAVE'] = 'Save';
 $lang['ALBUMS'] = 'Albums';
 
 $lang['LEAVE_A_COMMENT'] = 'Leave a comment';

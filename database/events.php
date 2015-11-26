@@ -9,21 +9,21 @@
 		return $stmt->fetchAll();
 	}
 
-	function updateEvent($name,$description,$date,$type,$image,$event_id, $user_id)
+	function updateEvent($name,$description,$date,$type,$image,$event_id,$user_id,$public)
 	{
 		global $db;
 		if(!$image)
 		{
-			$stmt = $db->prepare('UPDATE events SET name = ?,description = ?,date = ?,type_id = ? WHERE id = ? AND user_id = ?');
-			$stmt->execute(array($name,$description,$date,$type,$event_id, $user_id));
+			$stmt = $db->prepare('UPDATE events SET name = ?,description = ?,date = ?,type_id = ?, public = ? WHERE id = ? AND user_id = ?');
+			$stmt->execute(array($name,$description,$date,$type,$public,$event_id,$user_id));
 		}
 		else
 		{
-			$stmt = $db->prepare('UPDATE events SET name = ?,description = ?,date = ?,type_id = ?,image = ? WHERE id = ? AND user_id = ?');
-			$stmt->execute(array($name,$description,$date,$type,$image,$event_id, $user_id));
+			$stmt = $db->prepare('UPDATE events SET name = ?,description = ?,date = ?,type_id = ?, public = ?, image = ? WHERE id = ? AND user_id = ?');
+			$stmt->execute(array($name,$description,$date,$type,$public,$image,$event_id,$user_id));
 		}
-		$event = $stmt->rowCount();
-		return $event;
+		$count = $stmt->rowCount();
+		return $count > 0;
 	}
 
 	function isUserEvent($user_id,$event_id)
@@ -135,11 +135,24 @@
 		return ($subscription !== false);
 	}
 
-	function searchEvents($string)
+	function searchEvents($string, $user_id)
 	{
 		global $db;
-		$stmt = $db->prepare('SELECT id,name,image,date,description FROM events WHERE deleted = 0 AND name LIKE ? LIMIT 10');
-		$stmt->execute(array('%'.htmlspecialchars($string).'%'));
+		if ($user_id === false)
+		{
+			$stmt = $db->prepare('SELECT id, name FROM events 
+			WHERE name LIKE ? AND deleted = 0 AND public = 1
+			LIMIT 10');
+			$stmt->execute(array('%'.htmlspecialchars($string).'%'));
+		}
+		else 
+		{
+			$stmt = $db->prepare('SELECT id, name FROM events 
+			WHERE name LIKE ? AND deleted = 0
+				AND (public = 1 OR user_id = ? OR EXISTS (SELECT * FROM event_subscriptions WHERE event_id = events.id AND event_subscriptions.user_id = ?))
+			LIMIT 10');
+			$stmt->execute(array('%'.htmlspecialchars($string).'%',$user_id,$user_id));
+		}
 		return $stmt->fetchAll(PDO::FETCH_CLASS);
 	}
 

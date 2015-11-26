@@ -62,11 +62,7 @@ $(document).ready(function()
 				success: function(array)     
 				{
 					updateComments(array);
-				},
-				error: function(err)     
-				{
-					$button.attr("disabled", false);
-				} 
+				}
 			});
 	}, 5000);
 
@@ -89,7 +85,7 @@ $(document).ready(function()
 				error: function(err)     
 				{
 					$button.attr("disabled", false);
-				} 
+				}
 			});
 		}
 	});
