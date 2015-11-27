@@ -49,7 +49,7 @@ if(isSet($_GET['action']) && $_GET['action'] == 'new')
 				return;
 			}
 		}
-		$_SESSION['NEW'] = array("name" => !$valid_name, "desc" => !$valid_desc, "date" => !$valid_date, 
+		$_NEW = array("name" => !$valid_name, "desc" => !$valid_desc, "date" => !$valid_date, 
 									"image" => !$valid_image, "size" => !$valid_image_size, "ext" => !$valid_extension);
 	}
 	include('templates/events_new.php');
@@ -85,19 +85,29 @@ else if(isSet($_GET['action']) && $_GET['action'] == 'edit')
 				$newfile = $GLOBALS['uploads_path'].$filename;
 				move_uploaded_file($_FILES['image']['tmp_name'], $newfile);
 
-				updateEvent($_POST['id'],$_SESSION['user_id'],$_POST['name'],$_POST['desc'],$_POST['date'],$_POST['type'],$newfile,$public,!$valid_date);
-				header('Location: ../'.$_POST['id']);
-				die();
+				if (updateEvent($_POST['id'],$_SESSION['user_id'],$_POST['name'],$_POST['desc'],$_POST['date'],$_POST['type'],$newfile,$public,!$valid_date))
+				{
+					header('Location: ../'.$_POST['id']);
+					die();
+				}
 			}
 			else if ($use_previous_image)
 			{
-				updateEvent($_POST['id'],$_SESSION['user_id'],$_POST['name'],$_POST['desc'],$_POST['date'],$_POST['type'],false,$public,!$valid_date);
-				header('Location: ../'.$_POST['id']);
-				die();
+				if (updateEvent($_POST['id'],$_SESSION['user_id'],$_POST['name'],$_POST['desc'],$_POST['date'],$_POST['type'],false,$public,!$valid_date))
+				{
+					header('Location: ../'.$_POST['id']);
+					die();
+				}
 			}
 		}
+		$same_date = false;
+		if (!$valid_date)
+		{
+			include_once("core/event_edit_permission.php");
+			$same_date = isSet($_POST['date']) && $row['date'] === $_POST['date'];
+		}
 
-		$_SESSION['EDIT'] = array("name" => !$valid_name, "desc" => !$valid_desc, "date" => !$valid_date, 
+		$_EDIT = array("name" => !$valid_name, "desc" => !$valid_desc, "date" => !($valid_date || $same_date), 
 								"image" => !($valid_image || $use_previous_image), "size" => !$valid_image_size, "ext" => !$valid_extension);
 	}
 	include('templates/events_edit.php');
@@ -108,8 +118,6 @@ else if(!isSet($_GET['action']) && isSet($_GET['id']))
 }
 else
 {
-	header("HTTP/1.0 404 Not Found");
 	include('404.php');
-	die();
 }
 ?>

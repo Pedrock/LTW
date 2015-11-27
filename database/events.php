@@ -74,7 +74,7 @@
 	function getEvent($event_id)
 	{
 		global $db;
-		$stmt = $db->prepare('SELECT events.id id,name,image,date,description,type,user_id,public FROM events 
+		$stmt = $db->prepare('SELECT events.id id,name,image,date,description,type,user_id,public,type_id FROM events 
 			LEFT JOIN event_types ON type_id = event_types.id 
 			WHERE events.id=? AND deleted = 0');
 		$stmt->execute(array($event_id));
@@ -84,7 +84,7 @@
 	function getEventAndSubscription($event_id, $user_id)
 	{
 		global $db;
-		$stmt = $db->prepare('SELECT events.id id,name,image,date,description,type,events.user_id user_id, public, COUNT(event_id) subscribed FROM events 
+		$stmt = $db->prepare('SELECT events.id id,name,image,date,description,type,events.user_id user_id,public,type_id, COUNT(event_id) subscribed FROM events 
 			LEFT JOIN event_types ON type_id = event_types.id 
 			LEFT JOIN event_subscriptions ON event_id = events.id AND event_subscriptions.user_id = ?
 			WHERE events.id=? AND deleted = 0

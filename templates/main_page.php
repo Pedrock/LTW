@@ -20,7 +20,7 @@ function print_event($row)
 <head>
 	<title><?php echo $lang['SITE_NAME'] ?></title>
 	<link rel="stylesheet" href="styles.css">
-	<script src="<?php echo $_GLOBALS['jquery'] ?>"></script>
+	<script src="<?php echo $_CONFIG['jquery'] ?>"></script>
 	<script type="text/javascript" src="js/tabs.js"></script>
 </head>
 <body>
