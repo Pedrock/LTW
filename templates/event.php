@@ -19,14 +19,12 @@ include_once("core/event_permission.php");
 				<h3><?php echo $row['name'] ?></h3>
 				<div class="div-event-image-big" style="background-image:url(<?php echo '../'.$row['image'] ?>)"></div>
 				<h4><?php echo $lang[$row['type']] ?></h4>
-				<p id="date"><?php 
+				<?php 
 				
 				$dateParts = explode("-", $row['date']);
 				$date = $dateParts[2]." ".$lang[$dateParts[1]]." ".$dateParts[0];
-
-
-
-				echo $date ?></p>
+				
+				echo '<p id="date">'.$date.'</p>' ?>
 				<p><?php echo $row['description'] ?></p>
 
 				<div id="delete_msg" style="display:none"><?php echo $lang['DELETE_MSG'] ?></div>

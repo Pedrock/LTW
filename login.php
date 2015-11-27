@@ -20,7 +20,7 @@
 				header("Location: ../");
 				die();
 			}
-			$_GLOBALS['LOGIN'] = array("email" => !$valid_email, "password" => ($valid_email && $user_id === false));
+			$_LOGIN = array("email" => !$valid_email, "password" => ($valid_email && $user_id === false));
 		}
 		include('templates/login_page.php');
 	}

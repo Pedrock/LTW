@@ -20,7 +20,7 @@ include_once("core/event_edit_permission.php");
 
 					<input type="text" id="name" name="name" value="<?php  echo $row['name'] ?>">
 					
-					<div id="error-event-name" class="event-error" <?php if (!empty($_GLOBALS['EDIT']['name'])) echo 'style="display:initial"' ?>
+					<div id="error-event-name" class="event-error" <?php if (!empty($_SESSION['EDIT']['name'])) echo 'style="display:initial"' ?>
 					><?php echo $lang['INVALID_NAME'] ?></div>
 					
 					<div id="privacy">
@@ -30,13 +30,13 @@ include_once("core/event_edit_permission.php");
 					
 					<h3><?php echo $lang['DESCRIPTION'] ?></h3>
 					<input type="text" name="desc" value="<?php  echo $row['description'] ?>">
-					<div id="error-event-desc" class="event-error" <?php if (!empty($_GLOBALS['EDIT']['desc'])) echo 'style="display:initial"' ?>>
+					<div id="error-event-desc" class="event-error" <?php if (!empty($_SESSION['EDIT']['desc'])) echo 'style="display:initial"' ?>>
 							<?php echo $lang['INVALID_DESCRIPTION'] ?>
 					</div>
 
 					<h3><?php echo $lang['DATE'] ?></h3>
 					<input type="date" name="date" value="<?php  echo $row['date'] ?>">
-					<div id="error-event-date" class="event-error" <?php if (!empty($_GLOBALS['EDIT']['date'])) echo 'style="display:initial"' ?>>
+					<div id="error-event-date" class="event-error" <?php if (!empty($_SESSION['EDIT']['date'])) echo 'style="display:initial"' ?>>
 							<?php echo $lang['INVALID_DATE'] ?>
 					</div>
 
@@ -56,13 +56,13 @@ include_once("core/event_edit_permission.php");
 					<input type="file" name="image">
 
 					<div id="error-event-image" class="event-error" 
-					<?php if (!empty($_GLOBALS['EDIT']['image'])) echo 'style="display:initial"' ?>>
+					<?php if (!empty($_SESSION['EDIT']['image'])) echo 'style="display:initial"' ?>>
 							<?php echo $lang['INVALID_IMAGE'] ?>
 					</div>
-					<div id="error-event-image-size" class="event-error" <?php if (!empty($_GLOBALS['EDIT']['size'])) echo 'style="display:initial"' ?>>
+					<div id="error-event-image-size" class="event-error" <?php if (!empty($_SESSION['EDIT']['size'])) echo 'style="display:initial"' ?>>
 							<?php echo $lang['IMAGE_SIZE_ERROR'] ?>
 					</div>
-					<div id="error-event-image-ext" class="event-error" <?php if (!empty($_GLOBALS['EDIT']['ext'])) echo 'style="display:initial"' ?>>
+					<div id="error-event-image-ext" class="event-error" <?php if (!empty($_SESSION['EDIT']['ext'])) echo 'style="display:initial"' ?>>
 							<?php echo $lang['IMAGE_EXT_ERROR'] ?>
 					</div>
 					<input type="hidden" id="id" name="id" value="<?php echo $row['id'] ?>">
