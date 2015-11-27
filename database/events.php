@@ -182,4 +182,26 @@
 			return $stmt->fetchAll(PDO::FETCH_CLASS);
 		}
 	}
+
+	function getEventPhotos($event_id, $user_id)
+	{
+		global $db;
+		if ($user_id === false)
+		{
+			$stmt = $db->prepare('SELECT events.name events_name, event_photos.id id, image, date FROM event_photos 
+				LEFT JOIN events ON event_id = events.id
+				WHERE events.id = ? AND deleted = 0 AND public = 1
+				ORDER BY date DESC');
+			$stmt->execute(array($event_id));
+		}
+		else
+		{
+			$stmt = $db->prepare('SELECT events.name events_name, event_photos.id id, image, date FROM event_photos
+				LEFT JOIN events ON event_id = events.id
+				WHERE events.id = ? AND deleted = 0 AND
+					(public = 1 OR user_id = ? OR EXISTS (SELECT * FROM event_subscriptions WHERE event_id = events.id AND event_subscriptions.user_id = ?))');
+			$stmt->execute(array($event_id,$user_id,$user_id));
+		}
+		return $stmt->fetch();
+	}
 ?>
