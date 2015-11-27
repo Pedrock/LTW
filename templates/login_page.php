@@ -26,7 +26,7 @@ include_once('core/common.php');
 								<?php echo $lang['UNREGISTERED_EMAIL'] ?>
 							</div>
 							<input type="email" name="email-login" placeholder="<?php echo $lang['EMAIL'] ?>"
-							value="<?php if(isSet($_POST['email-log'])) echo $_POST['email-log'] ?>">
+							value="<?php if(isSet($_POST['email-login'])) echo $_POST['email-login'] ?>">
 							<div id="error-login-pw" class="error-reg" <?php if (!empty($_LOGIN['password'])) echo 'style="display:block"' ?>>
 								<?php echo $lang['INVALID_PASSWORD'] ?>
 							</div>
