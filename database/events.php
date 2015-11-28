@@ -156,6 +156,17 @@
 		return $stmt->fetchAll(PDO::FETCH_CLASS);
 	}
 
+	function getEventSubscriptions($event_id)
+	{
+		global $db;
+		$stmt = $db->prepare('SELECT (first_name || " " || last_name) user_name FROM users 
+			LEFT JOIN event_subscriptions ON event_subscriptions.user_id = users.id
+			LEFT JOIN events ON events.id = event_subscriptions.event_id
+			WHERE event_id = ? AND deleted=0');
+		$stmt->execute(array($event_id));
+		return $stmt->fetchAll();
+	}
+
 	function createComment($event_id, $user_id, $comment)
 	{
 		global $db;

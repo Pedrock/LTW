@@ -2,6 +2,7 @@ $( document ).ready(function()
 {	
 	$('ul.tabs').each(function(){
     var $links = $(this).find('a').filter('[href^="#"]');
+    console.log($links);
 
     var $active = $($links.filter('[href="'+location.hash+'"]')[0] || $links[0]);
     $active.parent().addClass('active');

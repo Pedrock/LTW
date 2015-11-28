@@ -72,6 +72,10 @@ $lang['COMMENTS'] = 'Comentários';
 $lang['MAKE_COMMENT'] = 'Comentar';
 $lang['NO_COMMENTS_YET'] = 'Ainda não há comentários.';
 
+$lang['SUBSCRIBERS'] = 'Subscritores';
+$lang['ZERO_SUBS'] = "O evento não tem subscritores.";
+
+
 $lang['1'] = 'Janeiro';
 $lang['2'] = 'Fevereiro';
 $lang['3'] = 'Março';

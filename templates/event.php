@@ -13,8 +13,8 @@ include_once("core/event_permission.php");
 <body>
 	<div id="wrapper">
 		<?php include('templates/header.php'); ?>
-		<div id="content" >
-			<div class="box center default-width">
+		<div id="content" style="text-align:center;">
+			<div class="box center default-width" style="text-align:left;position: relative;display:inline-block;vertical-align:top;">
 				
 				<h3><?php echo $row['name'] ?></h3>
 				<div class="div-event-image-big" style="background-image:url(<?php echo '../'.$row['image'] ?>)"></div>
@@ -23,9 +23,6 @@ include_once("core/event_permission.php");
 				
 				$dateParts = explode("-", $row['date']);
 				$date = $dateParts[2]." ".$lang[$dateParts[1]]." ".$dateParts[0];
-
-
-
 				echo $date ?></p>
 				<p><?php echo $row['description'] ?></p>
 
@@ -53,6 +50,18 @@ include_once("core/event_permission.php");
 					include('templates/comments.php');
 				}
 				?>
+			</div>
+			<div style="position: relative;display:inline-block;vertical-align:top;top:20px;">
+
+				<div class="subscriptions box" style="position: relative;display:inline-block;">
+					<h3 style="border-bottom:1px solid #3b5998;"> <?php echo $lang['SUBSCRIBERS'] ?> </h3>
+					<?php $subscriptionsEvents = getEventSubscriptions($_GET['id']);
+					if($subscriptionsEvents)
+						foreach ($subscriptionsEvents as $teste) 
+							echo '<p>'.$teste['user_name'].'</p>';
+					else echo $lang['ZERO_SUBS'];
+					?>
+				</div>	
 			</div>
 		</div>
 		<?php include('templates/footer.php'); ?>
