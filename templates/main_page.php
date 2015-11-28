@@ -8,9 +8,9 @@ function print_event($row)
 	global $lang; ?>
 	<li class="event box">
 		<a href="events/<?php echo $row['id'] ?>" >
-			<h3 id="title"><?php echo $row['name'] ?></h3>
+			<h3><?php echo $row['name'] ?></h3>
 			<div class="div-event-image" style="background-image:url(<?php echo $row['image'] ?>)"></div>
-			<p id="date"><?php echo $row['date'] ?></p>
+			<p class="event-date"><?php echo $row['date'] ?></p>
 		</a>
 	</li>
 	<?php
@@ -20,7 +20,7 @@ function print_event($row)
 <head>
 	<title><?php echo $lang['SITE_NAME'] ?></title>
 	<link rel="stylesheet" href="styles.css">
-	<script src="<?php echo $_GLOBALS['jquery'] ?>"></script>
+	<script src="<?php echo $_CONFIG['jquery'] ?>"></script>
 	<script type="text/javascript" src="js/tabs.js"></script>
 </head>
 <body>

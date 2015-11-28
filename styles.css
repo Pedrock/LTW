@@ -283,6 +283,9 @@ input[type="date"] {
 {
 	color: #3b5998;
 	font-size: 1em;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .event.box > a 
@@ -301,12 +304,11 @@ input[type="date"] {
 	color: white;
 }
 
-.box.center > #date
+.box.center > .date
 {
 	color: #4e5665;
 	font-weight: bold;
 	font-size: 13px;
-	
 }
 .box.center > h3
 {
@@ -314,12 +316,10 @@ input[type="date"] {
 	color: #3b5998;
 }
 
-
 .share {
 	padding: 12px 0 0;
 	height: 20px;
 }
-
 
 #new-event > input, #edit-event > input
 {

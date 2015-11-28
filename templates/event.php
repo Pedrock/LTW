@@ -6,7 +6,7 @@ include_once("core/event_permission.php");
 <head>
 	<title><?php echo $lang['SITE_NAME'] ?></title>
 	<link rel="stylesheet" href="../styles.css">
-	<script src="../<?php echo $_GLOBALS['jquery'] ?>"></script>
+	<script src="../<?php echo $_CONFIG['jquery'] ?>"></script>
 	<script type="text/javascript" src="../js/event.js"></script>
 	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56557f93aab8dc78" async="async"></script>
 </head>
@@ -19,11 +19,12 @@ include_once("core/event_permission.php");
 				<h3><?php echo $row['name'] ?></h3>
 				<div class="div-event-image-big" style="background-image:url(<?php echo '../'.$row['image'] ?>)"></div>
 				<h4><?php echo $lang[$row['type']] ?></h4>
-				<p id="date"><?php 
+				<?php 
 				
 				$dateParts = explode("-", $row['date']);
 				$date = $dateParts[2]." ".$lang[$dateParts[1]]." ".$dateParts[0];
-				echo $date ?></p>
+				
+				echo '<p id="date">'.$date.'</p>' ?>
 				<p><?php echo $row['description'] ?></p>
 
 				<div id="delete_msg" style="display:none"><?php echo $lang['DELETE_MSG'] ?></div>
