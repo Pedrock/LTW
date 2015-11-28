@@ -42,11 +42,11 @@ include_once("core/event_permission.php");
 						{ ?>
 					<div id="del-edit-div">
 						<a id="edit-button" class='button' href='<?php echo $_GET['id']."/edit"; ?>'><?php echo $lang['EDIT'] ?></a>
-						<button id="delete-button" class='button'><?php echo $lang['DELETE'] ?></button>
+						<a id="delete-button" class='button'><?php echo $lang['DELETE'] ?></a>
 					</div>
 					<?php
 				}	
-				if ($owner || $row['public'])
+				if ($row['public'])
 				{
 					echo '<div class="addthis_sharing_toolbox share"></div>';
 				}
@@ -57,11 +57,11 @@ include_once("core/event_permission.php");
 			<div id="sidebar" class="subscriptions box"> 
 
 					<h3 style="border-bottom:1px solid #3b5998;"> <?php echo $lang['SUBSCRIBERS'] ?> </h3>
-					<?php $subscriptionsEvents = getEventSubscriptions($_GET['id']);
-					if($subscriptionsEvents)
-						foreach ($subscriptionsEvents as $teste) 
-							echo '<p>'.$teste['user_name'].'</p>';
-						else echo $lang['ZERO_SUBS'];
+					<?php $subs = getEventSubscribers($_GET['id']);
+					if($subs)
+						foreach ($subs as $sub) 
+							echo '<p>'.$sub['user_name'].'</p>';
+					else echo $lang['ZERO_SUBS'];
 						?>
 			</div>	
 			<div class="clear"></div>

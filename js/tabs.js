@@ -14,7 +14,6 @@ $( document ).ready(function()
     });
 
     $links.on('click', function(event){
-      event.preventDefault();
       if ($active[0].hash !== this.hash)
       {
         $active.parent().removeClass('active');

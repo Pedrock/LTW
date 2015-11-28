@@ -14,7 +14,8 @@ function print_event($row)
 		</a>
 	</li>
 	<?php
-} ?>
+} 
+?>
 <!DOCTYPE html>
 <html>
 <head>

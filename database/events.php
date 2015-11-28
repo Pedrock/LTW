@@ -148,13 +148,12 @@
 		return $stmt->fetchAll(PDO::FETCH_CLASS);
 	}
 
-	function getEventSubscriptions($event_id)
+	function getEventSubscribers($event_id)
 	{
 		global $db;
-		$stmt = $db->prepare('SELECT (first_name || " " || last_name) user_name FROM users 
-			LEFT JOIN event_subscriptions ON event_subscriptions.user_id = users.id
-			LEFT JOIN events ON events.id = event_subscriptions.event_id
-			WHERE event_id = ? AND deleted=0');
+		$stmt = $db->prepare('SELECT (first_name || " " || last_name) user_name FROM event_subscriptions 
+			LEFT JOIN users ON users.id = event_subscriptions.user_id 
+			WHERE event_id = ?');
 		$stmt->execute(array($event_id));
 		return $stmt->fetchAll();
 	}
