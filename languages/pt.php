@@ -66,6 +66,8 @@ $lang['DELETE'] = 'Apagar';
 $lang['EDIT'] = 'Editar';
 $lang['SAVE'] = 'Guardar';
 $lang['ALBUMS'] = 'Álbuns';
+$lang['PRIVATE_EVENT'] = 'Evento Privado';
+$lang['PUBLIC_EVENT'] = 'Evento Público';
 
 $lang['LEAVE_A_COMMENT'] = 'Deixe um comentário';
 $lang['COMMENTS'] = 'Comentários';

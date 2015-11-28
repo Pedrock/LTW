@@ -357,6 +357,15 @@ input[type="date"] {
 	margin-bottom: -20px;
 }
 
+#event-type {
+	margin: 30px 0 10px;	
+}
+
+#event-privacy {
+	font-size: 0.8em;
+	margin-bottom: 20px;
+}
+
 #del-edit-div {
 	float: right;
 }
@@ -368,6 +377,24 @@ input[type="date"] {
 
 .default-width {
 	width: 800px;
+}
+
+.default-width-with-sidebar {
+	width: 1100px;
+}
+
+#sidebar {
+	float: right;
+	width:240px;
+	text-align: center;
+}
+
+.default-width-with-sidebar > div:first-child {
+	float:left;
+}
+
+.clear {
+	clear: both;
 }
 
 .center {
@@ -423,7 +450,7 @@ ul.tabs li.active {
 }
 
 #comments-box {
-	margin-top: 10px;
+	margin: 20px 0 10px;
 	width:97%
 }
 

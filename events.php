@@ -12,13 +12,14 @@ function validateDate($date)
 
 function checkPOST()
 {
+	global $_CONFIG;
 	$image_info = null;
 	$valid_name = !empty($_POST['name']);
 	$valid_desc = !empty($_POST['desc']);
 	$valid_date = validateDate($_POST['date']);
 	$valid_image = (!empty($_FILES['image']['tmp_name']) && ($image_info = getimagesize($_FILES['image']['tmp_name'])));
-	$valid_image_size = !$valid_image || $_FILES['image']['size'] <= $GLOBALS['max_image_upload'];
-	$valid_extension = !$valid_image || $valid_image_size || in_array($image_info[2], $GLOBALS['allowed_image_types']);
+	$valid_image_size = !$valid_image || $_FILES['image']['size'] <= $_CONFIG['max_image_upload'];
+	$valid_extension = !$valid_image || $valid_image_size || in_array($image_info[2], $_CONFIG['allowed_image_types']);
 	$valid_privacy = !empty($_POST['privacy']) && ($_POST['privacy'] === "public" || $_POST['privacy'] === "private");
 
 	return array($valid_name,$valid_desc,$valid_date,$valid_image,$valid_image_size,$valid_extension,$valid_privacy,$image_info);
@@ -38,8 +39,8 @@ if(isSet($_GET['action']) && $_GET['action'] == 'new')
 			$extension = image_type_to_extension($image_info[2]);
 			do {
 			    $filename = uniqid().$extension;
-			} while (file_exists($GLOBALS['uploads_path'].$filename));
-			$newfile = $GLOBALS['uploads_path'].$filename;
+			} while (file_exists($_CONFIG['uploads_path'].$filename));
+			$newfile = $_CONFIG['uploads_path'].$filename;
 			$public = $_POST['privacy'] === "public";
 			if (newEvent($_POST['name'], $_POST['desc'], $_POST['date'], $_POST['type'], $newfile, $_SESSION['user_id'], $public))
 			{
@@ -58,7 +59,7 @@ else if(isSet($_POST['delete']))
 {
 	include_once('core/require_session.php');
 	deleteEvent($_SESSION['user_id'],$_POST['delete']);
-	header('Location: '.$GLOBALS['web_root']);
+	header('Location: '.$_CONFIG['web_root']);
 	die;
 }
 else if(isSet($_GET['action']) && $_GET['action'] == 'edit')
@@ -81,8 +82,8 @@ else if(isSet($_GET['action']) && $_GET['action'] == 'edit')
 				$extension = image_type_to_extension($image_info[2]);
 				do {
 				    $filename = uniqid().$extension;
-				} while( file_exists($GLOBALS['uploads_path'].$filename));
-				$newfile = $GLOBALS['uploads_path'].$filename;
+				} while( file_exists($_CONFIG['uploads_path'].$filename));
+				$newfile = $_CONFIG['uploads_path'].$filename;
 				move_uploaded_file($_FILES['image']['tmp_name'], $newfile);
 
 				if (updateEvent($_POST['id'],$_SESSION['user_id'],$_POST['name'],$_POST['desc'],$_POST['date'],$_POST['type'],$newfile,$public,!$valid_date))

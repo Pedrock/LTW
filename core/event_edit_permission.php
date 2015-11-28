@@ -9,9 +9,11 @@ $row = getEvent($_REQUEST['id']);
 if ($row === false)
 {
 	include('404.php');
+	die();
 }
 else if ($_SESSION['user_id'] !== $row['user_id'])
 {
 	include('401.php');
+	die();
 }
 ?>
