@@ -65,7 +65,10 @@ $lang['DELETE_MSG'] = 'Tem a certeza que quer apagar este evento?';
 $lang['DELETE'] = 'Apagar';
 $lang['EDIT'] = 'Editar';
 $lang['SAVE'] = 'Guardar';
-$lang['ALBUMS'] = 'Álbuns';
+$lang['PHOTOS'] = 'Fotos';
+$lang['ADD'] = 'Adicionar Foto';
+$lang['NO_PHOTOS_YET'] = 'Ainda não há fotografias.';
+
 
 $lang['LEAVE_A_COMMENT'] = 'Deixe um comentário';
 $lang['COMMENTS'] = 'Comentários';

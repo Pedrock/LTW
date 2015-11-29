@@ -61,6 +61,17 @@
 		return TRUE;
 	}
 
+	function newPhoto($event_id, $image)
+	{
+		global $db;
+		$stmt = $db->prepare('INSERT INTO event_photos(event_id,image) VALUES (?, ?)');
+		if (!$stmt->execute(array(
+			$event_id,
+			$image
+		))) return FALSE;
+		return TRUE;
+	}
+
 	function latestUserEvent($user_id)
 	{
 		global $db;

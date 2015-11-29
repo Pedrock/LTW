@@ -102,6 +102,38 @@ else if(isSet($_GET['action']) && $_GET['action'] == 'edit')
 	}
 	include('templates/events_edit.php');
 }
+else if(isSet($_GET['action']) && $_GET['action'] == 'photos')
+{
+	include('templates/events_photos.php');
+}
+else if(isSet($_GET['action']) && $_GET['action'] == 'new_photo')
+{
+	include_once('core/require_session.php');
+	if (isset($_POST["submit"]))
+	{
+		$checks = checkPOST();
+		list($valid_image,$valid_image_size,$valid_extension,$image_info) = $checks;
+
+		if ($valid_image && $valid_image_size && $valid_extension)
+		{
+			$filename = $_FILES['image']['name'];
+			$extension = image_type_to_extension($image_info[2]);
+			do {
+			    $filename = uniqid().$extension;
+			} while (file_exists($_GLOBALS['uploads_path'].$filename));
+			$newfile = $_GLOBALS['uploads_path'].$filename;
+			if (newPhoto($newfile, $_SESSION['event_id']))
+			{
+				move_uploaded_file($_FILES['image']['tmp_name'], $newfile);
+				$id = latestUserEvent($_SESSION['user_id']);
+				header('Location: '.$id);
+				return;
+			}
+		}
+		$_GLOBALS['NEW'] = array("image" => !$valid_image, "size" => !$valid_image_size, "ext" => !$valid_extension);
+	}
+	include('templates/events_photos_new.php');
+}
 else if(!isSet($_GET['action']) && isSet($_GET['id']))
 {
 	include('templates/event.php');

@@ -25,6 +25,7 @@
 
 					<h3><?php echo $lang['DESCRIPTION'] ?></h3>
 					<input type="text" name="desc" value="<?php if(isSet($_POST['desc'])) echo $_POST['desc'] ?>">
+					<!--<textarea id="description-area" name="desc" rows="4"><?php if(isSet($_POST['desc'])) echo $_POST['desc'] ?></textarea>-->
 					<div id="error-event-desc" class="event-error" <?php if (!empty($_GLOBALS['NEW']['desc'])) echo 'style="display:initial"' ?>>
 							<?php echo $lang['INVALID_DESCRIPTION'] ?>
 					</div>

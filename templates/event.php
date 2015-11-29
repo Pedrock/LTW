@@ -15,10 +15,13 @@ include_once("core/event_permission.php");
 		<?php include('templates/header.php'); ?>
 		<div id="content" >
 			<div class="box center default-width">
-				
+				<span style="float:right;position:relative"><a id="photos-button" class="button" href="<?php echo $_GET['id'].'/photos' ?>"><?php echo $lang['PHOTOS'] ?></a></span>
+
 				<h3><?php echo $row['name'] ?></h3>
 				<div class="div-event-image-big" style="background-image:url(<?php echo '../'.$row['image'] ?>)"></div>
+
 				<h4><?php echo $lang[$row['type']] ?></h4>
+
 				<p id="date"><?php 
 				
 				$dateParts = explode("-", $row['date']);
@@ -34,7 +37,7 @@ include_once("core/event_permission.php");
 				if (isSet($_SESSION['user_id']))
 				{
 					echo '<div id="event-id" style="display:none">'.$_GET['id'].'</div>';
-					echo '<div><a id="albums-button" class="button" href="'.$_GET['id'].'/albums">'.$lang['ALBUMS'].'</a></div>';
+					
 					echo '<button id="unsubscribe" style="'.($subscribed?'':'display:none').'" class="subscription button">'.$lang['UNSUBSCRIBE'].'</button>';
 					echo '<button id="subscribe" style="'.($subscribed?'display:none':'').'" class="subscription button">'.$lang['SUBSCRIBE'].'</button>';
 					

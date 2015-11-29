@@ -33,7 +33,7 @@ body {
 
 #header a
 {
-	border-radius: 3px;
+	/*border-radius: 3px;*/
 	text-decoration: none;
 	color: white;
 	padding: 0;
@@ -84,7 +84,7 @@ body {
 #logout > a:hover, #header h1:hover
 {
 	background-color: #2f4779;
-	border-radius: 2px;
+	/*border-radius: 2px;*/
 }
 
 #logout > a {
@@ -129,7 +129,7 @@ body {
 .box {
 	background-color: #fff;
 	border: 1px solid #edeeee;
-	border-radius: 5px;
+	/*border-radius: 5px;*/
     margin: 0;
     margin-bottom: 20px;
     padding: 11px;
@@ -139,7 +139,7 @@ body {
 	color: #fff;
 	background-color: #4090db;
     border-color: #4090db;
-    border-radius: 3px;
+    /*border-radius: 3px;*/
     border-style: solid;
     border-width: 1px;
     cursor: pointer;
@@ -149,12 +149,22 @@ body {
     box-sizing: border-box;
     display: inline-block;
     margin: 0;
+    text-align: center;
 }
 
 .button:disabled {
 	cursor: auto;
 	background-color: #ccc;
 	border-color: #bbb;
+}
+
+#photos-button {
+	margin-bottom: 20px;
+	border-width: 1px;
+	width: 100px;
+	position: absolute;
+	left: -102px;
+	padding: 8px;
 }
 
 .spacing {
@@ -181,7 +191,7 @@ input[type="text"],input[type="password"],input[type="email"], select {
 	margin: 0;
 	display: block;
 	border: 1px solid #edeeee;
-	border-radius: 3px;
+	/*border-radius: 3px;*/
 	height: 35px;
 	-webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -199,7 +209,7 @@ select {
 
 input[type="date"] {
 	border: 1px solid #edeeee;
-	border-radius: 3px;
+	/*border-radius: 3px;*/
 	-webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -246,7 +256,7 @@ input[type="date"] {
 	width: 150px;
 	height: 29px;
 	border: 1px solid red;
-	border-radius: 5px;
+	/*border-radius: 5px;*/
 	border-color: red;
 }
 
@@ -462,7 +472,7 @@ ul.tabs li.active {
 	margin: 20px;
 	background-color: #fafafa;
 	border: 1px solid #edeeee;
-	border-radius: 5px;
+	/*border-radius: 5px;*/
 	list-style-type: none;
 }
 
@@ -478,6 +488,7 @@ ul.tabs li.active {
 	word-wrap: break-word;
 }
 
-#albums-button {
-	margin-bottom: 20px;
+#description-area {
+	width: 94%;
 }
+
