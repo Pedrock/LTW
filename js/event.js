@@ -71,10 +71,11 @@ $(document).ready(function()
 				$button.attr("disabled", false);
 				if(subscribers)
 				{
+					if (subscribers.length) $("#zero-subs").fadeOut();
+					else $("#zero-subs").fadeIn();
 					$button.hide();
 					$(".subscription.button").not($button).show();
 					$("#comments-box").toggle($subscribe || $is_owner);
-					
 					$('#subs').children().fadeOut(100).promise().then(function() {
 						for (i in subscribers) {
 							$('#subs').append(

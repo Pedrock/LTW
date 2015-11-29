@@ -66,7 +66,7 @@ include_once("core/event_permission.php");
 								foreach ($invites as $user) echo '<li>'.$user['user_name'].'</li>';
 							?>
 						</ul>
-						<?php if (!$invites) echo '<p id="zero-invites">'.$lang['ZERO_INVITED'].'</p>'; ?>
+						<p id="zero-invites" <?php if ($invites) echo 'style="display:none"'?>><?php echo $lang['ZERO_INVITED'] ?></p>
 					<?php } ?>
 
 					<h3><?php echo $lang['SUBSCRIBERS'] ?></h3>
@@ -76,7 +76,7 @@ include_once("core/event_permission.php");
 							foreach ($subs as $sub) echo '<li>'.$sub['user_name'].'</li>';
 						?>
 					</ul>
-					<?php if (!$subs) echo '<p id="zero-subs">'.$lang['ZERO_SUBS'].'</p>'; ?>
+					<p id="zero-subs" <?php if ($subs) echo 'style="display:none"'?>><?php echo $lang['ZERO_SUBS']?></p>
 			</div>	
 			<div class="clear"></div>
 		</div>
