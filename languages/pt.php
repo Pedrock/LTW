@@ -33,9 +33,10 @@ $lang['INVALID_PASSWORD'] = 'Password inválida.';
 $lang['LOGOUT'] = 'Terminar Sessão';
 
 // Main Page
-$lang['MY_EVENTS'] = 'Meus Eventos';
-$lang['SUBSCRIBED'] = 'Aderidos';
+$lang['NEXT'] = 'Próximos';
+$lang['PREVIOUS'] = 'Anteriores';
 $lang['CREATE'] = 'Criar';
+$lang['SUBSCRIBED'] = 'Aderido';
 
 // New Event
 $lang['PRIVATE'] = 'Privado';
@@ -54,7 +55,7 @@ $lang['EDUCATIONAL'] = 'Educacional';
 $lang['INVALID_NAME'] = 'Nome inválido.';
 $lang['INVALID_DESCRIPTION'] = 'Descrição inválida.';
 $lang['INVALID_DATE'] = 'Data inválida .';
-$lang['INVALID_IMAGE'] = 'Submeta uma imagem válida.';
+$lang['INVALID_IMAGE'] = 'Submeta uma imagem válida (Válidas: jpg, png, gif).';
 $lang['IMAGE_SIZE_ERROR'] = 'O tamanho da imagem não pode ser superior a 5MB.';
 $lang['IMAGE_EXT_ERROR'] = 'Extensão inválida (Válidas: jpg, png, gif).';
 
@@ -74,8 +75,13 @@ $lang['COMMENTS'] = 'Comentários';
 $lang['MAKE_COMMENT'] = 'Comentar';
 $lang['NO_COMMENTS_YET'] = 'Ainda não há comentários.';
 
+$lang['INVITED'] = 'Convidados';
 $lang['SUBSCRIBERS'] = 'Inscritos';
-$lang['ZERO_SUBS'] = "Ainda ninguém se inscreveu";
+$lang['ZERO_SUBS'] = "Ainda ninguém se inscreveu.";
+$lang['ZERO_INVITED'] = "Ainda ninguém foi convidado.";
+$lang['CANT_INVITE_YOURSELF'] = 'Não se pode convidar a si mesmo.';
+$lang['ALREADY_SUBSCRIBED'] = 'Utilizador já inscrito.';
+$lang['ALREADY_INVITED'] = 'Utilizador já convidado.';
 
 
 $lang['1'] = 'Janeiro';

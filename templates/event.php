@@ -54,15 +54,29 @@ include_once("core/event_permission.php");
 				}
 				?>
 			</div>
-			<div id="sidebar" class="subscriptions box"> 
+			<div id="sidebar" class="subscriptions box">
+					<?php if ($owner) { ?>
+						<h3><?php echo $lang['INVITED'] ?></h3>
+						<input id="invite-email" type="text" placeholder="Email"></input>
+						<button id="invite-button" class="button">+</button>
+						<div id="invite-error"></div>
+						<ul id="invites">
+							<?php $invites = getInvites($_GET['id']);
+							if($invites)
+								foreach ($invites as $user) echo '<li>'.$user['user_name'].'</li>';
+							?>
+						</ul>
+						<?php if (!$invites) echo '<p id="zero-invites">'.$lang['ZERO_INVITED'].'</p>'; ?>
+					<?php } ?>
 
-					<h3 style="border-bottom:1px solid #3b5998;"> <?php echo $lang['SUBSCRIBERS'] ?> </h3>
-					<?php $subs = getEventSubscribers($_GET['id']);
-					if($subs)
-						foreach ($subs as $sub) 
-							echo '<p>'.$sub['user_name'].'</p>';
-					else echo $lang['ZERO_SUBS'];
+					<h3><?php echo $lang['SUBSCRIBERS'] ?></h3>
+					<ul id="subs">
+						<?php $subs = getEventSubscribers($_GET['id']);
+						if($subs)
+							foreach ($subs as $sub) echo '<li>'.$sub['user_name'].'</li>';
 						?>
+					</ul>
+					<?php if (!$subs) echo '<p id="zero-subs">'.$lang['ZERO_SUBS'].'</p>'; ?>
 			</div>	
 			<div class="clear"></div>
 		</div>

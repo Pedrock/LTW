@@ -6,9 +6,15 @@ if (isset($_POST['id']) && isset($_POST['subscribe']))
 	include_once('core/require_session.php');
 	include_once("core/event_permission.php");
 	if ($_POST['subscribe'] === 'true')
-		echo json_encode(subscribeEvent($_POST['id'],$_SESSION['user_id']));
+	{
+		if (subscribeEvent($_POST['id'],$_SESSION['user_id']))
+			echo json_encode(getEventSubscribers($_POST['id']));
+	}
 	else if ($_POST['subscribe'] === 'false')
-		echo json_encode(unsubscribeEvent($_POST['id'],$_SESSION['user_id']));
+	{
+		if (unsubscribeEvent($_POST['id'],$_SESSION['user_id']))
+			echo json_encode(getEventSubscribers($_POST['id']));
+	}
 }
 else if (isset($_GET['search']))
 {	
@@ -34,7 +40,23 @@ else if (isset($_POST['id']) && isset($_POST['invite']))
 {
 	include_once('core/require_session.php');
 	include_once('core/event_edit_permission.php');
-	echo json_encode(inviteToEvent($_POST['invite'], $_POST['id']));
+	try {
+		$name = inviteToEvent($_POST['invite'], $_POST['id'], $_SESSION['user_id']);
+		echo json_encode(array('error' => false, 'user' => $name));
+	}
+	catch (InviteYourselfException $e)
+	{
+		echo json_encode(array('error' => $lang['CANT_INVITE_YOURSELF']));
+	}
+	catch (EmailException $e) {
+		echo json_encode(array('error' => $lang['UNREGISTERED_EMAIL']));
+	}
+	catch (SubscribedException $e) {
+		echo json_encode(array('error' => $lang['ALREADY_SUBSCRIBED']));
+	}
+	catch (InvitedException $e) {
+		echo json_encode(array('error' => $lang['ALREADY_INVITED']));
+	}
 }
 else
 {

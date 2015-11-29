@@ -5,12 +5,17 @@ include_once('database/events.php');
 
 function print_event($row)
 { 
-	global $lang; ?>
-	<li class="event box">
+	global $lang; 
+	$class = "";
+	if ($row['owns']) $class = "owned-event";
+	else if ($row['invited']) $class = "invite";
+	?>
+	<li class="event box <?php echo $class ?>">
 		<a href="events/<?php echo $row['id'] ?>" >
 			<h3><?php echo $row['name'] ?></h3>
 			<div class="div-event-image" style="background-image:url(<?php echo $row['image'] ?>)"></div>
 			<p class="event-date"><?php echo $row['date'] ?></p>
+			<p><?php echo (!$row['invited'] && !$row['owns'])?$lang['SUBSCRIBED']:'&nbsp;' ?></p>
 		</a>
 	</li>
 	<?php
@@ -29,23 +34,23 @@ function print_event($row)
 		<?php include('templates/header.php'); ?>
 		<div id="content" class="center default-width">
 			<ul class="tabs">
-				<li><a href="#subscribed"><?php echo $lang['SUBSCRIBED'] ?></a></li>
-				<li><a href="#mine"><?php echo $lang['MY_EVENTS'] ?></a></li>
+				<li><a href="#next"><?php echo $lang['NEXT'] ?></a></li>
+				<li><a href="#previous"><?php echo $lang['PREVIOUS'] ?></a></li>
 				<li class="tab-right button"><a href="events/new"><?php echo $lang['CREATE'] ?></a></li>
 			</ul>
 			<div class="tabs-panel">
-				<div id="subscribed">
+				<div id="next">
 					<ul class="events-list">
 						<?php
-						$events = getSubscribedEvents($_SESSION['user_id']);
+						$events = getNextEvents($_SESSION['user_id']);
 						foreach ($events as $row) print_event($row);
 						?>
 					</ul>
 				</div>
-				<div id="mine">
+				<div id="previous">
 					<ul class="events-list">
 						<?php
-						$events = getUserEvents($_SESSION['user_id']);
+						$events = getPreviousEvents($_SESSION['user_id']);
 						foreach ($events as $row) print_event($row);
 						?>
 					</ul>

@@ -33,9 +33,7 @@
 		$stmt = $db->prepare('SELECT * FROM users WHERE id = ?');
 		$stmt->execute(array($user_id));
 		$user = $stmt->fetch();
-		if ($user !== false)
-			return TRUE;
-		return FALSE;
+		return ($user !== false);
 	}
 
 	function getFullName($user_id)

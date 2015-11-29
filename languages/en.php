@@ -33,9 +33,10 @@ $lang['INVALID_PASSWORD'] = 'Invalid password.';
 $lang['LOGOUT'] = 'Log Out';
 
 // Main Page
-$lang['MY_EVENTS'] = 'My Events';
-$lang['SUBSCRIBED'] = 'Subscribed';
+$lang['NEXT'] = 'Next';
+$lang['PREVIOUS'] = 'Previous';
 $lang['CREATE'] = 'Create';
+$lang['SUBSCRIBED'] = 'Subscribed';
 
 // New Event
 $lang['PRIVATE'] = 'Private';
@@ -54,7 +55,7 @@ $lang['EDUCATIONAL'] = 'Educational';
 $lang['INVALID_NAME'] = 'Invalid name.';
 $lang['INVALID_DESCRIPTION'] = 'Invalid description.';
 $lang['INVALID_DATE'] = 'Invalid date.';
-$lang['INVALID_IMAGE'] = 'Upload a valid image.';
+$lang['INVALID_IMAGE'] = 'Upload a valid image (Accepted: jpg, png, gif).';
 $lang['IMAGE_SIZE_ERROR'] = "Image's size can not be higher than 5MB.";
 $lang['IMAGE_EXT_ERROR'] = 'Invalid extension (Accepted: jpg, png, gif).';
 
@@ -74,8 +75,14 @@ $lang['COMMENTS'] = 'Comments';
 $lang['MAKE_COMMENT'] = 'Comment';
 $lang['NO_COMMENTS_YET'] = 'There are no comments yet.';
 
+$lang['INVITED'] = 'Invited';
 $lang['SUBSCRIBERS'] = 'Subscribers';
 $lang['ZERO_SUBS'] = "No subscribers yet.";
+$lang['ZERO_INVITED'] = "No invites sent yet.";
+$lang['CANT_INVITE_YOURSELF'] = 'You can not invite yourself.';
+$lang['ALREADY_SUBSCRIBED'] = 'User already subscribed.';
+$lang['ALREADY_INVITED'] = 'User already invited.';
+
 
 $lang['1'] = 'January';
 $lang['2'] = 'February';
