@@ -42,10 +42,9 @@ if(isSet($_GET['action']) && $_GET['action'] == 'new')
 			} while (file_exists($_CONFIG['uploads_path'].$filename));
 			$newfile = $_CONFIG['uploads_path'].$filename;
 			$public = $_POST['privacy'] === "public";
-			if (newEvent($_POST['name'], $_POST['desc'], $_POST['date'], $_POST['type'], $newfile, $_SESSION['user_id'], $public))
+			if ($id = newEvent($_POST['name'], $_POST['desc'], $_POST['date'], $_POST['type'], $newfile, $_SESSION['user_id'], $public))
 			{
 				move_uploaded_file($_FILES['image']['tmp_name'], $newfile);
-				$id = latestUserEvent($_SESSION['user_id']);
 				header('Location: '.$id);
 				return;
 			}

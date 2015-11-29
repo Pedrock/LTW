@@ -15,7 +15,7 @@ function print_event($row)
 			<h3><?php echo $row['name'] ?></h3>
 			<div class="div-event-image" style="background-image:url(<?php echo $row['image'] ?>)"></div>
 			<p class="event-date"><?php echo $row['date'] ?></p>
-			<p><?php echo (!$row['invited'] && !$row['owns'])?$lang['SUBSCRIBED']:'&nbsp;' ?></p>
+			<p><?php echo ($row['subscribed'])?$lang['SUBSCRIBED']:'&nbsp;' ?></p>
 		</a>
 	</li>
 	<?php

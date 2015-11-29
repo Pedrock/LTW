@@ -9,14 +9,14 @@
 	function _getEvents($previous, $user_id)
 	{
 		global $db;
-		$stmt = $db->prepare("SELECT id,name,image,date,MAX(owns) owns,MIN(invited) invited FROM 
-			(SELECT id,name,image,date,1 owns,0 invited FROM events WHERE user_id = :user AND deleted = 0
+		$stmt = $db->prepare("SELECT id,name,image,date, MAX(owns) owns,MIN(invited) invited, MAX(subscribed) subscribed FROM 
+			(SELECT id,name,image,date,1 owns,0 invited, 0 subscribed FROM events WHERE user_id = :user AND deleted = 0
 			UNION
-				SELECT events.id id,name,image,date,0 owns,0 invited FROM event_subscriptions
+				SELECT events.id id,name,image,date,0 owns,0 invited, 1 subscribed FROM event_subscriptions
 					LEFT JOIN events ON events.id = event_id
 					WHERE deleted = 0 AND event_subscriptions.user_id = :user
 			UNION
-				SELECT events.id id,name,image,date,0 owns,1 invited FROM invites
+				SELECT events.id id,name,image,date,0 owns,1 invited, 0 subscribed FROM invites
 					LEFT JOIN events ON events.id = event_id
 					WHERE deleted = 0 AND invites.user_id = :user
 			)
@@ -78,7 +78,9 @@
 			$user_id,
 			$public
 		))) return FALSE;
-		return TRUE;
+		$event_id = $db->lastInsertId();
+		subscribeEvent($event_id,$user_id);
+		return $event_id;
 	}
 
 	function latestUserEvent($user_id)
