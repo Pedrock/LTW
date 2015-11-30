@@ -225,21 +225,19 @@
 		global $db;
 		if ($user_id === false)
 		{
-			$stmt = $db->prepare('SELECT events.name events_name, event_photos.id id, event_photos.image image, event_photos.date date
-				FROM event_photos 
-				LEFT JOIN events ON event_id = events.id
-				WHERE events.id = ? AND deleted = 0 AND public = 1
+			$stmt = $db->prepare('SELECT event_photos.id id, event_photos.image image, event_photos.date date, 0 delete_permission
+				FROM event_photos
+				WHERE event_id = ?
 				ORDER BY date DESC');
 			$stmt->execute(array($event_id));
 		}
 		else
 		{
-			$stmt = $db->prepare('SELECT events.name events_name, event_photos.id id, event_photos.image image, event_photos.date date
+			$stmt = $db->prepare('SELECT event_photos.id id, event_photos.image image, event_photos.date date,
+					(events.user_id = :user OR event_photos.user_id = :user) delete_permission
 				FROM event_photos
 				LEFT JOIN events ON event_id = events.id
-				WHERE events.id = :event AND deleted = 0
-				AND (public = 1 OR user_id = :user
-					OR EXISTS (SELECT * FROM event_subscriptions WHERE event_id = events.id AND event_subscriptions.user_id = :user))
+				WHERE event_id = :event
 				ORDER BY date DESC');
 			$stmt->execute(array(':user' => $user_id, ':event' => $event_id));
 		}
