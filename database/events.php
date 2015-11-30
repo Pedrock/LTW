@@ -243,7 +243,7 @@
 				ORDER BY date DESC');
 			$stmt->execute(array(':user' => $user_id, ':event' => $event_id));
 		}
-		return $stmt->fetch();
+		return $stmt->fetchAll();
 	}
 
 	function inviteToEvent($user_email, $event_id, $owner_id)
