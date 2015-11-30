@@ -14,6 +14,44 @@ function updateComments(array)
 	}
 }
 
+function sendInvite()
+{
+	$email = $("#invite-email").val();
+	if ($email.length)
+	{
+		$("#invite-email").val("");
+		$button = $('#invite-button');
+		$button.attr("disabled", true);
+		$('#invite-error').fadeOut();
+		$.ajax({                                      
+			url: '../api/events.php',                        
+			data: {'id' : $event_id, 'invite': $email},                       
+			type: 'POST',
+			dataType: 'json',                 
+			success: function(result)
+			{
+				$button.attr("disabled", false);
+				if (result['error'])
+				{
+					$('#invite-error').text(result['error']);
+					$('#invite-error').finish();
+					$('#invite-error').fadeIn();
+				}
+				else
+				{
+					$('#zero-invites').fadeOut();
+					$('#invites').append($('<li style="display:none">'+result['user']+'</li>'));
+					$('#invites li:last-child').fadeIn();
+				}
+			},
+			error: function(err)     
+			{
+				$button.attr("disabled", false);
+			}
+		});
+	}
+}
+
 $(document).ready(function() 
 {	
 	$event_id = $("#event-id").text();
@@ -28,14 +66,23 @@ $(document).ready(function()
 			data: {'id' : $event_id, 'subscribe': $subscribe},                       
 			type: 'POST',
 			dataType: 'json',                 
-			success: function(ok)     
+			success: function(subscribers)     
 			{
 				$button.attr("disabled", false);
-				if(ok)
+				if(subscribers)
 				{
+					if (subscribers.length) $("#zero-subs").fadeOut();
+					else $("#zero-subs").fadeIn();
 					$button.hide();
 					$(".subscription.button").not($button).show();
 					$("#comments-box").toggle($subscribe || $is_owner);
+					$('#subs').children().fadeOut(100).promise().then(function() {
+						for (i in subscribers) {
+							$('#subs').append(
+								$('<li style="display:none">'+subscribers[i]['user_name']+'</li>'));
+							$('#subs li:last-child').fadeIn();
+						}
+					});
 				}
 			},
 			error: function(err)     
@@ -73,6 +120,7 @@ $(document).ready(function()
 		{
 			$('#comment-area').val("");
 			$button = $(this);
+			$button.attr("disabled", true);
 			$.ajax({                                      
 				url: '../api/events.php',                        
 				data: {'id' : $event_id, 'last-comment': $('#last-comment-id').text(), 'comment': $comment},                       
@@ -80,6 +128,7 @@ $(document).ready(function()
 				dataType: 'json',                 
 				success: function(array)
 				{
+					$button.attr("disabled", false);
 					updateComments(array);
 				},
 				error: function(err)     
@@ -89,4 +138,11 @@ $(document).ready(function()
 			});
 		}
 	});
+
+	$("#invite-button").click(sendInvite);
+
+	$('#invite-email').keypress(function(e) {
+        if(e.which == 13) sendInvite();
+    });
+
 });

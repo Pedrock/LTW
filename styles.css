@@ -278,17 +278,27 @@ input[type="date"] {
 	background-repeat: no-repeat;
 }
 
-.event.box > a > p 
+.event.box .event-date
 {
 	text-align:right;
 	font-size: 12px;
-	margin-right: 20px;
+	margin: 10px 20px 5px 0;
+}
+
+.event.box p {
+	text-align:right;
+	font-size: 10px;
+	margin: 0 5px 0;
+	height: 13px;
 }
 
 .event.box > a > h3
 {
 	color: #3b5998;
 	font-size: 1em;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .event.box > a 
@@ -307,12 +317,23 @@ input[type="date"] {
 	color: white;
 }
 
-.box.center > #date
+.owned-event
+{
+	border-color: blue;
+	border-width: 1px;
+}
+
+.invite
+{
+	background-color: #eee;
+	border-color: #fff;
+}
+
+.box.center > .date
 {
 	color: #4e5665;
 	font-weight: bold;
 	font-size: 13px;
-	
 }
 .box.center > h3
 {
@@ -320,12 +341,10 @@ input[type="date"] {
 	color: #3b5998;
 }
 
-
 .share {
 	padding: 12px 0 0;
 	height: 20px;
 }
-
 
 #new-event > input, #edit-event > input
 {
@@ -345,6 +364,7 @@ input[type="date"] {
 #privacy {
 	display:block;
 	margin-top:20px;
+	font-size: 0.9em;
 }
 
 .event-error
@@ -363,6 +383,15 @@ input[type="date"] {
 	margin-bottom: -20px;
 }
 
+#event-type {
+	margin: 30px 0 10px;	
+}
+
+#event-privacy {
+	font-size: 0.8em;
+	margin-bottom: 20px;
+}
+
 #del-edit-div {
 	float: right;
 }
@@ -374,6 +403,66 @@ input[type="date"] {
 
 .default-width {
 	width: 800px;
+}
+
+.default-width-with-sidebar {
+	width: 1100px;
+}
+
+#sidebar {
+	float: right;
+	width:240px;
+	text-align: center;
+}
+
+#sidebar > h3:first-child {
+	margin-top: 10px;
+}
+#sidebar > h3 {
+	color: #3b5998;
+	padding:0;
+	margin:30px 0 15px;
+	padding-bottom: 5px;
+	border-bottom:1px solid #3b5998;
+}
+
+#subs, #invites {
+	list-style-type: none;
+	padding: 0;
+	margin: 10px;
+	font-size: 0.9em;
+}
+
+#zero-subs, #zero-invites
+{
+	font-size: 0.9em;
+}
+
+#invite-email {
+	display: inline;
+	width: 200px;
+	margin-bottom: 5px;
+}
+
+#invite-button {
+	height: 32px;
+	width: 32px;
+}
+
+#invite-error
+{
+	background-color: #fff; 
+	text-align: center; 
+	font-size: 13px;
+	color: red;
+}
+
+.default-width-with-sidebar > div:first-child {
+	float:left;
+}
+
+.clear {
+	clear: both;
 }
 
 .center {
@@ -429,7 +518,7 @@ ul.tabs li.active {
 }
 
 #comments-box {
-	margin-top: 10px;
+	margin: 20px 0 10px;
 	width:97%
 }
 

@@ -68,6 +68,13 @@ CREATE TABLE IF NOT EXISTS event_comments
 	text TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS invites
+(
+	user_id INTEGER NOT NULL REFERENCES users(id),
+	event_id INTEGER NOT NULL REFERENCES events(id),
+	PRIMARY KEY (user_id, event_id)
+);
+
 DELETE FROM event_types;
 INSERT INTO event_types(id,type) VALUES (1,'PARTY');
 INSERT INTO event_types(id,type) VALUES (2,'BUSINESS');
