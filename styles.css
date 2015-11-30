@@ -269,15 +269,6 @@ input[type="date"] {
 	background-repeat: no-repeat;
 }
 
-.div-event-photo-image
-{
-
-	height: 150px;
-	background-size: contain;
-	background-position: left;
-	background-repeat: no-repeat;
-}
-
 .div-event-image-big
 {
 	width: 100%;
@@ -603,4 +594,22 @@ ul.tabs li.active {
 	color: #fff;
 	font-size: 40px;
 	font-weight: bold;
+}
+
+.div-event-photo-image
+{
+	height: 220px;
+	background-size: contain;
+	background-position: left;
+	background-repeat: no-repeat;
+}
+
+li.photo {
+	list-style: none;
+	margin: 0;
+	margin-left: 15px;
+	margin-bottom: 15px;
+	width: 220px;
+	display: inline-block;
+	background-color: black;
 }
