@@ -41,7 +41,6 @@ $(document).ready(function()
 		e.preventDefault();
 		$('html, body').css({
 		    'overflow': 'hidden',
-		    'height': '100%'
 		});
 		var style = $(this).children('.div-event-photo-image').attr('style');
 		$('<table id="overlay"><tbody><tr><td id="overlay-text" class="fullscreen-image" style="'+style+'"></td></tr></tbody></table>')
@@ -51,7 +50,6 @@ $(document).ready(function()
 			$("#overlay").remove();
 			$('html, body').css({
 			    'overflow': 'auto',
-			    'height': 'auto'
 			});
 		});
     });
