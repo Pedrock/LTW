@@ -116,6 +116,10 @@ else if(isSet($_GET['action']) && $_GET['action'] == 'photos')
 {
 	include('templates/events_photos.php');
 }
+else if(isSet($_GET['action']) && $_GET['action'] == 'see_photo')
+{
+	include('templates/events_photo.php');
+}
 else if(isSet($_GET['action']) && $_GET['action'] == 'new_photo')
 {
 	include_once('core/require_session.php');

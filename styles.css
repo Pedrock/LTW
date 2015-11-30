@@ -269,6 +269,15 @@ input[type="date"] {
 	background-repeat: no-repeat;
 }
 
+.div-event-photo-image
+{
+
+	height: 150px;
+	background-size: contain;
+	background-position: left;
+	background-repeat: no-repeat;
+}
+
 .div-event-image-big
 {
 	width: 100%;

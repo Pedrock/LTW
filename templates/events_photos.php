@@ -18,31 +18,27 @@ include_once("core/event_permission.php");
 				<li class="tab-right button"><a id="add-photos" href='<?php echo "photos/new"; ?>'><?php echo $lang['ADD_PHOTOS'] ?></a></li>
 			</ul>
 			<div class="tabs-panel">
-			<!--	<div id="subscribed">-->
-					<ul class="events-list">
+				<ul class="events-list">
+					<?php
+					$photos = getEventPhotos($_GET['id'],$_SESSION['user_id']);
+					if (empty($photos)) {
+						echo '<p id="no-photos-yet">'.$lang['NO_PHOTOS_YET'].'</p>';
+					}
+					else
+					{ 
+						foreach ($photos as $row)
+						{
+						?>	
+							<li class="photo">
+								<a href="photos" class="photo-link">
+									<div class="div-event-photo-image" style="background-image:url(<?php echo $_CONFIG['web_root'].$row['image'] ?>)"></div>
+								</a>
+							</li>
 						<?php
-						$photos = getEventPhotos($_GET['id'],$_SESSION['user_id']);
-						
-						if (empty($photos)) {
-							echo '<p id="no-comments-yet">'.$lang['NO_PHOTOS_YET'].'</p>';
 						}
-						else
-						{ 
-							echo '<div id="last-comment-id" style="display:none">'.$photos[0]['id'].'</div>';
-							foreach ($photos as $row)
-							{
-							?>	<li class="event box">
-									<!--<a href="photos/<?php echo $row['id'] ?>/" >-->
-										<div class="div-event-image" style="background-image:url(<?php echo $_CONFIG['web_root'].$row['image'] ?>)"></div>
-										<p id="date"><?php echo $row['date'] ?></p>
-									<!--</a>-->
-								</li>
-							<?php
-							}
-						}
-						?>
-					</ul>
-			<!--	</div>-->
+					}
+					?>
+				</ul>
 			</div>
 		</div>
 		<?php include('templates/footer.php'); ?>
