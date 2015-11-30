@@ -1,14 +1,13 @@
 <?php 
 include_once("core/event_permission.php");
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
 	<title><?php echo $lang['SITE_NAME'] ?></title>
 	<link rel="stylesheet" href="../../styles.css">
-	<script src="../<?php echo $_GLOBALS['jquery'] ?>"></script>
-	<script type="text/javascript" src="../js/event.js"></script>
+	<script src="../../<?php echo $_CONFIG['jquery'] ?>"></script>
+	<script type="text/javascript" src="../../js/event_photos.js"></script>
 </head>
 <body>
 	<div id="wrapper">
@@ -16,7 +15,7 @@ include_once("core/event_permission.php");
 		<div id="content" class="center default-width">
 			<ul class="tabs">
 			<li><a><?php echo $row['name'] ?></a></li>
-				<li class="tab-right button"><a href='<?php echo "../".$_GET['id']."/photos/new"; ?>'><?php echo $lang['ADD'] ?></a></li>
+				<li class="tab-right button"><a id="add-photos" href='<?php echo "photos/new"; ?>'><?php echo $lang['ADD_PHOTOS'] ?></a></li>
 			</ul>
 			<div class="tabs-panel">
 			<!--	<div id="subscribed">-->
