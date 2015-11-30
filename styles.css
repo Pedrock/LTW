@@ -354,6 +354,7 @@ input[type="date"] {
 #privacy {
 	display:block;
 	margin-top:20px;
+	font-size: 0.9em;
 }
 
 .event-error

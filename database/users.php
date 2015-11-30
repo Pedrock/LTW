@@ -7,7 +7,7 @@
 		$options = ['cost' => 12];
 		$stmt = $db->prepare('INSERT INTO users(email,password,first_name,last_name) VALUES (?, ?, ?, ?)');
 		if (!$stmt->execute(array(
-			htmlspecialchars($email), 
+			$email, 
 			password_hash($password, PASSWORD_DEFAULT, $options),
 			htmlspecialchars($first_name),
 			htmlspecialchars($last_name))

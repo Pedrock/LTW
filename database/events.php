@@ -214,22 +214,23 @@
 		global $db;
 		if ($user_id === false)
 		{
-			$stmt = $db->prepare('SELECT events.name events_name, event_photos.id id, event_photos.image image, event_photos.date date, 
-					(public = 1) permission 
-					FROM event_photos 
+			$stmt = $db->prepare('SELECT events.name events_name, event_photos.id id, event_photos.image image, event_photos.date date
+				FROM event_photos 
 				LEFT JOIN events ON event_id = events.id
-				WHERE events.id = ? AND deleted = 0
+				WHERE events.id = ? AND deleted = 0 AND public = 1
 				ORDER BY date DESC');
 			$stmt->execute(array($event_id));
 		}
 		else
 		{
-			$stmt = $db->prepare('SELECT events.name events_name, event_photos.id id, event_photos.image image, event_photos.date date,  
-				(public = 1 OR user_id = ? OR EXISTS (SELECT * FROM event_subscriptions WHERE event_id = events.id AND event_subscriptions.user_id = ?)) permission
+			$stmt = $db->prepare('SELECT events.name events_name, event_photos.id id, event_photos.image image, event_photos.date date
 				FROM event_photos
 				LEFT JOIN events ON event_id = events.id
-				WHERE events.id = ? AND deleted = 0');
-			$stmt->execute(array($user_id,$user_id,$event_id));
+				WHERE events.id = :event AND deleted = 0
+				AND (public = 1 OR user_id = :user
+					OR EXISTS (SELECT * FROM event_subscriptions WHERE event_id = events.id AND event_subscriptions.user_id = :user))
+				ORDER BY date DESC');
+			$stmt->execute(array(':user' => $user_id, ':event' => $event_id));
 		}
 		return $stmt->fetch();
 	}
