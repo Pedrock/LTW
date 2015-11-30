@@ -35,6 +35,28 @@ $(document).ready(function()
 	   		});
 		});
     });
+
+	$(".photo-link").click(function (e) 
+	{
+		e.preventDefault();
+		$('html, body').css({
+		    'overflow': 'hidden',
+		    'height': '100%'
+		});
+		var style = $(this).children('.div-event-photo-image').attr('style');
+		$('<table id="overlay"><tbody><tr><td id="overlay-text" class="fullscreen-image" style="'+style+'"></td></tr></tbody></table>')
+			.css({'padding': '20px'})
+			.appendTo("body");
+		$("#overlay").click(function() {
+			$("#overlay").remove();
+			$('html, body').css({
+			    'overflow': 'auto',
+			    'height': 'auto'
+			});
+		});
+    });
+
+
 });
 
 function progressHandlingFunction(e)
@@ -43,6 +65,12 @@ function progressHandlingFunction(e)
         $('progress').attr({value:e.loaded,max:e.total});
         $('#progress').text(Math.floor(e.loaded/e.total*100)+"%");
     }
+}
+
+function addOverlay(content, element_class, css)
+{
+	var c = element_class === undefined ? "" : element_class;
+	
 }
 
 function beforeSendHandler()

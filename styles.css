@@ -604,6 +604,14 @@ ul.tabs li.active {
 	background-repeat: no-repeat;
 }
 
+.fullscreen-image
+{
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+
 li.photo {
 	list-style: none;
 	margin: 0;
