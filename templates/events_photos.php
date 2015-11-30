@@ -1,4 +1,5 @@
 <?php 
+include_once('core/common.php');
 include_once("core/event_permission.php");
 ?>
 <!DOCTYPE html>
@@ -20,6 +21,7 @@ include_once("core/event_permission.php");
 			<div class="tabs-panel">
 				<ul class="events-list">
 					<?php
+					echo '<div id="event-id" style="display:none">'.$_GET['id'].'</div>';
 					$photos = getEventPhotos($_GET['id'],$_SESSION['user_id']);
 					if (empty($photos)) {
 						echo '<p id="no-photos-yet">'.$lang['NO_PHOTOS_YET'].'</p>';
