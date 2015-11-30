@@ -81,3 +81,6 @@ INSERT INTO event_types(id,type) VALUES (2,'BUSINESS');
 INSERT INTO event_types(id,type) VALUES (3,'MEETING');
 INSERT INTO event_types(id,type) VALUES (4,'CEREMONY');
 INSERT INTO event_types(id,type) VALUES (5,'EDUCATIONAL');
+
+DELETE FROM event_photos;
+INSERT INTO event_photos(id,event_id,image) VALUES (1,18,'uploads/564e7718b2a85.JPG');
