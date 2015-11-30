@@ -34,7 +34,7 @@ include_once("core/event_permission.php");
 							{
 							?>	<li class="event box">
 									<!--<a href="photos/<?php echo $row['id'] ?>/" >-->
-										<div class="div-event-image" style="background-image:url(<?php echo $row['image'] ?>)"></div>
+										<div class="div-event-image" style="background-image:url(<?php echo $_CONFIG['web_root'].$row['image'] ?>)"></div>
 										<p id="date"><?php echo $row['date'] ?></p>
 									<!--</a>-->
 								</li>
