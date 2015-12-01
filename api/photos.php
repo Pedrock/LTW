@@ -22,5 +22,13 @@ if (!empty($_FILES) && isSet($_POST['id']))
 	}
 	echo json_encode(getEventPhotos($_POST['id'], $_SESSION['user_id']));
 }
+else if (isSet($_POST['id']) && isSet($_POST['delete']))
+{
+	include_once("core/require_session.php");
+	include_once("core/event_permission.php");
+	include_once("database/events.php");
+
+	echo json_encode(deletePhoto($_POST['id'], $_POST['delete'], $_SESSION['user_id']));
+}
 else echo json_encode(false);
 ?>

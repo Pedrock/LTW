@@ -66,7 +66,22 @@ function updateDeleteButtons(){
 			});
 			$(".delete-photo-button").click(function (e) 
 			{
-				alert('oi');
+				$button = $(this);
+				$button.attr("disabled", false);
+				$.ajax({                                      
+					url: 'api/photos.php',                        
+					data: {'id' : $('#event-id').text(), 'delete': $button.parent().attr('data-id')},                       
+					type: 'POST',
+					dataType: 'json',                 
+					success: function(result)
+					{
+						$button.parent().fadeOut(null, function() {$(this).remove();});
+					},
+					error: function(err)     
+					{
+						$button.attr("disabled", false);
+					}
+				});
 		    });
 		}
 	}
@@ -101,7 +116,8 @@ function completeHandler(photos)
 		$('.photos-list').empty();
 		for (var i in photos)
 		{
-			$photo = $('.dummy-photo').clone().attr('class','photo').attr('data-delete-permission',photos[i]['delete_permission']);
+			$photo = $('.dummy-photo').clone()
+				.attr('class','photo').attr('data-delete-permission',photos[i]['delete_permission']).attr('data-id',photos[i]['id']);
 			$photo.find('div').attr('style','background-image:url('+$root+photos[i]['image']+')');
 			$('.photos-list').append($photo);
 			$photo.delay(500).fadeIn(1000);

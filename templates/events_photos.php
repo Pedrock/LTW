@@ -27,7 +27,7 @@ include_once("core/event_permission.php");
 	  			<?php
 	  			} ?>
 			</ul>
-			<li class="dummy-photo" style="display:none" data-delete-permission="">
+			<li class="dummy-photo" style="display:none" data.id="" data-delete-permission="">
 				<div class="div-event-photo-image photo-link" style=""></div>
 			</li>
 			<div class="tabs-panel">
@@ -42,7 +42,7 @@ include_once("core/event_permission.php");
 						foreach ($photos as $row)
 						{
 						?>	
-							<li class="photo" data-delete-permission="<?php echo $row['delete_permission'] ?>">
+							<li class="photo" data-id="<?php echo $row['id'] ?>" data-delete-permission="<?php echo $row['delete_permission'] ?>">
 								<div class="div-event-photo-image photo-link" 
 									style="background-image:url(<?php echo $_CONFIG['web_root'].$row['image'] ?>)">
 								</div>

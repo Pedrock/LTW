@@ -240,6 +240,14 @@
 		return $stmt->fetchAll();
 	}
 
+	function deletePhoto($event_id, $photo_id, $user_id)
+	{
+		global $db;
+		$stmt = $db->prepare('DELETE FROM event_photos WHERE event_id = :event AND id = :photo
+			AND (user_id = :user OR EXISTS (SELECT * FROM events WHERE id = :event AND user_id = :user))');
+		return $stmt->execute(array(':user' => $user_id, ':event' => $event_id, ':photo' => $photo_id));
+	}
+
 	function inviteToEvent($user_email, $event_id, $owner_id)
 	{
 		global $db;
