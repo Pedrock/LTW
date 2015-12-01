@@ -14,18 +14,17 @@ include_once("core/event_permission.php");
 	<div id="wrapper">
 		<?php include('templates/header.php'); ?>
 		<div id="content" class="center default-width">
+			<div id="event-id" style="display:none"><?php echo $_GET['id'] ?></div>
 			<ul class="tabs">
 			<li><a><?php echo $row['name'] ?></a></li>
 				<li class="tab-right button"><a id="add-photos" href='<?php echo "photos/new"; ?>'><?php echo $lang['ADD_PHOTOS'] ?></a></li>
-				<li id="delete-flip-button" class='tab-right tg-list-item'>
-    				<input id="delete-mode-input" class='tgl tgl-flip' type='checkbox'>
-    				<label class='tgl-btn' data-tg-off='<?php echo $lang['DELETE_DISABLED'] ?>' data-tg-on='<?php echo $lang['DELETE_ACTIVE'] ?>' for='delete-mode-input'></label>
-  				</li>
 			</ul>
+			<li class="dummy-photo" style="display:none">
+				<div class="div-event-photo-image photo-link" style=""></div>
+			</li>
 			<div class="tabs-panel">
-				<ul class="events-list">
+				<ul class="photos-list">
 					<?php
-					echo '<div id="event-id" style="display:none">'.$_GET['id'].'</div>';
 					$photos = getEventPhotos($_GET['id'],$_SESSION['user_id']);
 					if (empty($photos)) {
 						echo '<p id="no-photos-yet">'.$lang['NO_PHOTOS_YET'].'</p>';
@@ -34,29 +33,12 @@ include_once("core/event_permission.php");
 					{ 
 						foreach ($photos as $row)
 						{
-							if ($row['delete_permission'])
-							{
 						?>	
-							<li class="photo show-delete-buttons">
-								<a href="photos" class="photo-link">
-									<div class="div-event-photo-image" style="background-image:url(<?php echo $_CONFIG['web_root'].$row['image'] ?>)"></div>
-								</a>
-								<div id="del-edit-div">
-									<a id="delete-button" class='button circular-button' style="display:none"></a>
-								</div>
+							<li class="photo" data-delete-permission="<?php echo $row['delete_permission'] ?>">
+								<div class="div-event-photo-image photo-link" 
+									style="background-image:url(<?php echo $_CONFIG['web_root'].$row['image'] ?>)"></div>
 							</li>
-							<?php
-							}	
-							else
-							{
-							?>
-								<li class="photo">
-								<a href="photos" class="photo-link">
-									<div class="div-event-photo-image" style="background-image:url(<?php echo $_CONFIG['web_root'].$row['image'] ?>)"></div>
-								</a>
-							</li>
-							<?php
-							}
+						<?php
 						}
 					}
 					?>

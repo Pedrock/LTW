@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: application/json');
 set_include_path('..');
 include_once('database/users.php');
 if (isset($_GET['exists'])) 

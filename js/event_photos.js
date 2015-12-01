@@ -40,16 +40,16 @@ $(document).ready(function()
 	{
 		e.preventDefault();
 		$('html, body').css({
-		    'overflow': 'hidden',
+		    'overflow': 'hidden'
 		});
-		var style = $(this).children('.div-event-photo-image').attr('style');
+		var style = $(this).attr('style');
 		$('<table id="overlay"><tbody><tr><td id="overlay-text" class="fullscreen-image" style="'+style+'"></td></tr></tbody></table>')
 			.css({'padding': '20px'})
 			.appendTo("body");
 		$("#overlay").click(function() {
 			$("#overlay").remove();
 			$('html, body').css({
-			    'overflow': 'auto',
+			    'overflow': 'auto'
 			});
 		});
     });
@@ -91,10 +91,22 @@ function beforeSendHandler()
 		.css({"cursor": "wait"}).appendTo("body");
 }
 
-function completeHandler()
+function completeHandler(photos)
 {
 	$('#progress').text("100%");
-	$("#overlay").delay(1000).fadeOut(1000, function() { $(this).remove(); });
+	if (photos && photos.length)
+	{
+		$root = $('#webroot').attr('href');
+		$('.photos-list').empty();
+		for (var i in photos)
+		{
+			$photo = $('.dummy-photo').clone().attr('class','photo');
+			$photo.find('div').attr('style','background-image:url('+$root+photos[i]['image']+')');
+			$('.photos-list').append($photo);
+			$photo.delay(500).fadeIn(1000);
+		}
+	}
+	$("#overlay").delay(500).fadeOut(1000, function() { $(this).remove(); });
 }
 
 function errorHandler()

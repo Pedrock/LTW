@@ -12,10 +12,12 @@ function print_event($row)
 	?>
 	<li class="event box <?php echo $class ?>">
 		<a href="events/<?php echo $row['id'] ?>" >
-			<h3><?php echo $row['name'] ?></h3>
-			<div class="div-event-image" style="background-image:url(<?php echo $row['image'] ?>)"></div>
-			<p class="event-date"><?php echo $row['date'] ?></p>
-			<p><?php echo ($row['subscribed'])?$lang['SUBSCRIBED']:'&nbsp;' ?></p>
+			<div>
+				<h3><?php echo $row['name'] ?></h3>
+				<div class="div-event-image" style="background-image:url(<?php echo $row['image'] ?>)"></div>
+				<p class="event-date"><?php echo $row['date'] ?></p>
+				<p><?php echo ($row['subscribed'])?$lang['SUBSCRIBED']:'&nbsp;' ?></p>
+			</div>
 		</a>
 	</li>
 	<?php
