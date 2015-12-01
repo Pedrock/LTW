@@ -27,7 +27,7 @@ include_once("core/event_permission.php");
 	  			<?php
 	  			} ?>
 			</ul>
-			<li class="dummy-photo" style="display:none">
+			<li class="dummy-photo" style="display:none" data-delete-permission="">
 				<div class="div-event-photo-image photo-link" style=""></div>
 			</li>
 			<div class="tabs-panel">

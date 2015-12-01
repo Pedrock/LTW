@@ -11,6 +11,8 @@ $(document).ready(function()
 		$input = $form.find('input');
 		$input.click();
 		$input.change(function() {
+			$('#delete-mode-input').prop('checked',false);
+			updateDeleteButtons();
 			var formData = new FormData($form[0]);
 			$.ajax({
 		        url: 'api/photos.php',  //Server script to process data
@@ -36,50 +38,43 @@ $(document).ready(function()
 		});
     });
 
-	$(".photo-link").click(function (e) 
+	addPhotoClickHandler();
+
+  	$("#delete-mode-input").change(function (e) 
 	{
-		e.preventDefault();
-		$('html, body').css({
-		    'overflow': 'hidden'
-		});
-		var style = $(this).attr('style');
-		$('<table id="overlay"><tbody><tr><td id="overlay-text" class="fullscreen-image" style="'+style+'"></td></tr></tbody></table>')
-			.css({'padding': '20px'})
-			.appendTo("body");
-		$("#overlay").click(function() {
-			$("#overlay").remove();
-			$('html, body').css({
-			    'overflow': 'auto'
-			});
-		});
-    });
-
-  /*  $(".tgl-flip").click(function (e) 
-	{
-		/*if ($('.tgl-flip').prop('checked'))
-			$('.circular-button').show();
-		else
-			$('.circular-button').hide();*/
-
-/*
-		<div id="del-edit-div">
-			<a id="delete-button" class='button circular-button' style="display:none"></a>
-		</div>
-		
-    });*/
-
-	/*só para teste*/
-    $(".circular-button").click(function (e) 
-	{
-		alert('oi');
-    });
-
+		updateDeleteButtons();
+	});
 
 });
 
-function showDeleteButtons(delete_permission){
-	if($('.tgl-flip').prop('checked') && delete_permission){
-		$('<div id="del-edit-div"><a id="delete-button" class="button circular-button" style="display:none"></a></div>');
+var deleteActive = false;
+
+function updateDeleteButtons(){
+	if ($('#delete-mode-input').prop('checked'))
+	{
+		if (!deleteActive)
+		{
+			deleteActive = true;
+			$('.photo').each(function() {
+			if ($(this).attr('data-delete-permission') == "1")
+			{
+				$button = $('<div class="button delete-photo-button"></div>');
+				$button.hide();
+				$(this).append($button);
+				$button.animate({ width:"show", height:"show", padding:"show"});
+			}
+			});
+			$(".delete-photo-button").click(function (e) 
+			{
+				alert('oi');
+		    });
+		}
+	}
+	else
+	{
+		deleteActive = false;
+		$('.delete-photo-button').animate({ width:"hide", height:"hide", padding:"hide"},null,"swing",
+					function() { $(this).remove()});
 	}
 }
 
@@ -89,12 +84,6 @@ function progressHandlingFunction(e)
         $('progress').attr({value:e.loaded,max:e.total});
         $('#progress').text(Math.floor(e.loaded/e.total*100)+"%");
     }
-}
-
-function addOverlay(content, element_class, css)
-{
-	var c = element_class === undefined ? "" : element_class;
-	
 }
 
 function beforeSendHandler()
@@ -112,17 +101,33 @@ function completeHandler(photos)
 		$('.photos-list').empty();
 		for (var i in photos)
 		{
-			$photo = $('.dummy-photo').clone().attr('class','photo');
+			$photo = $('.dummy-photo').clone().attr('class','photo').attr('data-delete-permission',photos[i]['delete_permission']);
 			$photo.find('div').attr('style','background-image:url('+$root+photos[i]['image']+')');
 			$('.photos-list').append($photo);
 			$photo.delay(500).fadeIn(1000);
 		}
 	}
 	$("#overlay").delay(500).fadeOut(1000, function() { $(this).remove(); });
+	addPhotoClickHandler();
 }
 
 function errorHandler()
 {
 	 $("#overlay-text").html("<h1>Ocorreu um erro</h1>");
 	 $("#overlay").delay(3000).fadeOut(1000, function() { $(this).remove(); });
+}
+
+function addPhotoClickHandler()
+{
+	$(".photo-link").click(function (e) 
+	{
+		e.preventDefault();
+		var style = $(this).attr('style');
+		$('<table id="overlay"><tbody><tr><td id="overlay-text" class="fullscreen-image" style="'+style+'"></td></tr></tbody></table>')
+			.css({'padding': '20px'})
+			.appendTo("body");
+		$("#overlay").click(function() {
+			$("#overlay").remove();
+		});
+    });
 }

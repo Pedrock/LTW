@@ -230,7 +230,7 @@
 		else
 		{
 			$stmt = $db->prepare('SELECT event_photos.id id, event_photos.image image, event_photos.date date,
-					(events.user_id = :user OR event_photos.user_id = :user) delete_permission
+					coalesce(events.user_id = :user OR event_photos.user_id = :user, 0) delete_permission
 				FROM event_photos
 				LEFT JOIN events ON event_id = events.id
 				WHERE event_id = :event
