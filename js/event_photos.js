@@ -111,6 +111,6 @@ function completeHandler(photos)
 
 function errorHandler()
 {
-	 $("#overlay-text").text("Ocorreu um erro");
-	 $("#overlay").delay(3000).fadeOut();
+	 $("#overlay-text").html("<h1>Ocorreu um erro</h1>");
+	 $("#overlay").delay(3000).fadeOut(1000, function() { $(this).remove(); });
 }
