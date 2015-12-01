@@ -44,7 +44,8 @@ include_once("core/event_permission.php");
 						?>	
 							<li class="photo" data-delete-permission="<?php echo $row['delete_permission'] ?>">
 								<div class="div-event-photo-image photo-link" 
-									style="background-image:url(<?php echo $_CONFIG['web_root'].$row['image'] ?>)"></div>
+									style="background-image:url(<?php echo $_CONFIG['web_root'].$row['image'] ?>)">
+								</div>
 							</li>
 						<?php
 						}

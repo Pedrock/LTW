@@ -54,13 +54,19 @@ $(document).ready(function()
 		});
     });
 
-    $(".tgl-flip").click(function (e) 
+  /*  $(".tgl-flip").click(function (e) 
 	{
-		if ($('.tgl-flip').prop('checked'))
+		/*if ($('.tgl-flip').prop('checked'))
 			$('.circular-button').show();
 		else
-			$('.circular-button').hide();
-    });
+			$('.circular-button').hide();*/
+
+/*
+		<div id="del-edit-div">
+			<a id="delete-button" class='button circular-button' style="display:none"></a>
+		</div>
+		
+    });*/
 
 	/*só para teste*/
     $(".circular-button").click(function (e) 
@@ -70,6 +76,12 @@ $(document).ready(function()
 
 
 });
+
+function showDeleteButtons(delete_permission){
+	if($('.tgl-flip').prop('checked') && delete_permission){
+		$('<div id="del-edit-div"><a id="delete-button" class="button circular-button" style="display:none"></a></div>');
+	}
+}
 
 function progressHandlingFunction(e)
 {
