@@ -17,6 +17,10 @@ include_once("core/event_permission.php");
 			<ul class="tabs">
 			<li><a><?php echo $row['name'] ?></a></li>
 				<li class="tab-right button"><a id="add-photos" href='<?php echo "photos/new"; ?>'><?php echo $lang['ADD_PHOTOS'] ?></a></li>
+				<li id="delete-flip-button" class='tab-right tg-list-item'>
+    				<input id="delete-mode-input" class='tgl tgl-flip' type='checkbox'>
+    				<label class='tgl-btn' data-tg-off='<?php echo $lang['DELETE_DISABLED'] ?>' data-tg-on='<?php echo $lang['DELETE_ACTIVE'] ?>' for='delete-mode-input'></label>
+  				</li>
 			</ul>
 			<div class="tabs-panel">
 				<ul class="events-list">
@@ -30,13 +34,29 @@ include_once("core/event_permission.php");
 					{ 
 						foreach ($photos as $row)
 						{
+							if ($row['delete_permission'])
+							{
 						?>	
-							<li class="photo">
+							<li class="photo show-delete-buttons">
+								<a href="photos" class="photo-link">
+									<div class="div-event-photo-image" style="background-image:url(<?php echo $_CONFIG['web_root'].$row['image'] ?>)"></div>
+								</a>
+								<div id="del-edit-div">
+									<a id="delete-button" class='button circular-button' style="display:none"></a>
+								</div>
+							</li>
+							<?php
+							}	
+							else
+							{
+							?>
+								<li class="photo">
 								<a href="photos" class="photo-link">
 									<div class="div-event-photo-image" style="background-image:url(<?php echo $_CONFIG['web_root'].$row['image'] ?>)"></div>
 								</a>
 							</li>
-						<?php
+							<?php
+							}
 						}
 					}
 					?>

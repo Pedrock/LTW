@@ -54,6 +54,20 @@ $(document).ready(function()
 		});
     });
 
+    $(".tgl-flip").click(function (e) 
+	{
+		if ($('.tgl-flip').prop('checked'))
+			$('.circular-button').show();
+		else
+			$('.circular-button').hide();
+    });
+
+	/*só para teste*/
+    $(".circular-button").click(function (e) 
+	{
+		alert('oi');
+    });
+
 
 });
 
