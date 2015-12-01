@@ -29,7 +29,7 @@ include_once("core/event_permission.php");
 			<div class="tabs-panel">
 				<ul class="photos-list">
 					<?php
-					$photos = getEventPhotos($_GET['id'],$_SESSION['user_id']);
+					$photos = getEventPhotos($_GET['id'],isSet($_SESSION['user_id'])?$_SESSION['user_id']:false);
 					if (empty($photos)) {
 						echo '<p id="no-photos-yet">'.$lang['NO_PHOTOS_YET'].'</p>';
 					}
