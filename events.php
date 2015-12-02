@@ -2,6 +2,7 @@
 include_once('core/common.php');
 include_once('core/session.php'); 
 include_once('database/events.php');
+include_once('core/jpeg.php');
 
 function validateDate($date)
 {
@@ -36,12 +37,15 @@ if(isSet($_GET['action']) && $_GET['action'] == 'new')
 		if ($valid_name && $valid_desc && $valid_date && $valid_image && $valid_image_size && $valid_extension && $valid_privacy)
 		{
 			$public = $_POST['privacy'] === "public";
-			$extension = image_type_to_extension($image_info[2]);
-			$filepath = $_CONFIG['uploads_path'].sha1_file($_FILES['image']['tmp_name']).$extension;
+			$tmp_file = $_FILES['image']['tmp_name'];
+			$filepath = $_CONFIG['uploads_path'].sha1_file($tmp_file).'.jpg';
+			
 			if ($id = newEvent($_POST['name'], $_POST['desc'], $_POST['date'], $_POST['type'], $filepath, $_SESSION['user_id'], $public))
 			{
 				if (!file_exists($filepath))
-					move_uploaded_file($_FILES['image']['tmp_name'], $filepath);
+				{
+					createjpeg($tmp_file,$filepath);
+				}
 				header('Location: '.$id);
 				return;
 			}
@@ -74,14 +78,15 @@ else if(isSet($_GET['action']) && $_GET['action'] == 'edit')
 
 			if ($valid_image)
 			{
-				$filename = $_FILES['image']['name'];
-				$extension = image_type_to_extension($image_info[2]);
-				$filepath = $_CONFIG['uploads_path'].sha1_file($_FILES['image']['tmp_name']).$extension;
+				$tmp_file = $_FILES['image']['tmp_name'];
+				$filepath = $_CONFIG['uploads_path'].sha1_file($_FILES['image']['tmp_name']).'.jpg';
 				
-				if (updateEvent($_POST['id'],$_SESSION['user_id'],$_POST['name'],$_POST['desc'],$_POST['date'],$_POST['type'],$newfile,$public,!$valid_date))
+				if (updateEvent($_POST['id'],$_SESSION['user_id'],$_POST['name'],$_POST['desc'],$_POST['date'],$_POST['type'],$filepath,$public,!$valid_date))
 				{
 					if (!file_exists($filepath))
-						move_uploaded_file($_FILES['image']['tmp_name'], $filepath);
+					{
+						createjpeg($tmp_file,$filepath);
+					}
 					header('Location: ../'.$_POST['id']);
 					die();
 				}

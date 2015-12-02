@@ -509,7 +509,6 @@ input#name {
 ul.tabs {
     margin: 0;
 	padding: 0px;
-	margin-left: 20px;
 }
 
 .tabs-panel {
@@ -517,7 +516,6 @@ ul.tabs {
 	height: 520px;
 	overflow:auto;
 	padding: 20px 0 20px 20px;
-	margin-left: 20px;
 }
 
 ul.tabs li {

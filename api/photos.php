@@ -5,21 +5,18 @@ if (!empty($_FILES) && isSet($_POST['id']))
 {
 	include_once("core/require_session.php");
 	include_once("core/event_permission.php");
+	include_once("core/jpeg.php");
 	include_once("database/events.php");
 
 	for ($i = 0; $i < count($_FILES['images']['name']); $i++)
 	{
 		$tmp_file = $_FILES['images']['tmp_name'][$i];
-		$valid_image = (!empty($tmp_file) && ($image_info = getimagesize($tmp_file)));
-		$valid_image_size = !$valid_image || $_FILES['images']['size'][$i] <= $_CONFIG['max_image_upload'];
-		if ($valid_image && $valid_image_size)
+		$filepath = $_CONFIG['uploads_path'].sha1_file($tmp_file).'.jpg';
+		if (!file_exists('../'.$filepath))
 		{
-			$extension = image_type_to_extension($image_info[2]);
-			$filepath = $_CONFIG['uploads_path'].sha1_file($tmp_file).$extension;
-			if (!file_exists('../'.$filepath))
-				move_uploaded_file($tmp_file, '../'.$filepath);
-			newPhoto($_POST['id'], $filepath, $_SESSION['user_id']);
+			if (!createjpeg($tmp_file,'../'.$filepath)) return;
 		}
+		newPhoto($_POST['id'], $filepath, $_SESSION['user_id']);
 	}
 	echo json_encode(getEventPhotos($_POST['id'], $_SESSION['user_id']));
 }
