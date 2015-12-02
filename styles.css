@@ -530,7 +530,7 @@ ul.tabs li.active {
     background: #d4d4d1;
 }
 
-.tabs li a, span {
+.tabs li a, .tabs li span {
     padding: 10px;
     text-transform: uppercase;
     color: #777;

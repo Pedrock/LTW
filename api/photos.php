@@ -11,7 +11,8 @@ if (!empty($_FILES) && isSet($_POST['id']))
 	{
 		$tmp_file = $_FILES['images']['tmp_name'][$i];
 		$valid_image = (!empty($tmp_file) && ($image_info = getimagesize($tmp_file)));
-		if ($valid_image)
+		$valid_image_size = !$valid_image || $_FILES['images']['size'][$i] <= $_CONFIG['max_image_upload'];
+		if ($valid_image && $valid_image_size)
 		{
 			$extension = image_type_to_extension($image_info[2]);
 			$filepath = $_CONFIG['uploads_path'].sha1_file($tmp_file).$extension;
