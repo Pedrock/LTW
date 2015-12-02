@@ -284,7 +284,6 @@ input[type="date"] {
 
 .div-event-image
 {
-
 	height: 100px;
 	background-size: contain;
 	background-position: center;
@@ -343,8 +342,8 @@ input[type="date"] {
 {
     text-align:center;
 	display: inline-block;
-	margin-left: 7px;
-	margin-right: 7px;
+	margin-left: 13px;
+	margin-right: 10px;
 	color: white;
 	padding: 0;
 }
@@ -515,6 +514,9 @@ ul.tabs {
 	background: #e9eaed;
 	height: 520px;
 	overflow:auto;
+}
+
+.tabs-panel > * {
 	padding: 20px 0 20px 20px;
 }
 
@@ -671,6 +673,7 @@ li.photo {
 	list-style: none;
 	margin: 0;
 	margin-left: 15px;
+	margin-right: 10px;
 	margin-bottom: 15px;
 	width: 220px;
 	display: inline-block;
@@ -679,7 +682,7 @@ li.photo {
 }
 
 #photos-event-name {
-	max-width: 380px;
+	max-width: 400px;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
