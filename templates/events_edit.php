@@ -32,7 +32,7 @@ include_once("core/event_edit_permission.php");
 					</div>
 					
 					<h3><?php echo $lang['DESCRIPTION'] ?></h3>
-					<textarea id="description-area" name="desc" rows="4" value="<?php echo isSet($_POST['description'])?$_POST['description']:$row['description'] ?>"></textarea>
+					<textarea id="description-area" name="desc" rows="4"><?php echo isSet($_POST['description'])?$_POST['description']:$row['description'] ?></textarea>
 					<div id="error-event-desc" class="event-error" <?php if (!empty($_EDIT['desc'])) echo 'style="display:initial"' ?>>
 							<?php echo $lang['INVALID_DESCRIPTION'] ?>
 					</div>
@@ -57,6 +57,7 @@ include_once("core/event_edit_permission.php");
 						} ?>
 					</select>
 					<h3><?php echo $lang['IMAGE'] ?></h3>
+					<div id="max-upload-size" style="display:none"><?php echo $_CONFIG['max_image_upload'] ?></div>
 					<input type="file" name="image">
 
 					<div id="error-event-image" class="event-error" 
@@ -64,7 +65,7 @@ include_once("core/event_edit_permission.php");
 							<?php echo $lang['INVALID_IMAGE'] ?>
 					</div>
 					<div id="error-event-image-size" class="event-error" <?php if (!empty($_EDIT['size'])) echo 'style="display:initial"' ?>>
-							<?php echo $lang['IMAGE_SIZE_ERROR'] ?>
+							<?php echo $lang['IMAGE_SIZE_ERROR'].round($_CONFIG['max_image_upload']/1024/1024,2).' MB.' ?>
 					</div>
 					<div id="error-event-image-ext" class="event-error" <?php if (!empty($_EDIT['ext'])) echo 'style="display:initial"' ?>>
 							<?php echo $lang['IMAGE_EXT_ERROR'] ?>

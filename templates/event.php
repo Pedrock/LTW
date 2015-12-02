@@ -32,7 +32,7 @@ include_once("core/event_permission.php");
 				$date = $dateParts[2]." ".$lang[$dateParts[1]]." ".$dateParts[0];
 
 				echo '<p id="event-date">'.$date.'</p>' ?>
-				<p><?php echo $row['description'] ?></p>
+				<p><?php echo nl2br($row['description']) ?></p>
 
 				<div id="delete_msg" style="display:none"><?php echo $lang['DELETE_MSG'] ?></div>
 				<?php

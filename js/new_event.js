@@ -24,7 +24,7 @@ $( document ).ready(function()
 
 	$('#content [name="image"]').change(function(){
 		
-		if(this.files[0].size > 5000000)
+		if(this.files[0].size > $("#max-upload-size").text())
 		{
 			$('#error-event-image-ext').hide();
 			$('#error-event-image').hide();

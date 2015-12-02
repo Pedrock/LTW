@@ -56,7 +56,7 @@ $lang['INVALID_NAME'] = 'Invalid name.';
 $lang['INVALID_DESCRIPTION'] = 'Invalid description.';
 $lang['INVALID_DATE'] = 'Invalid date.';
 $lang['INVALID_IMAGE'] = 'Upload a valid image (Accepted: jpg, png, gif).';
-$lang['IMAGE_SIZE_ERROR'] = "Image's size can not be higher than 5MB.";
+$lang['IMAGE_SIZE_ERROR'] = "Image's size can not be higher than ";
 $lang['IMAGE_EXT_ERROR'] = 'Invalid extension (Accepted: jpg, png, gif).';
 
 // Event

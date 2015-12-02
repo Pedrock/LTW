@@ -49,6 +49,7 @@
 						} ?>
 					</select>
 					<h3><?php echo $lang['IMAGE'] ?></h3>
+					<div id="max-upload-size" style="display:none"><?php echo $_CONFIG['max_image_upload'] ?></div>
 					<input type="file" name="image" ></input>
 					<div id="error-event-image" class="event-error" <?php if (!empty($_NEW['image'])) echo 'style="display:initial"' ?>>
 							<?php echo $lang['INVALID_IMAGE'] ?>
