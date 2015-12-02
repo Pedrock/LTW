@@ -15,14 +15,14 @@
 			<div class="box center default-width">
 				<form id="new-event" action="new" method="POST" enctype="multipart/form-data">
 					<h3><?php echo $lang['NAME'] ?></h3>
-					<input type="text" id="name" name="name" value="<?php if(isSet($_POST['name'])) echo $_POST['name'] ?>">
+					<input type="text" id="name" name="name" value="<?php if(isSet($_POST['name'])) echo $_POST['name'] ?>"></input>
 					<div id="error-event-name" class="event-error" <?php if (!empty($_NEW['name'])) echo 'style="display:initial"' ?>>
 							<?php echo $lang['INVALID_NAME'] ?>
 					</div>
 
 					<div id="privacy">
-						<input type="radio" name="privacy" value="public" checked="checked"><?php echo $lang['PUBLIC'] ?>
-						<input type="radio" name="privacy" value="private"><?php echo $lang['PRIVATE'] ?>
+						<input type="radio" name="privacy" value="public" checked="checked"><?php echo $lang['PUBLIC'] ?></input>
+						<input type="radio" name="privacy" value="private"><?php echo $lang['PRIVATE'] ?></input>
 					</div>
 
 					<h3><?php echo $lang['DESCRIPTION'] ?></h3>
@@ -31,7 +31,7 @@
 						><?php echo $lang['INVALID_DESCRIPTION'] ?></div>
 
 					<h3><?php echo $lang['DATE'] ?></h3>
-					<input type="date" name="date" value="<?php if(isSet($_POST['date'])) echo $_POST['date'] ?>">
+					<input type="date" name="date" value="<?php echo isSet($_POST['date'])?$_POST['date']:date('Y-m-d') ?>"></input>
 					<div id="error-event-date" class="event-error" <?php if (!empty($_NEW['date'])) echo 'style="display:initial"' ?>>
 							<?php echo $lang['INVALID_DATE'] ?>
 					</div>
@@ -49,7 +49,7 @@
 						} ?>
 					</select>
 					<h3><?php echo $lang['IMAGE'] ?></h3>
-					<input type="file" name="image" >
+					<input type="file" name="image" ></input>
 					<div id="error-event-image" class="event-error" <?php if (!empty($_NEW['image'])) echo 'style="display:initial"' ?>>
 							<?php echo $lang['INVALID_IMAGE'] ?>
 					</div>
@@ -59,7 +59,7 @@
 					<div id="error-event-image-ext" class="event-error" <?php if (!empty($_NEW['ext'])) echo 'style="display:initial"' ?>>
 							<?php echo $lang['IMAGE_EXT_ERROR'] ?>
 					</div>
-					<input id="event-submit" type="submit" class="button" value="<?php echo $lang['CREATE'] ?>" name="submit">
+					<input id="event-submit" type="submit" class="button" value="<?php echo $lang['CREATE'] ?>" name="submit"></input>
 				</form>
 			</div>
 		</div>

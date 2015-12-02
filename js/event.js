@@ -8,6 +8,7 @@ function updateComments(array)
 			$('#comments-list').prepend(
 				$('<li style="display:none" class="comment">'+
 					'<div class="author">'+array[i]['user_name']+'</div>'+
+					'<div class="date">'+array[i]['date']+'</div>'+
 					'<div class="comment-text">'+array[i]['text']+'</div></li>'));
 			$('#comments-list li:first-child').fadeIn();
 		}

@@ -14,7 +14,8 @@
 		if ($valid_fname && $valid_lname && $valid_email && !$email_in_use && $valid_password && $valid_password2)
 		{
 			session_start();
-			registerUser($_POST['email'],$_POST['password'],$_POST['fname'],$_POST['lname']);
+			$user_id = registerUser($_POST['email'],$_POST['password'],$_POST['fname'],$_POST['lname']);
+			if ($user_id) $_SESSION['user_id'] = $user_id;
 			header("Location: ./");
 			die();
 		}
