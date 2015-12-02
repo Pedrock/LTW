@@ -16,11 +16,11 @@
 			else
 			{ 
 				echo '<div id="last-comment-id" style="display:none">'.$comments[0]['id'].'</div>';
-				foreach ($comments as $row)
+				foreach ($comments as $comment)
 				{
 					echo '<li class="comment">';
-					echo '<div class="author">'.$row['user_name'].'</div>';
-					echo '<div class="comment-text">'.$row['text'].'</div></li>';
+					echo '<div class="author">'.$comment['user_name'].'</div>';
+					echo '<div class="comment-text">'.$comment['text'].'</div></li>';
 				}
 			}
 			?>

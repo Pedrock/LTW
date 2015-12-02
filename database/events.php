@@ -1,6 +1,7 @@
 <?php
 	include_once('connection.php');
 
+	class PermissionException extends Exception {};
 	class InviteYourselfException extends Exception {};
 	class EmailException extends Exception {};
 	class SubscribedException extends Exception {};
@@ -248,14 +249,19 @@
 		return $stmt->execute(array(':user' => $user_id, ':event' => $event_id, ':photo' => $photo_id));
 	}
 
-	function inviteToEvent($user_email, $event_id, $owner_id)
+	function inviteToEvent($user_email, $event_id, $inviter_id)
 	{
-		global $db;
+		global $db;	
+
+		$stmt0 = $db->prepare("SELECT * FROM events WHERE events.id = :event AND (user_id = :user OR public = 1)");
+		$stmt0->execute(array(':event' => $event_id, ':user' => $inviter_id));
+		if ($stmt0->fetch() === false) throw new PermissionException();
+
 		$stmt = $db->prepare("SELECT id, (first_name || ' ' || last_name) full_name FROM users WHERE email = ?");
 		$stmt->execute(array($user_email));
 		$user = $stmt->fetch();
 		if ($user === false) throw new EmailException();
-		if ($user['id'] === $owner_id) throw new InviteYourselfException();
+		if ($user['id'] === $inviter_id) throw new InviteYourselfException();
 
 		$stmt2 = $db->prepare("SELECT * FROM event_subscriptions WHERE event_id = ? AND user_id = ?");
 		$stmt2->execute(array($event_id,$user['id']));

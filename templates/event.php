@@ -57,7 +57,7 @@ include_once("core/event_permission.php");
 				?>
 			</div>
 			<div id="sidebar" class="subscriptions box">
-					<?php if (isSet($_SESSION['user_id']) && $owner) { ?>
+					<?php if (isSet($_SESSION['user_id']) && ($owner || $row['public'])) { ?>
 						<h3><?php echo $lang['INVITED'] ?></h3>
 						<input id="invite-email" type="text" placeholder="Email"></input>
 						<button id="invite-button" class="button">+</button>

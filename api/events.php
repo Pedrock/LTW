@@ -40,7 +40,6 @@ else if (isset($_POST['id']) && isset($_POST['last-comment']) && isset($_POST['c
 else if (isset($_POST['id']) && isset($_POST['invite']))
 {
 	include_once('core/require_session.php');
-	include_once('core/event_edit_permission.php');
 	try {
 		$name = inviteToEvent($_POST['invite'], $_POST['id'], $_SESSION['user_id']);
 		echo json_encode(array('error' => false, 'user' => $name));
@@ -57,6 +56,9 @@ else if (isset($_POST['id']) && isset($_POST['invite']))
 	}
 	catch (InvitedException $e) {
 		echo json_encode(array('error' => $lang['ALREADY_INVITED']));
+	}
+	catch (PermissionException $e) {
+		echo json_encode(false);
 	}
 }
 else
