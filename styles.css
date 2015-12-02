@@ -307,6 +307,10 @@ input[type="date"] {
 	margin: 10px 20px 5px 0;
 }
 
+#event-date{
+	font-size: 0.9em;
+}
+
 .event.box p {
 	text-align:right;
 	font-size: 10px;
@@ -509,7 +513,7 @@ ul.tabs {
 }
 
 .tabs-panel {
-	background: #d4d4d1;
+	background: #e9eaed;
 	height: 520px;
 	overflow:auto;
 	padding: 20px 0 20px 20px;
@@ -519,15 +523,15 @@ ul.tabs {
 ul.tabs li {
 	display: inline-block;
 	padding: 10px 15px;
-    border-top: 1px solid #d4d4d1;
-    border-right: 1px solid #d4d4d1;
-    border-left: 1px solid #d4d4d1;
+    border-top: 1px solid #e9eaed;
+    border-right: 1px solid #e9eaed;
+    border-left: 1px solid #e9eaed;
     text-decoration: none;
     list-style-type: none;
 }
 
 ul.tabs li.active {
-    background: #d4d4d1;
+    background: #e9eaed;
 }
 
 .tabs li a, .tabs li span {
@@ -650,7 +654,7 @@ ul.tabs li.active {
 {
 	height: 220px;
 	background-size: contain;
-	background-position: left;
+	background-position: center;
 	background-repeat: no-repeat;
 }
 
@@ -672,7 +676,7 @@ li.photo {
 	margin-bottom: 15px;
 	width: 220px;
 	display: inline-block;
-	background-color: black;
+	background-color: #222;
 	position: relative;
 }
 
