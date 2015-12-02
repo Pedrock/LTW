@@ -21,7 +21,7 @@ include_once('core/session.php');
 					<img src="<?php echo $_CONFIG['web_root'].'images/not_found.jpg' ?>" width="200" alt="Not Found">
 				</div>
 				<h1><?php echo $lang['ERROR_404'] ?></h1>
-				<p id="a"><?php echo $lang['PAGE_NOT_FOUND'] ?></p>
+				<p><?php echo $lang['PAGE_NOT_FOUND'] ?></p>
 				<button class="button error-button" onclick="window.history.back();"><?php echo $lang['GO_BACK'] ?></button>
 			</div>
 		</div>
