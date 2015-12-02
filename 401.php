@@ -23,7 +23,7 @@ include_once('core/session.php');
 				<?php
 				if (!isSet($_SESSION['user_id']))
 					{
-						echo '<p id="a">'.$lang['LOGIN_MESSAGE'].'</p>';
+						echo '<p>'.$lang['LOGIN_MESSAGE'].'</p>';
 					}
 					?>
 				<button class="button error-button" onclick="window.history.back();"><?php echo $lang['GO_BACK'] ?></button>
