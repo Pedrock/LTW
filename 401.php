@@ -2,10 +2,12 @@
 include_once('core/common.php');
 include_once('core/session.php');
 ?>
+<!DOCTYPE html>
 <html>
 <head>
-	<title>401</title>
+	<title><?php echo $lang['PERMISSION_DENIED'] ?></title>
 	<link rel="stylesheet" href="../styles.css">
+	<script src="<?php echo $_CONFIG['web_root'].$_CONFIG['jquery'] ?>"></script>
 </head>
 <body>
 	<div id="wrapper">

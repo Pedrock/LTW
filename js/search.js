@@ -4,9 +4,8 @@ $( document ).ready(function() {
 		if (keyword.length >= 1) {
 
 			$.get( "api/events.php", { 'search': keyword } )
-			.done(function( data ) {
+			.done(function( results ) {
 				$('#suggestions').html('');
-				var results = jQuery.parseJSON(data);
 				$(results).each(function(i, result) {
 					$('#suggestions').append('<div data-id="' + result['id'] + '" class="suggestion">' + result['name'] + '</div>');
 				})
