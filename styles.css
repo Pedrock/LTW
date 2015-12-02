@@ -594,7 +594,7 @@ ul.tabs li.active {
 }
 
 .comment {
-	padding: 6px 20px 20px 7px;
+	padding: 6px 7px 20px 7px;
 	margin: 20px;
 	background-color: #fafafa;
 	border: 1px solid #edeeee;
@@ -605,6 +605,11 @@ ul.tabs li.active {
 	font-weight: bold;
 	margin: 0;
 	padding: 0;
+	display: inline-block;
+}
+.date {
+	font-size: 13px;
+	float:right;
 }
 
 .comment-text {

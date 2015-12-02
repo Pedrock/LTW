@@ -9,6 +9,7 @@
 		<ul id="comments-list">
 			<?php 
 			$comments = getEventComments($_GET['id']);
+			
 			if (empty($comments)) {
 				echo '<div id="last-comment-id" style="display:none">0</div>';
 				echo '<p id="no-comments-yet">'.$lang['NO_COMMENTS_YET'].'</p>';
@@ -20,6 +21,7 @@
 				{
 					echo '<li class="comment">';
 					echo '<div class="author">'.$comment['user_name'].'</div>';
+					echo '<div class="date"> '.$comment['date'].'</div>';
 					echo '<div class="comment-text">'.$comment['text'].'</div></li>';
 				}
 			}
