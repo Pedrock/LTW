@@ -12,6 +12,7 @@ include_once("core/event_permission.php");
 	<link rel="stylesheet" href="../../css/tabs.css">
 	<script src="../../<?php echo $_CONFIG['jquery'] ?>"></script>
 	<script type="text/javascript" src="../../js/event_photos.js"></script>
+	<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico"/>
 </head>
 <body>
 	<div id="wrapper">

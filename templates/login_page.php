@@ -5,10 +5,11 @@ include_once('core/common.php');
 <html>
 <head>
 	<title><?php echo $lang['SITE_NAME'] ?></title>
-	<script src="<?php echo $_CONFIG['jquery'] ?>"></script>
-	<script type="text/javascript" src="js/login.js"></script>
 	<link rel="stylesheet" href="css/commons.css">
 	<link rel="stylesheet" href="css/login_page.css">
+	<script src="<?php echo $_CONFIG['jquery'] ?>"></script>
+	<script type="text/javascript" src="js/login.js"></script>
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
 </head>
 <body>
 	<div id="wrapper">

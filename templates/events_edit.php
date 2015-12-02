@@ -9,7 +9,7 @@ include_once("core/event_edit_permission.php");
 	<link rel="stylesheet" href="../../css/events_new+events_edit.css">
 	<script src="../../<?php echo $_CONFIG['jquery'] ?>"></script>
 	<script type="text/javascript" src="../../js/new_event.js"></script>
-
+	<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico"/>
 </head>
 <body>
 	<div id="wrapper">
@@ -32,7 +32,7 @@ include_once("core/event_edit_permission.php");
 					</div>
 					
 					<h3><?php echo $lang['DESCRIPTION'] ?></h3>
-					<input type="text" name="desc" value="<?php echo isSet($_POST['description'])?$_POST['description']:$row['description'] ?>">
+					<textarea id="description-area" name="desc" rows="4" value="<?php echo isSet($_POST['description'])?$_POST['description']:$row['description'] ?>"></textarea>
 					<div id="error-event-desc" class="event-error" <?php if (!empty($_EDIT['desc'])) echo 'style="display:initial"' ?>>
 							<?php echo $lang['INVALID_DESCRIPTION'] ?>
 					</div>

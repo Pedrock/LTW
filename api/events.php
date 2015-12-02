@@ -57,7 +57,7 @@ else if (isset($_POST['id']) && isset($_POST['invite']))
 	catch (InvitedException $e) {
 		echo json_encode(array('error' => $lang['ALREADY_INVITED']));
 	}
-	catch (PermissionException $e) {
+	catch (PermissionException $e) 	{
 		echo json_encode(false);
 	}
 }

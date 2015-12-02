@@ -11,6 +11,7 @@ include_once("core/event_permission.php");
 	<script src="../<?php echo $_CONFIG['jquery'] ?>"></script>
 	<script type="text/javascript" src="../js/event.js"></script>
 	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56557f93aab8dc78" async="async"></script>
+	<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico"/>
 </head>
 <body>
 	<div id="wrapper">
