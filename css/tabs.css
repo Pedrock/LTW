@@ -1,0 +1,58 @@
+.events-list, .photos-list {
+	margin:0;
+	padding:0;
+	margin-bottom: -20px;
+}
+
+ul.tabs {
+    margin: 0;
+	padding: 0px;
+}
+
+.tabs-panel {
+	background: #e9eaed;
+	height: 520px;
+	overflow:auto;
+}
+
+.tabs-panel > * {
+	padding: 20px 0 20px 20px;
+}
+
+.tab-right {
+	float:right;
+	border: none;
+}
+
+ul.tabs li {
+	display: inline-block;
+	padding: 10px 15px;
+    border-top: 1px solid #e9eaed;
+    border-right: 1px solid #e9eaed;
+    border-left: 1px solid #e9eaed;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+ul.tabs li.active {
+    background: #e9eaed;
+}
+
+.tabs li a, .tabs li span {
+    padding: 10px;
+    text-transform: uppercase;
+    color: #777;
+    text-decoration: none; 
+}
+
+.tab-right.button > *{
+	color: #fff;
+}
+
+.tab-right.button {
+	padding: 7px;
+	margin-top:2px;
+	margin-left: 5px;
+	border: none;
+	height: 30px;
+}

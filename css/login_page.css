@@ -1,0 +1,65 @@
+
+.spacing {
+	padding-top:40px;
+}
+
+.login {
+	text-align: center;
+	min-width: 700px;
+}
+
+.login > div {
+	display: inline-block;
+	width: 300px;
+}
+
+#login-side-image {
+	top: 35px;
+	margin-right: 120px;
+	position: relative;
+}
+
+.login input {
+	width: 100%;
+	margin: 10px 0 0;
+}
+
+.login h2 {
+	color: #0d3c5f;
+	margin: 0;
+	font-size: 20px;
+    font-weight: 600;
+}
+
+.login .button {
+    font-size: 14px;
+    font-weight: 600;
+    height: 40px;
+}
+
+#register, #login {
+	position: relative;
+}
+
+.error-reg > * {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.error-reg
+{
+	background-color: #F07878; 
+	text-align: center; 
+	font-size: 13px;
+	padding:2px;
+	color: white;
+	display: none;
+	margin-top:10px;
+	position: absolute;
+	left: 300px;
+	width: 150px;
+	height: 29px;
+	border: 1px solid red;
+	border-radius: 5px;
+	border-color: red;
+}

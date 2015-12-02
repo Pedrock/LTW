@@ -12,7 +12,7 @@ include_once('core/session.php');
 <html>
 <head>
 	<title>404</title>
-	<link rel="stylesheet" href="<?php echo $_CONFIG['web_root'].'styles.css' ?>">
+	<link rel="stylesheet" href="<?php echo $_CONFIG['web_root'].'css/commons.css' ?>">
 	<script src="<?php echo $_CONFIG['web_root'].$_CONFIG['jquery'] ?>"></script>
 </head>
 <body>

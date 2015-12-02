@@ -1,0 +1,44 @@
+
+.event-error
+{
+	background-color: #fff; 
+	text-align: center; 
+	font-size: 13px;
+	color: red;
+	display: none;
+	padding-left: 20px;
+}
+
+#new-event > input, #edit-event > input
+{
+	display: inline;
+}
+
+#new-event #event-submit, #edit-event #event-edit-submit
+{
+	display: block;
+	margin-top: 20px;
+	font-size: 14px;
+    font-weight: 600;
+    height: 35px;
+    width: 150px;
+}
+
+input#name {
+	width: 95%;
+}
+
+#privacy {
+	display:block;
+	margin-top:20px;
+	font-size: 0.9em;
+}
+
+select {
+	padding: 0 10px;
+}
+
+#description-area {
+	width: 94%;
+	resize: vertical;
+}

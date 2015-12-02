@@ -5,7 +5,9 @@ include_once("core/event_permission.php");
 <html>
 <head>
 	<title><?php echo $lang['SITE_NAME'] ?></title>
-	<link rel="stylesheet" href="../styles.css">
+	<link rel="stylesheet" href="../css/commons.css">
+	<link rel="stylesheet" href="../css/event+photos.css">
+	<link rel="stylesheet" href="../css/event.css">
 	<script src="../<?php echo $_CONFIG['jquery'] ?>"></script>
 	<script type="text/javascript" src="../js/event.js"></script>
 	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56557f93aab8dc78" async="async"></script>

@@ -6,7 +6,10 @@ include_once("core/event_permission.php");
 <html>
 <head>
 	<title><?php echo $lang['SITE_NAME'] ?></title>
-	<link rel="stylesheet" href="../../styles.css">
+	<link rel="stylesheet" href="../../css/commons.css">
+	<link rel="stylesheet" href="../../css/event+photos.css">
+	<link rel="stylesheet" href="../../css/photos.css">
+	<link rel="stylesheet" href="../../css/tabs.css">
 	<script src="../../<?php echo $_CONFIG['jquery'] ?>"></script>
 	<script type="text/javascript" src="../../js/event_photos.js"></script>
 </head>

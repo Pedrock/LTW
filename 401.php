@@ -6,7 +6,7 @@ include_once('core/session.php');
 <html>
 <head>
 	<title><?php echo $lang['PERMISSION_DENIED'] ?></title>
-	<link rel="stylesheet" href="../styles.css">
+	<link rel="stylesheet" href="../css/commons.css">
 	<script src="<?php echo $_CONFIG['web_root'].$_CONFIG['jquery'] ?>"></script>
 </head>
 <body>
