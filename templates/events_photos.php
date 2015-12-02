@@ -16,17 +16,17 @@ include_once("core/event_permission.php");
 		<div id="content" class="center default-width">
 			<div id="event-id" style="display:none"><?php echo $_GET['id'] ?></div>
 			<ul class="tabs">
-			<li><a><?php echo $row['name'] ?></a></li>
-				<?php if (isSet($_SESSION['user_id'])) 
-				{ ?>
-					<li class="tab-right button"><a id="add-photos" href='<?php echo "photos/new"; ?>'><?php echo $lang['ADD_PHOTOS'] ?></a></li>
-					<li id="delete-flip-button" class='tab-right tg-list-item'>
-	    				<input id="delete-mode-input" class='tgl tgl-flip' type='checkbox'>
-	    				<label class='tgl-btn' data-tg-off='<?php echo $lang['DELETE_DISABLED'] ?>' data-tg-on='<?php echo $lang['DELETE_ACTIVE'] ?>' for='delete-mode-input'></label>
-	  				</li>
-	  			<?php
-	  			} ?>
-			</ul>
+				<li id="photos-event-name"><a><?php echo $row['name'] ?></a></li>
+					<?php if (isSet($_SESSION['user_id'])) 
+					{ ?>
+						<li class="tab-right button"><a id="add-photos" href='<?php echo "photos/new"; ?>'><?php echo $lang['ADD_PHOTOS'] ?></a></li>
+						<li id="delete-flip-button" class='tab-right tg-list-item'>
+		    				<input id="delete-mode-input" class='tgl tgl-flip' type='checkbox'>
+		    				<label class='tgl-btn' data-tg-off='<?php echo $lang['DELETE_DISABLED'] ?>' data-tg-on='<?php echo $lang['DELETE_ACTIVE'] ?>' for='delete-mode-input'></label>
+		  				</li>
+		  			<?php
+		  			} ?>
+				</ul>
 			<li class="dummy-photo" style="display:none" data.id="" data-delete-permission="">
 				<div class="div-event-photo-image photo-link" style=""></div>
 			</li>

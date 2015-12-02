@@ -666,6 +666,13 @@ li.photo {
 	position: relative;
 }
 
+#photos-event-name {
+	max-width: 380px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	margin-bottom: -4px;
+}
 
 /**********/
 

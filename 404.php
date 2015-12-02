@@ -1,7 +1,12 @@
 <?php 
 header("HTTP/1.0 404 Not Found"); 
+if (preg_match('/[\?&]lang=([a-z]+)/',$_SERVER['REQUEST_URI'], $matches))
+{
+	if ($matches[1]) $_GET['lang'] = $matches[1];
+}
 include_once('core/common.php');
 include_once('core/session.php');
+
 ?>
 <!DOCTYPE html>
 <html>
