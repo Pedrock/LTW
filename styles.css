@@ -389,6 +389,10 @@ input[type="date"] {
     width: 150px;
 }
 
+input#name {
+	width: 95%;
+}
+
 #privacy {
 	display:block;
 	margin-top:20px;
@@ -526,7 +530,7 @@ ul.tabs li.active {
     background: #d4d4d1;
 }
 
-.tabs li a {
+.tabs li a, span {
     padding: 10px;
     text-transform: uppercase;
     color: #777;
@@ -611,6 +615,7 @@ ul.tabs li.active {
 
 #description-area {
 	width: 94%;
+	resize: vertical;
 }
 
 #overlay {

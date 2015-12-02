@@ -16,7 +16,7 @@ include_once("core/event_permission.php");
 		<div id="content" class="center default-width">
 			<div id="event-id" style="display:none"><?php echo $_GET['id'] ?></div>
 			<ul class="tabs">
-				<li id="photos-event-name"><a><?php echo $row['name'] ?></a></li>
+				<li id="photos-event-name"><span><?php echo $row['name'] ?></span></li>
 					<?php if (isSet($_SESSION['user_id'])) 
 					{ ?>
 						<li class="tab-right button"><a id="add-photos" href='<?php echo "photos/new"; ?>'><?php echo $lang['ADD_PHOTOS'] ?></a></li>
@@ -26,7 +26,7 @@ include_once("core/event_permission.php");
 		  				</li>
 		  			<?php
 		  			} ?>
-				</ul>
+			</ul>
 			<li class="dummy-photo" style="display:none" data.id="" data-delete-permission="">
 				<div class="div-event-photo-image photo-link" style=""></div>
 			</li>
