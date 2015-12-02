@@ -18,7 +18,7 @@ include_once('core/session.php');
 			<div class="error-box">
 				<h1><?php echo $lang['WHOOPS'] ?></h1>
 				<div id="image-404">
-					<img src="<?php echo $_CONFIG['web_root'].'images/not_found.jpg' ?>" width="200px" alt="300x200">
+					<img src="<?php echo $_CONFIG['web_root'].'images/not_found.jpg' ?>" width="200" alt="Not Found">
 				</div>
 				<h1><?php echo $lang['ERROR_404'] ?></h1>
 				<p id="a"><?php echo $lang['PAGE_NOT_FOUND'] ?></p>

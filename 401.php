@@ -17,7 +17,7 @@ include_once('core/session.php');
 			<div class="error-box">
 				<h1><?php echo $lang['WHOOPS'] ?></h1>
 				<div id="image-401">
-					<img src="../images/permission-denied.jpg" width="200px" alt="300x200">
+					<img src="../images/permission-denied.jpg" width="200" alt="Permission denied">
 				</div>
 				<p id="a"><?php echo $lang['PERMISSION_DENIED'] ?></p>
 				<?php

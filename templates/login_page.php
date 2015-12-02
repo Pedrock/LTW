@@ -14,7 +14,7 @@ include_once('core/common.php');
 		<div id="content">
 			<div class="login">
 				<div id="login-side-image">
-					<img src="images/login.png" width="400px" alt="300x200">
+					<img src="images/login.png" width="400" alt="Events">
 				</div>
 				<div>
 					<div class="spacing"> </div>
