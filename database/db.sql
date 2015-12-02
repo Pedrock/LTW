@@ -27,10 +27,18 @@ CREATE TABLE IF NOT EXISTS events
 CREATE TABLE IF NOT EXISTS event_photos
 (
 	id INTEGER PRIMARY KEY,
+	user_id INTEGER NOT NULL REFERENCES users(id),
 	event_id INTEGER NOT NULL REFERENCES events(id),
 	image TEXT NOT NULL,
-	date DATETIME DEFAULT(DATETIME('now'))
+	date DATETIME DEFAULT(DATETIME('now')),
 );
+
+CREATE TRIGGER IF NOT EXISTS photos_check BEFORE INSERT ON event_photos
+FOR EACH ROW
+WHEN EXISTS (SELECT * FROM event_photos WHERE image=NEW.image AND event_id = NEW.event_id)
+BEGIN
+  SELECT RAISE(ABORT,'Repeated photo');
+END;
 
 CREATE TABLE IF NOT EXISTS events
 (
@@ -81,3 +89,6 @@ INSERT INTO event_types(id,type) VALUES (2,'BUSINESS');
 INSERT INTO event_types(id,type) VALUES (3,'MEETING');
 INSERT INTO event_types(id,type) VALUES (4,'CEREMONY');
 INSERT INTO event_types(id,type) VALUES (5,'EDUCATIONAL');
+
+DELETE FROM event_photos;
+INSERT INTO event_photos(id,event_id,image) VALUES (1,18,'uploads/564e7718b2a85.JPG');

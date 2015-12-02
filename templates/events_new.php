@@ -24,10 +24,9 @@
 					</div>
 
 					<h3><?php echo $lang['DESCRIPTION'] ?></h3>
-					<input type="text" name="desc" value="<?php if(isSet($_POST['desc'])) echo $_POST['desc'] ?>">
-					<div id="error-event-desc" class="event-error" <?php if (!empty($_NEW['desc'])) echo 'style="display:initial"' ?>>
-							<?php echo $lang['INVALID_DESCRIPTION'] ?>
-					</div>
+					<textarea id="description-area" name="desc" rows="4"><?php if(isSet($_POST['desc'])) echo $_POST['desc'] ?></textarea>
+					<div id="error-event-desc" class="event-error" <?php if (!empty($_NEW['desc'])) echo 'style="display:initial"' ?>
+						><?php echo $lang['INVALID_DESCRIPTION'] ?></div>
 
 					<h3><?php echo $lang['DATE'] ?></h3>
 					<input type="date" name="date" value="<?php if(isSet($_POST['date'])) echo $_POST['date'] ?>">

@@ -66,7 +66,11 @@ $lang['DELETE_MSG'] = 'Tem a certeza que quer apagar este evento?';
 $lang['DELETE'] = 'Apagar';
 $lang['EDIT'] = 'Editar';
 $lang['SAVE'] = 'Guardar';
-$lang['ALBUMS'] = 'Álbuns';
+$lang['PHOTOS'] = 'Fotos';
+$lang['ADD_PHOTOS'] = 'Adicionar Fotos';
+$lang['DELETE_ACTIVE'] = 'Apagar Activo';
+$lang['DELETE_DISABLED'] = 'Apagar Desativado';
+$lang['NO_PHOTOS_YET'] = 'Ainda não há fotografias.';
 $lang['PRIVATE_EVENT'] = 'Evento Privado';
 $lang['PUBLIC_EVENT'] = 'Evento Público';
 
@@ -82,6 +86,16 @@ $lang['ZERO_INVITED'] = "Ainda ninguém foi convidado.";
 $lang['CANT_INVITE_YOURSELF'] = 'Não se pode convidar a si mesmo.';
 $lang['ALREADY_SUBSCRIBED'] = 'Utilizador já inscrito.';
 $lang['ALREADY_INVITED'] = 'Utilizador já convidado.';
+
+/*Error messages*/
+$lang['PAGE_NOT_FOUND'] = 'Página Não Encontrada';
+$lang['PERMISSION_DENIED'] = 'Permissão Negada';
+$lang['GO_BACK'] = 'Voltar à Página Anterior';
+$lang['GO_TO_MAIN_PAGE'] = 'Ir Para o Login';
+$lang['ERROR_404'] = 'Erro 404';
+$lang['WHOOPS'] = 'Whoops!';
+$lang['LOGIN_MESSAGE'] = 'Tente fazer login para aceder a esta página';
+
 
 
 $lang['1'] = 'Janeiro';

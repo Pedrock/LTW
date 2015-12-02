@@ -35,16 +35,13 @@ if(isSet($_GET['action']) && $_GET['action'] == 'new')
 
 		if ($valid_name && $valid_desc && $valid_date && $valid_image && $valid_image_size && $valid_extension && $valid_privacy)
 		{
-			$filename = $_FILES['image']['name'];
-			$extension = image_type_to_extension($image_info[2]);
-			do {
-			    $filename = uniqid().$extension;
-			} while (file_exists($_CONFIG['uploads_path'].$filename));
-			$newfile = $_CONFIG['uploads_path'].$filename;
 			$public = $_POST['privacy'] === "public";
-			if ($id = newEvent($_POST['name'], $_POST['desc'], $_POST['date'], $_POST['type'], $newfile, $_SESSION['user_id'], $public))
+			$extension = image_type_to_extension($image_info[2]);
+			$filepath = $_CONFIG['uploads_path'].sha1_file($_FILES['image']['tmp_name']).$extension;
+			if ($id = newEvent($_POST['name'], $_POST['desc'], $_POST['date'], $_POST['type'], $filepath, $_SESSION['user_id'], $public))
 			{
-				move_uploaded_file($_FILES['image']['tmp_name'], $newfile);
+				if (!file_exists($filepath))
+					move_uploaded_file($_FILES['image']['tmp_name'], $filepath);
 				header('Location: '.$id);
 				return;
 			}
@@ -79,14 +76,12 @@ else if(isSet($_GET['action']) && $_GET['action'] == 'edit')
 			{
 				$filename = $_FILES['image']['name'];
 				$extension = image_type_to_extension($image_info[2]);
-				do {
-				    $filename = uniqid().$extension;
-				} while( file_exists($_CONFIG['uploads_path'].$filename));
-				$newfile = $_CONFIG['uploads_path'].$filename;
-				move_uploaded_file($_FILES['image']['tmp_name'], $newfile);
-
+				$filepath = $_CONFIG['uploads_path'].sha1_file($_FILES['image']['tmp_name']).$extension;
+				
 				if (updateEvent($_POST['id'],$_SESSION['user_id'],$_POST['name'],$_POST['desc'],$_POST['date'],$_POST['type'],$newfile,$public,!$valid_date))
 				{
+					if (!file_exists($filepath))
+						move_uploaded_file($_FILES['image']['tmp_name'], $filepath);
 					header('Location: ../'.$_POST['id']);
 					die();
 				}
@@ -111,6 +106,10 @@ else if(isSet($_GET['action']) && $_GET['action'] == 'edit')
 								"image" => !($valid_image || $use_previous_image), "size" => !$valid_image_size, "ext" => !$valid_extension);
 	}
 	include('templates/events_edit.php');
+}
+else if(isSet($_GET['action']) && $_GET['action'] == 'photos')
+{
+	include('templates/events_photos.php');
 }
 else if(!isSet($_GET['action']) && isSet($_GET['id']))
 {

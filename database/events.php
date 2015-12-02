@@ -83,6 +83,13 @@
 		return $event_id;
 	}
 
+	function newPhoto($event_id, $image, $user_id)
+	{
+		global $db;
+		$stmt = $db->prepare('INSERT INTO event_photos(event_id,image,user_id) VALUES (?, ?, ?)');
+		return $stmt->execute(array($event_id,$image,$user_id));
+	}
+
 	function latestUserEvent($user_id)
 	{
 		global $db;
@@ -214,25 +221,31 @@
 		global $db;
 		if ($user_id === false)
 		{
-			$stmt = $db->prepare('SELECT events.name events_name, event_photos.id id, event_photos.image image, event_photos.date date
-				FROM event_photos 
-				LEFT JOIN events ON event_id = events.id
-				WHERE events.id = ? AND deleted = 0 AND public = 1
+			$stmt = $db->prepare('SELECT event_photos.id id, event_photos.image image, event_photos.date date, 0 delete_permission
+				FROM event_photos
+				WHERE event_id = ?
 				ORDER BY date DESC');
 			$stmt->execute(array($event_id));
 		}
 		else
 		{
-			$stmt = $db->prepare('SELECT events.name events_name, event_photos.id id, event_photos.image image, event_photos.date date
+			$stmt = $db->prepare('SELECT event_photos.id id, event_photos.image image, event_photos.date date,
+					coalesce(events.user_id = :user OR event_photos.user_id = :user, 0) delete_permission
 				FROM event_photos
 				LEFT JOIN events ON event_id = events.id
-				WHERE events.id = :event AND deleted = 0
-				AND (public = 1 OR user_id = :user
-					OR EXISTS (SELECT * FROM event_subscriptions WHERE event_id = events.id AND event_subscriptions.user_id = :user))
+				WHERE event_id = :event
 				ORDER BY date DESC');
 			$stmt->execute(array(':user' => $user_id, ':event' => $event_id));
 		}
-		return $stmt->fetch();
+		return $stmt->fetchAll();
+	}
+
+	function deletePhoto($event_id, $photo_id, $user_id)
+	{
+		global $db;
+		$stmt = $db->prepare('DELETE FROM event_photos WHERE event_id = :event AND id = :photo
+			AND (user_id = :user OR EXISTS (SELECT * FROM events WHERE id = :event AND user_id = :user))');
+		return $stmt->execute(array(':user' => $user_id, ':event' => $event_id, ':photo' => $photo_id));
 	}
 
 	function inviteToEvent($user_email, $event_id, $owner_id)

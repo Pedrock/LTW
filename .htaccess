@@ -18,6 +18,6 @@ RewriteRule ^([^.]+/)*js/([^.]+)\.js js/$2.js
 RewriteRule ^events/([0-9]+)$ events.php?id=$1 [QSA,L]
 RewriteRule ^events/new$ events.php?action=new [QSA,L]
 RewriteRule ^events/([0-9]+)/edit$ events.php?id=$1&action=edit [QSA,L]
-RewriteRule ^events/([0-9]+)/albums$ events.php?id=$1&action=albums [QSA,L]
+RewriteRule ^events/([0-9]+)/photos$ events.php?id=$1&action=photos [QSA,L]
 RewriteRule ^events/$ events.php?action=redirect [QSA,L]
 RewriteRule ^([^.]+)$ $1.php
