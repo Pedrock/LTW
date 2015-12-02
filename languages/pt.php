@@ -87,6 +87,16 @@ $lang['CANT_INVITE_YOURSELF'] = 'Não se pode convidar a si mesmo.';
 $lang['ALREADY_SUBSCRIBED'] = 'Utilizador já inscrito.';
 $lang['ALREADY_INVITED'] = 'Utilizador já convidado.';
 
+/*Error messages*/
+$lang['PAGE_NOT_FOUND'] = 'Página Não Encontrada';
+$lang['PERMISSION_DENIED'] = 'Permissão Negada';
+$lang['GO_BACK'] = 'Voltar à Página Anterior';
+$lang['GO_TO_MAIN_PAGE'] = 'Ir Para o Login';
+$lang['ERROR_404'] = 'Erro 404';
+$lang['WHOOPS'] = 'Whoops!';
+$lang['LOGIN_MESSAGE'] = 'Tente fazer login para aceder a esta página';
+
+
 
 $lang['1'] = 'Janeiro';
 $lang['2'] = 'Fevereiro';

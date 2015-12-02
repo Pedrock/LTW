@@ -132,6 +132,16 @@ body {
     padding: 11px;
 }
 
+.error-box {
+	background-color: #fff;
+	border: 1px solid #edeeee;
+    margin: 0;
+    margin-bottom: 5px;
+    margin-top: -5px;
+    padding: 11px;
+    text-align: center;
+}
+
 .button {
 	color: #fff;
 	background-color: #4090db;
@@ -146,6 +156,10 @@ body {
     display: inline-block;
     margin: 0;
     text-align: center;
+}
+
+.error-button{
+	padding: 4px 6px;
 }
 
 .delete-photo-button {
@@ -195,6 +209,7 @@ body {
 	margin-right: 120px;
 	position: relative;
 }
+
 
 input[type="text"],input[type="password"],input[type="email"], select {
 	margin: 0;

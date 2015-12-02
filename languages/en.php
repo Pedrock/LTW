@@ -87,6 +87,15 @@ $lang['CANT_INVITE_YOURSELF'] = 'You can not invite yourself.';
 $lang['ALREADY_SUBSCRIBED'] = 'User already subscribed.';
 $lang['ALREADY_INVITED'] = 'User already invited.';
 
+/*Error messages*/
+$lang['PAGE_NOT_FOUND'] = 'Page Not Found';
+$lang['PERMISSION_DENIED'] = 'Permission Denied';
+$lang['GO_BACK'] = 'Go Back';
+$lang['GO_TO_MAIN_PAGE'] = 'Go To Login Page';
+$lang['ERROR_404'] = 'Error 404';
+$lang['WHOOPS'] = 'Whoops!';
+$lang['LOGIN_MESSAGE'] = 'Try to login in order to access this page';
+
 
 $lang['1'] = 'January';
 $lang['2'] = 'February';
