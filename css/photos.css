@@ -11,6 +11,13 @@
 	border-color: #ba0000;
 }
 
+.photos-list > p
+{
+  text-align: center;
+  line-height: 200%;
+  margin: 20px;
+  margin-left: 0;
+}
 
 
 .tg-list-item{

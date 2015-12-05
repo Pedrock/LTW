@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS event_photos
 	user_id INTEGER NOT NULL REFERENCES users(id),
 	event_id INTEGER NOT NULL REFERENCES events(id),
 	image TEXT NOT NULL,
-	date DATETIME DEFAULT(DATETIME('now')),
+	date DATETIME DEFAULT(DATETIME('now'))
 );
 
 CREATE TRIGGER IF NOT EXISTS photos_check BEFORE INSERT ON event_photos
