@@ -122,6 +122,6 @@ else if(!isSet($_GET['action']) && isSet($_GET['id']))
 }
 else
 {
-	include('404.php');
+	include('templates/404.php');
 }
 ?>

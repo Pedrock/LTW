@@ -13,10 +13,10 @@ if (isSet($_SESSION['user_id']))
 }
 if ($row === false)
 {
-	include('404.php');
+	include('templates/404.php');
 }
 else if ((!isSet($_SESSION['user_id']) && !$row['public']) || (isSet($_SESSION['user_id']) && !$subscribed && !$owner && !$invited && !$row['public']))
 {
-	include('401.php');
+	include('templates/401.php');
 }
 ?>

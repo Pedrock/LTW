@@ -9,3 +9,11 @@
 	background-color: #eee;
 	border-color: #fff;
 }
+
+.events-list > p
+{
+	text-align: center;
+	line-height: 200%;
+	margin: 20px;
+	margin-left: 0;
+}

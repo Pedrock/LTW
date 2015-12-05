@@ -9,7 +9,7 @@
 
     $_SESSION['lang'] = $lang;
 
-    setcookie('lang', $lang, time() + (3600 * 24 * 30));
+    setcookie('lang', $lang, time() + (3600 * 24 * 30),'/');
   }
   else if(isSet($_SESSION['lang']))
   {

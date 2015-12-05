@@ -96,6 +96,9 @@ $lang['ERROR_404'] = 'Error 404';
 $lang['WHOOPS'] = 'Whoops!';
 $lang['LOGIN_MESSAGE'] = 'Try to login in order to access this page';
 
+$lang['NO_FUTURE_EVENTS'] = "You have no future events at this time.<br>Tip: Use the search bar to find events.";
+$lang['NO_PREVIOUS_EVENTS'] = "You have no previous events yet.";
+
 
 $lang['1'] = 'January';
 $lang['2'] = 'February';

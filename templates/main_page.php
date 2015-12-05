@@ -48,7 +48,8 @@ function print_event($row)
 					<ul class="events-list">
 						<?php
 						$events = getNextEvents($_SESSION['user_id']);
-						foreach ($events as $row) print_event($row);
+						if (empty($events)) echo '<p>'.$lang['NO_FUTURE_EVENTS'].'</p>';
+						else foreach ($events as $row) print_event($row);
 						?>
 					</ul>
 				</div>
@@ -56,7 +57,8 @@ function print_event($row)
 					<ul class="events-list">
 						<?php
 						$events = getPreviousEvents($_SESSION['user_id']);
-						foreach ($events as $row) print_event($row);
+						if (empty($events)) echo '<p>'.$lang['NO_PREVIOUS_EVENTS'].'</p>';
+						else foreach ($events as $row) print_event($row);
 						?>
 					</ul>
 				</div>

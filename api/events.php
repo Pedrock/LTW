@@ -63,6 +63,6 @@ else if (isset($_POST['id']) && isset($_POST['invite']))
 }
 else
 {
-	include('404.php');
+	include('templates/404.php');
 }
 ?>
