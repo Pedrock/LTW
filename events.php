@@ -60,7 +60,7 @@ else if(isSet($_POST['delete']))
 	include_once('core/require_session.php');
 	deleteEvent($_SESSION['user_id'],$_POST['delete']);
 	header('Location: '.$_CONFIG['web_root']);
-	die;
+	die();
 }
 else if(isSet($_GET['action']) && $_GET['action'] == 'edit')
 {
@@ -115,6 +115,11 @@ else if(isSet($_GET['action']) && $_GET['action'] == 'edit')
 else if(isSet($_GET['action']) && $_GET['action'] == 'photos')
 {
 	include('templates/events_photos.php');
+}
+else if(isSet($_GET['action']) && $_GET['action'] == 'redirect')
+{
+	header('Location: '.$_CONFIG['web_root']);
+	die();
 }
 else if(!isSet($_GET['action']) && isSet($_GET['id']))
 {
